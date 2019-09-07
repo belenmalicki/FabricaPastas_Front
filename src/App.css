@@ -19,8 +19,33 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  background-color: beige;
+}
+
+.carousel-caption {
+ color: black;
+ font-size: 'larger';
+ font-family: 'Josefin Slab';
+ background-color: beige;
+}
+
+.menu {
+ background-color: beige;
+ color: beige;
+ font-family: 'Josefin Slab';
+ font-size: '300px';
+}
+
+a{ 
+  color:black; 
+  } 
+
+.hist{
+ background-color:white;
+ text-align: center;
+ font-family: 'Josefin Slab';
+ border-style: groove;
 }
 
 @keyframes App-logo-spin {

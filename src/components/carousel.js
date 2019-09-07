@@ -1,5 +1,5 @@
 import React from 'react';
-//import './src/App.js';
+
 
 class Carrusel extends React.Component{
 render(){
@@ -14,19 +14,19 @@ render(){
          </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://images3.alphacoders.com/276/276349.jpg" alt="Second slide"/>
+        <img class="d-block w-100" src="http://www.cashadvance6online.com/data/archive/img/2393647044.jpeg" alt="Second slide"/>
         <div class="carousel-caption d-none d-md-block">
              <h2>Pastas frescas</h2>          
          </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="http://www.cashadvance6online.com/data/archive/img/2393647044.jpeg" alt="Third slide"/>
+        <img class="d-block w-100" src="https://images5.alphacoders.com/368/thumb-1920-368663.jpg" alt="Third slide"/>
         <div class="carousel-caption d-none d-md-block">
              <h2>Un clásico de Mar del Plata</h2>          
          </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://images5.alphacoders.com/368/thumb-1920-368663.jpg" alt="Third slide"/>
+        <img class="d-block w-100" src="https://images3.alphacoders.com/276/276349.jpg" alt="Third slide"/>
         <div class="carousel-caption d-none d-md-block">
              <h2>Por favor, ayudeme</h2>          
          </div>
