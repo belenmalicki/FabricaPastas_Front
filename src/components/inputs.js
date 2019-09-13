@@ -5,41 +5,27 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 
   const useStyles = makeStyles(theme => ({
-    container: {
+   /* container: {
       display: 'flex',
       flexWrap: 'wrap',
-    },
+    },*/
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
     },
-    dense: {
-      marginTop: theme.spacing(2),
-    },
-    menu: {
-      width: 200,
-    },
+
   }));
   
   export default function OutlinedTextFields() {
     const classes = useStyles();
-    const [values, setValues] = React.useState({
-      name: 'Cat in the Hat',
-      age: '',
-      multiline: 'Controlled',
-      currency: 'EUR',
-    });
-  
-    const handleChange = name => event => {
-      setValues({ ...values, [name]: event.target.value });
-    };
+
   
     return (
       <form className={classes.container} noValidate autoComplete="off">
       <div class = "container">
       <div class = "row">
         <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6"></div>
-        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" id= "imp">
         
         <br />
         <br />
@@ -66,11 +52,12 @@ import TextField from '@material-ui/core/TextField';
           variant="outlined"
         />
     <br /><br /><br />
+   
     <h2>Datos</h2>   
        <TextField
           id="outlined-full-width"
-          label="Nombre"
-          style={{ margin: 8 }}
+          //label="Nombre"
+          className={classes.textField}
           placeholder="Nombre"
           fullWidth
           margin="normal"
@@ -82,8 +69,8 @@ import TextField from '@material-ui/core/TextField';
 
 <TextField
           id="outlined-full-width"
-          label="Direccion"
-          style={{ margin: 8 }}
+          //label="Direccion"
+          className={classes.textField}
           placeholder="Direccion"
           fullWidth
           margin="normal"
@@ -95,8 +82,8 @@ import TextField from '@material-ui/core/TextField';
 
 <TextField
           id="outlined-full-width"
-          label="Telefono/Celular"
-          style={{ margin: 8 }}
+          //label="Telefono/Celular"
+          className={classes.textField}
           placeholder="Telefono/Celular"
           fullWidth
           margin="normal"
@@ -105,7 +92,7 @@ import TextField from '@material-ui/core/TextField';
             shrink: true,
           }}
         />
-
+       
 
         </div>
         </div>
@@ -113,30 +100,3 @@ import TextField from '@material-ui/core/TextField';
       </form>
     );
   }
- /*
- MAIL
- 
-  <TextField
-          id="outlined-email-input"
-          label="Email"
-          className={classes.textField}
-          type="email"
-          name="email"
-          autoComplete="email"
-          margin="normal"
-          variant="outlined"
-        />
-        
- 
- 
- PASSWORD
-     <TextField
-          id="outlined-password-input"
-          label="Password"
-          className={classes.textField}
-          type="password"
-          autoComplete="current-password"
-          margin="normal"
-          variant="outlined"
-        />
- */

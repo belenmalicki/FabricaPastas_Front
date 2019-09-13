@@ -6,6 +6,7 @@ import Carousel from './components/carousel.js';
 import Navbar from './components/navbar.js'
 import OutlinedTextFields from './components/inputs.js'
 
+import SimpleMap from './components/map.js';
 
 
 
@@ -18,6 +19,8 @@ import OutlinedTextFields from './components/inputs.js'
 -Como ajustar el tamaño de la letra de las imagenes en el carrousel (no me deja desde app.css)
 -IMPORTANTE: COMO CONCATENAR PAGINAS (apretar un boton y que te lleve a galeria por ejemplo)
 -Opciones de negocio: Va a tener Log in? Va a aceptar pagos por pag web? Va a hacer envios a domicilio? 
+-Cambiar el icono de la pag
+-Ver que le pinta al mapa
 
 
 Cosas que quedan para hacer (un millon):
@@ -40,20 +43,21 @@ function App() {
   return (
   
     <div>
-  
+ 
  <Navbar />
 
   <Carousel />
   <br /><br /><br />
-    
+  <br /><br /><br /><br />
     <div class = "container">
       <div class = "row">
         <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6"></div>
         <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6">
           <div class="hist">
+         
            <h1>Nuestra historia</h1>
             <p>
-            <br />
+          
            <h2>FACU HELP TENGO 0 IMAGINACION</h2>
                Fundado en 1950 por Cosme y Fulanito.
                Nos dedicamos a hacer las mejores pastas de Mar del Plata.
@@ -64,9 +68,9 @@ function App() {
           </div>
          </div>
         </div>
-
+        <br /><br /><br /><br /><br />
 <OutlinedTextFields />
-
+<SimpleMap />
      </div>
 
   );
