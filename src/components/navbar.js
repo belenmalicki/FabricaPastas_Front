@@ -6,7 +6,7 @@ render(){
     return( 
         
         <div class = "menu">
-        <img src= "logo10.png" />
+        <img src= "/logo10.png" alt = "logo" title = "logo"/>
       <ul class="nav justify-content-end">
     <li class="nav-item">
     <button type="button" class="btn btn-outline-dark">
@@ -28,8 +28,12 @@ render(){
       <a class="nav-link" href="#">Contacto</a>
       </button>
     </li>
+    <li class="nav-item">
+    <button type="button" class="btn btn-outline-dark">
+      <a class="nav-link" href="#">Ingresar</a>
+      </button>
+    </li>
   </ul>
-  
   </div>
   );
  }

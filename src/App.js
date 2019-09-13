@@ -1,13 +1,46 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
+
 import Carousel from './components/carousel.js';
 import Navbar from './components/navbar.js'
+import OutlinedTextFields from './components/inputs.js'
+
+
+
+
+/* Cosas a ver:
+
+-Como poner el logo en la cabecera
+-Una cabecera mas linda
+-Un fondo mas lindo
+-Como ponerle texto al carrousel y que quede bien
+-Como ajustar el tamaño de la letra de las imagenes en el carrousel (no me deja desde app.css)
+-IMPORTANTE: COMO CONCATENAR PAGINAS (apretar un boton y que te lleve a galeria por ejemplo)
+-Opciones de negocio: Va a tener Log in? Va a aceptar pagos por pag web? Va a hacer envios a domicilio? 
+
+
+Cosas que quedan para hacer (un millon):
+-Darle formato a "Nuestra Historia" (que quede menos feo)
+-Hacer "Nuestros productos": ver si ponemos lista de loq eu vende, un catalgo, una galeria, todo, etc
+-Hacer el "Contactos"
+-(tema log in)
+
+
+*/
+
+
+
+
+
+
 
 
 function App() {
   return (
+  
     <div>
+  
  <Navbar />
 
   <Carousel />
@@ -31,6 +64,8 @@ function App() {
           </div>
          </div>
         </div>
+
+<OutlinedTextFields />
 
      </div>
 
