@@ -5,12 +5,17 @@ body {
   background-size: 100% 50%;
 }
 /**/
-.carousel-caption {
- color: black;
- text-align: center;
- font-size: 'larger';
- font-family: 'Josefin Slab';
- background-color: beige;
+
+
+#letra-carousel{
+  text-align: center;
+  font-family: 'Josefin Slab';
+  font-size: 1000%;
+  font-weight: bold;
+  color:rgb(243, 243, 235);
+}
+.card-body{
+  background:white;
 }
 
 .menu {
@@ -22,23 +27,50 @@ body {
  /*https://wallpaperscraft.com/download/texture_background_wood_dark_50971/2560x1080*/
 }
 
-a{ 
-  color:white; 
-  } 
-
-.hist{
+.historia{
  background-color:white;
  text-align: center;
  font-family: 'Josefin Slab';
  border-style: groove;
 }
 
+#boton{
+  font-family: 'Josefin Slab';
+  color: rgb(243, 243, 235); 
+  font-weight: bold;
+}
 
+#confirmar{
+  font-family: 'Josefin Slab';
+  color:rgb(32, 156, 125);
+  /*color: black;*/ 
+  font-weight: bold;
+}
+#outlined-dense , #outlined-email-input, #outlined-password-input , .card-text{
+  font-family: 'Josefin Slab';
+  color: black;
+  font-size: large;
+}
+
+#form-dialog-title {
+  font-family: 'Josefin Slab';
+  font-size: 200%;
+ 
+}
+
+#tituloPastas {
+  font-family: 'Josefin Slab';
+  font-size: 500%;
+  color: rgb(243, 243, 235); 
+  text-align: center;
+  border-style: groove;
+}
+/*
 #imp{
 
   background-color:white;
   text-align: center;
-}
+}*/
 
 @keyframes App-logo-spin {
   from {

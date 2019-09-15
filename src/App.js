@@ -3,10 +3,9 @@ import React from 'react';
 import './App.css';
 
 import Carousel from './components/carousel.js';
-import Navbar from './components/navbar.js'
-import OutlinedTextFields from './components/inputs.js'
+import FormDialog from './components/navbar.js'
 
-import SimpleMap from './components/map.js';
+import Galeria from './components/productCard.js';
 
 
 
@@ -27,14 +26,11 @@ Cosas que quedan para hacer (un millon):
 -Darle formato a "Nuestra Historia" (que quede menos feo)
 -Hacer "Nuestros productos": ver si ponemos lista de loq eu vende, un catalgo, una galeria, todo, etc
 -Hacer el "Contactos"
--(tema log in)
-
+-(tema log in): hacer log in, carrito, registrarse y pag web del dueño
+esto para el carroito
+https://www.pastasamelia.com/pastas
 
 */
-
-
-
-
 
 
 
@@ -44,16 +40,16 @@ function App() {
   
     <div>
  
- <Navbar />
+ <FormDialog />
 
   <Carousel />
   <br /><br /><br />
-  <br /><br /><br /><br />
+  <br /><br /><br /><br /> <br /><br /><br /><br /><br />
     <div class = "container">
       <div class = "row">
         <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6"></div>
         <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6">
-          <div class="hist">
+          <div class="historia">
          
            <h1>Nuestra historia</h1>
             <p>
@@ -68,9 +64,9 @@ function App() {
           </div>
          </div>
         </div>
-        <br /><br /><br /><br /><br />
-<OutlinedTextFields />
-<SimpleMap />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<Galeria />
+
      </div>
 
   );

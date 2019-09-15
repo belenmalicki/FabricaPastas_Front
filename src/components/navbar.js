@@ -1,99 +1,188 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import logo1 from './logo10.png';
 
+export default function FormDialog() {
+  const [openLogOn, setOpenLogOn] = React.useState(false);
+  const [openLogIn, setOpenLogIn] = React.useState(false);
 
-class Navbar extends React.Component{
-render(){
-    return( 
-        
-        <div class = "menu">
-        <img src= "/logo10.png" alt = "logo" title = "logo"/>
-      <ul class="nav justify-content-end">
-    <li class="nav-item">
-    <button type="button" class="btn btn-outline-dark">
-      <a class="nav-link active" href="https://www.google.com/">Inicio</a>
-      </button>
-    </li>
-    <li class="nav-item">
-    <button type="button" class="btn btn-outline-dark">
-      <a class="nav-link" href="https://www.youtube.com/">Nuestra Historia</a>
-      </button>
-    </li>
-    <li class="nav-item">
-    <button type="button" class="btn btn-outline-dark">
-      <a class="nav-link" href="#">Nuestros Productos</a>
-      </button>
-    </li>
-    <li class="nav-item">
-    <button type="button" class="btn btn-outline-dark">
-      <a class="nav-link" href="#">Contacto</a>
-      </button>
-    </li>
-    <li class="nav-item">
-    <button type="button" class="btn btn-outline-dark">
-      <a class="nav-link" href="#">Ingresar</a>
-      </button>
-    </li>
-  </ul>
-  </div>
+  function handleClickOpenLogOn() {
+    setOpenLogOn(true);
+  }
+  
+  function handleClickOpenLogIn() {
+    setOpenLogIn(true);
+  }
+
+  function handleCloseLogOn() {
+    setOpenLogOn(false);
+  }
+  function handleCloseLogIn() {
+    setOpenLogIn(false);
+  }
+
+  return (
+    <div class="nav justify-content-center">
+   <img src= {logo1} alt = "logo" title = "logo" id="logo"/>
+    <Button id="boton"  >
+      Inicio  
+      </Button>
+      <Button id="boton" >
+     Nuesta Historia
+      </Button>
+      <Button id="boton" >
+     Nuestros productos
+      </Button>
+      <Button id="boton" >
+     Contacto
+      </Button>
+      <Button id="boton" onClick={handleClickOpenLogIn}>
+       Ingresar
+      </Button>
+      <Dialog open={openLogIn} onClose={handleCloseLogIn} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title"><h2 id="form-dialog-title">Ingresar</h2></DialogTitle>
+        <DialogContent>
+          <DialogContentText id="outlined-dense">
+            Ingresa a tu cuenta
+          </DialogContentText>
+          <TextField
+          id="outlined-email-input"
+          label="Email"
+          type="email"
+          name="email"
+          placeholder="Email"
+          autoComplete="email"
+          margin="normal"
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      <br />
+     <TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          placeholder="Contraseña"
+          autoComplete="current-password"
+          margin="normal"
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseLogIn} id="confirmar">
+            Cancelar
+          </Button>
+          <Button onClick={handleCloseLogIn} id="confirmar">
+           Ingresar
+          </Button>
+        </DialogActions>
+
+      </Dialog>
+
+     
+	  <Button id="boton" onClick={handleClickOpenLogOn}>
+        Registrarme
+      </Button>
+      <Dialog open={openLogOn} onClose={handleCloseLogOn} aria-labelledby="form-dialog-title2">
+        <DialogTitle id="form-dialog-title2"><h2 id="form-dialog-title">Registrarme</h2></DialogTitle>
+        <DialogContent>
+          <DialogContentText id="outlined-dense">
+            ¿No tenes una cuenta?
+			Registrate y crea un nuevo usuario.
+          </DialogContentText>
+
+		  <h2 id="form-dialog-title">Datos</h2>   
+       <TextField
+          id="outlined-dense"
+          label="Nombre"
+          placeholder="Nombre"
+          fullWidth
+          margin="normal"
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+
+<TextField
+          id="outlined-dense"
+          label="Direccion"
+          placeholder="Direccion"
+          fullWidth
+          margin="normal"
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+
+<TextField
+          id="outlined-dense"
+          label="Telefono/Celular"
+          placeholder="Telefono/Celular"
+          fullWidth
+          margin="normal"
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+          <TextField
+          id="outlined-email-input"
+          label ="Email"
+          type="email"
+          name="email"
+          placeholder="Email"
+          autoComplete="email"
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+ 
+     <TextField
+          id="outlined-password-input"
+          label="Password"
+		  fullWidth
+          type="password"
+          placeholder="Contraseña"
+          autoComplete="current-password"
+          margin="normal"
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseLogOn} id="confirmar">
+            Cancelar
+          </Button>
+          <Button onClick={handleCloseLogOn} id="confirmar">
+          Registrarme
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Button id="boton"  >
+      <AddShoppingCartIcon>Carrito</AddShoppingCartIcon>
+      </Button>
+  
+    </div>
   );
- }
-} 
-
-export default Navbar;
-/*import React, { Component } from 'react'
-import Nav from '@bit/react-bootstrap.react-bootstrap.nav'
-import Button from '@bit/react-bootstrap.react-bootstrap.button'
-import Form from '@bit/react-bootstrap.react-bootstrap.form'
-import FormControl from '@bit/react-bootstrap.react-bootstrap.form-control'
-import Navbar from '@bit/react-bootstrap.react-bootstrap.navbar'
-import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.style-links';
-
-class Example extends Component {
-	render() {
-		return (
-			<>
-				<Navbar bg="dark" variant="dark" style={{ minWidth: 700 }}>
-					<Navbar.Brand href="#home">Navbar</Navbar.Brand>
-					<Nav className="mr-auto">
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#features">Features</Nav.Link>
-						<Nav.Link href="#pricing">Pricing</Nav.Link>
-					</Nav>
-					<Form inline>
-						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-						<Button variant="outline-info">Search</Button>
-					</Form>
-				</Navbar>
-				<br />
-				<Navbar bg="primary" variant="dark" style={{ minWidth: 700 }}>
-					<Navbar.Brand href="#home">Navbar</Navbar.Brand>
-					<Nav className="mr-auto">
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#features">Features</Nav.Link>
-						<Nav.Link href="#pricing">Pricing</Nav.Link>
-					</Nav>
-					<Form inline>
-						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-						<Button variant="outline-light">Search</Button>
-					</Form>
-				</Navbar>
-
-				<br />
-				<Navbar bg="light" variant="light" style={{ minWidth: 700 }}>
-					<Navbar.Brand href="#home">Navbar</Navbar.Brand>
-					<Nav className="mr-auto">
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#features">Features</Nav.Link>
-						<Nav.Link href="#pricing">Pricing</Nav.Link>
-					</Nav>
-					<Form inline>
-						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-						<Button variant="outline-primary">Search</Button>
-					</Form>
-				</Navbar>
-			</>
-		)
-	}
 }
-
-export default () => (<div><ReactBootstrapStyle /><Example /></div>) */
+/*<button type="button" class="btn btn-outline-light">
+      <a class="nav-link" href="https://www.youtube.com/">Nuestra Historia</a>
+      </button>*/
