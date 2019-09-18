@@ -33,7 +33,7 @@ body {
  font-family: 'Josefin Slab';
  border-style: groove;
 }
-
+ /*NavBar, Ingresar y Registarme*/
 #boton{
   font-family: 'Josefin Slab';
   color: rgb(243, 243, 235); 
@@ -57,7 +57,7 @@ body {
   font-size: 200%;
  
 }
-
+/*Product card*/
 #tituloPastas {
   font-family: 'Josefin Slab';
   font-size: 500%;
@@ -67,17 +67,35 @@ body {
 }
 #bigger:hover{
   transform: scale(1.2) !important;
-  
+
 }
 
+.bot{
+  background-color: transparent;
+  border: none;
+}
 
+#appbarprod{
+background-image: url("https://images.wallpaperscraft.com/image/texture_background_wood_dark_50971_2560x1080.jpg");
+}
 
-/*
-#imp{
+.container .btn-holder {
+  justify-content: flex-end;
+  display: flex;
+}
+#tit-past{
+  font-family: 'Josefin Slab';
+}
 
-  background-color:white;
-  text-align: center;
-}*/
+#text , #cant-past{
+  font-family: 'Josefin Slab';
+}
+
+#carrito{
+  font-family: 'Josefin Slab';
+  background-color: white;
+  border: 1px solid rgb(34, 24, 24);
+}
 
 @keyframes App-logo-spin {
   from {
