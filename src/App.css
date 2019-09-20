@@ -1,21 +1,52 @@
 
 body {
-  background-image: url("https://images.wallpaperscraft.com/image/texture_background_wood_dark_50971_2560x1080.jpg");
-  background-position: center;
-  background-size: 100% 50%;
+	background-image: url("https://images.wallpaperscraft.com/image/texture_background_wood_dark_50971_2560x1080.jpg");
+	background-position: center;
+	background-size: 100% 50%;
 }
-/**/
+button:focus {
+	outline:0;
+}
 
+/**/
+.carousel-home .carousel-inner .carousel-item .carousel-content {
+	display: table;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.carousel-home .carousel-inner .carousel-item .carousel-content .carousel-caption {
+	display: table-cell !important;
+	vertical-align: middle;
+	text-align: center;
+	position: unset;
+    right: unset;
+    bottom: unset;
+    left: unset;
+    z-index: unset;
+    padding-top: unset;
+    padding-bottom: unset;
+}
+/*@media (min-width: 468px) {
+	.carousel-home .carousel-inner .carousel-item .carousel-content .carousel-caption h2 {
+		font-size: 34px !important;
+	}
+}*/
 
 #letra-carousel{
-  text-align: center;
-  font-family: 'Josefin Slab';
-  font-size: 1000%;
-  font-weight: bold;
-  color:rgb(243, 243, 235);
+	text-align: center;
+	font-family: 'Josefin Slab';
+	font-size: 1000%;
+	font-weight: bold;
+	color:rgb(243, 243, 235);
+	text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
 }
 .card-body{
-  background:white;
+	background:white;
 }
 
 .menu {
@@ -27,52 +58,59 @@ body {
  /*https://wallpaperscraft.com/download/texture_background_wood_dark_50971/2560x1080*/
 }
 
-.historia{
+.historia, #algo{
  background-color:white;
  text-align: center;
  font-family: 'Josefin Slab';
- border-style: groove;
+ 
+
+}
+
+.logo {
+	position: absolute;
+	left: 0;
 }
  /*NavBar, Ingresar y Registarme*/
 #boton{
-  font-family: 'Josefin Slab';
-  color: rgb(243, 243, 235); 
-  font-weight: bold;
+	font-family: 'Josefin Slab';
+	color: rgb(243, 243, 235); 
+	font-weight: bold;
+	min-height: 94px;
 }
 
 #confirmar{
-  font-family: 'Josefin Slab';
-  color:rgb(32, 156, 125);
-  /*color: black;*/ 
-  font-weight: bold;
+	font-family: 'Josefin Slab';
+	color:rgb(32, 156, 125);
+	/*color: black;*/ 
+	font-weight: bold;
 }
 #outlined-dense , #outlined-email-input, #outlined-password-input , .card-text{
-  font-family: 'Josefin Slab';
-  color: black;
-  font-size: large;
+	font-family: 'Josefin Slab';
+	color: black;
+	font-size: large;
 }
 
 #form-dialog-title {
-  font-family: 'Josefin Slab';
-  font-size: 200%;
+	font-family: 'Josefin Slab';
+	font-size: 200%;
  
 }
 /*Product card*/
 #tituloPastas {
-  font-family: 'Josefin Slab';
-  font-size: 500%;
-  color: rgb(243, 243, 235); 
-  text-align: center;
-  border-style: groove;
+	font-family: 'Josefin Slab';
+	font-size: 500%;
+	color: rgb(243, 243, 235); 
+	text-align: center;
+	border-style: groove;
 }
 #bigger:hover{
-  transform: scale(1.2) !important;
+	transform: scale(1.2) !important;
 
 }
 
 .bot{
-  background-color: transparent;
-  border: none;
+	background-color: transparent;
+	border: none;
 }
 
 #appbarprod{
@@ -80,28 +118,28 @@ background-image: url("https://images.wallpaperscraft.com/image/texture_backgrou
 }
 
 .container .btn-holder {
-  justify-content: flex-end;
-  display: flex;
+	justify-content: flex-end;
+	display: flex;
 }
 #tit-past{
-  font-family: 'Josefin Slab';
+	font-family: 'Josefin Slab';
 }
 
 #text , #cant-past{
-  font-family: 'Josefin Slab';
+	font-family: 'Josefin Slab';
 }
 
 #carrito{
-  font-family: 'Josefin Slab';
-  background-color: white;
-  border: 1px solid rgb(34, 24, 24);
+	font-family: 'Josefin Slab';
+	background-color: white;
+	border: 1px solid rgb(34, 24, 24);
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }

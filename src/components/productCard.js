@@ -127,13 +127,13 @@ function Galeria(){
         <div class = "galeria">
            <h1 id="tituloPastas">Nuestras Pastas</h1>
            <br /><br />
-        <div class = "container">
+        <div class = "container-fluid">
             <div class = "row">
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6" >
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenSorrentinos} src="https://www.intentarlavida.site/images/fotos/recetas/sorrentinos.jpg" alt="First slide" /> 
                 <div class="card-body">
-                    <p class="card-text">Sorrentinos.<br /> $340</p>
+                    <p class="card-text">Sorrentinos<br /> $340</p>
                 </div>
                 </button>
                 <Dialog fullWidth open={openSr} onClose={handleCloseSorrentinos} TransitionComponent={Transition}>
@@ -197,7 +197,7 @@ function Galeria(){
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenTagliatellis} src="https://olivereats.ca/wp-content/uploads/2018/12/Fresh-pasta_041218_36-750x500.jpg" alt="First slide" />
                 <div class="card-body">
-                    <p class="card-text">Tagliatelli.<br />$280</p>
+                    <p class="card-text">Tagliatelli<br />$280</p>
                 </div>
                 </button>
 
@@ -265,7 +265,7 @@ function Galeria(){
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenLasagna} src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
                 <div class="card-body">
-                    <p class="card-text">Lasagna.<br />$440</p>
+                    <p class="card-text">Lasagna<br />$440</p>
                 </div>
                 </button>
                 <Dialog fullWidth open={openLn} onClose={handleCloseLasagna} TransitionComponent={Transition}>
@@ -330,7 +330,7 @@ function Galeria(){
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenRavioles} src="https://sethlui.com/wp-content/uploads/2015/07/spruce-fire-station-10-750x500.jpg" alt="First slide" /> 
                 <div class="card-body">
-                    <p class="card-text">Ravioles.<br />$230</p>
+                    <p class="card-text">Ravioles<br />$230</p>
                 </div>
                 </button>
 
@@ -400,7 +400,7 @@ function Galeria(){
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenCanelones} src="https://s3-us-west-2.amazonaws.com/laprensa-bucket/wp-content/uploads/2016/02/05112619/RECETA-4.jpg" alt="First slide" /> 
                 <div class="card-body">
-                    <p class="card-text">Canelones.<br />$60</p>
+                    <p class="card-text">Canelones<br />$60</p>
                 </div>
                 </button>
                 <Dialog fullWidth open={openCn} onClose={handleCloseCanelones} TransitionComponent={Transition}>
@@ -465,7 +465,7 @@ function Galeria(){
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenCappeleti} src="https://www.soniaperonaci.it/wp-content/uploads/2017/12/Pasta-fresca-kenwood_142-750x500.jpg" alt="First slide" />
                 <div class="card-body">
-                    <p class="card-text">Cappeleti.<br />$220</p>
+                    <p class="card-text">Cappeleti<br />$220</p>
                 </div>
                 </button>
                 <Dialog fullWidth open={openCp} onClose={handleCloseCappeleti} TransitionComponent={Transition}>
@@ -531,7 +531,7 @@ function Galeria(){
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenGnoqui} src="http://www.nomecomesnada.es/wp-content/gallery/noquis-caseros/%C3%B1oquis-7-web.jpg" alt="First slide" /> 
                 <div class="card-body">
-                    <p class="card-text">Ñoquis.<br/> $250</p>
+                    <p class="card-text">Ñoquis<br/> $250</p>
                 </div></button>
                 <Dialog fullWidth open={openGn} onClose={handleCloseGnoqui} TransitionComponent={Transition}>
         <AppBar id="appbarprod" className={classes.appBar}>
@@ -598,7 +598,7 @@ function Galeria(){
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={handleClickOpenSpaguetti} src="https://gdegastronomia.es/wp-content/uploads/2014/08/4nxkhlcrklo-jorge-zapata-750x500.jpg" alt="First slide" />
                 <div class="card-body">
-                    <p class="card-text">Spaghetti.<br />$210</p>
+                    <p class="card-text">Spaghetti<br />$210</p>
                 </div>
                 </button>
                 <Dialog fullWidth open={openSp} onClose={handleCloseSpaguetti} TransitionComponent={Transition}>
