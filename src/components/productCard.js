@@ -1,19 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import NumericInput from 'react-numeric-input';
+
 
 
 
@@ -28,23 +23,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const constStyle = {
-   // border: '5px solid white',
-    //width: '50%',
-    //height: '35%'
-   // position: 'absolute',
-    //width:'500px',
-    //height:'250px',
-  };
-
-  
   const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
   
-
-
   
+  function myFormat(num) {
+    return num + ' kg';
+}
+function myFormatUnid(num) {
+  return num + ' u';
+}
+
 
 function Galeria(){
     const classes = useStyles();
@@ -136,7 +126,8 @@ function Galeria(){
                     <p class="card-text">Sorrentinos<br /> $340</p>
                 </div>
                 </button>
-                <Dialog fullWidth open={openSr} onClose={handleCloseSorrentinos} TransitionComponent={Transition}>
+                <Dialog maxWidth class='dialog_prod' open={openSr} onClose={handleCloseSorrentinos} 
+                TransitionComponent={Transition} >
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseSorrentinos} aria-label="close">
@@ -153,9 +144,9 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
-            <p id="text">La venta es por kilo.<br />
+            <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
-            Con 1kg comen 2 personas.<br />
+            Con 1 kg comen 2 personas.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
             </div>
            
@@ -163,18 +154,14 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
             <br />
             <div id="tit-past">
-            <h2>Lasagna</h2>
-            <h5>$440</h5>
+            <h2>Sorrentinos</h2>
+            <h5>$340</h5>
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={1} step={1} value={1} format={myFormatUnid}
+          />
             </div>
             <br /><br /><br />
             <div class="container">
@@ -200,8 +187,8 @@ function Galeria(){
                     <p class="card-text">Tagliatelli<br />$280</p>
                 </div>
                 </button>
-
-                <Dialog fullWidth open={openTg} onClose={handleCloseTagliatellis} TransitionComponent={Transition}>
+      <Dialog  maxWidth  class='dialog_prod' open={openTg} onClose={handleCloseTagliatellis} TransitionComponent={Transition}
+              >
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseTagliatellis} aria-label="close">
@@ -218,9 +205,9 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
-            <p id="text">La venta es por kilo.<br />
+            <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
-            Con 1kg comen 2 personas.<br />
+            Con 1 kg comen 2 personas.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
             </div>
            
@@ -228,18 +215,14 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
             <br />
             <div id="tit-past">
-            <h2>Lasagna</h2>
-            <h5>$440</h5>
+            <h2>Tagliatelli</h2>
+            <h5>$280</h5>
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+          />
             </div>
             <br /><br /><br />
             <div class="container">
@@ -268,7 +251,7 @@ function Galeria(){
                     <p class="card-text">Lasagna<br />$440</p>
                 </div>
                 </button>
-                <Dialog fullWidth open={openLn} onClose={handleCloseLasagna} TransitionComponent={Transition}>
+                <Dialog  maxWidth class='dialog_prod'  open={openLn} onClose={handleCloseLasagna} TransitionComponent={Transition}>
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseLasagna} aria-label="close">
@@ -285,9 +268,9 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
-            <p id="text">La venta es por kilo.<br />
+            <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
-            Con 1kg comen 2 personas.<br />
+            Con 1 kg comen 2 personas.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
             </div>
            
@@ -300,13 +283,9 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+           />
             </div>
             <br /><br /><br />
             <div class="container">
@@ -334,7 +313,7 @@ function Galeria(){
                 </div>
                 </button>
 
-                <Dialog fullWidth open={openRv} onClose={handleCloseRavioles} TransitionComponent={Transition}>
+                <Dialog  maxWidth class='dialog_prod'  open={openRv} onClose={handleCloseRavioles} TransitionComponent={Transition}>
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseRavioles} aria-label="close">
@@ -351,7 +330,7 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="https://sethlui.com/wp-content/uploads/2015/07/spruce-fire-station-10-750x500.jpg" alt="First slide" />
-            <p id="text">La venta es por caja.<br />
+            <p id="text"><br />La venta es por caja.<br />
             La compra minima es 1 caja.<br />
             Con 2 cajas comen 3 personas.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
@@ -366,13 +345,9 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={1} step={1} value={1} format={myFormatUnid}
+          />
             </div>
             <br /><br /><br />
             <div class="container">
@@ -403,7 +378,7 @@ function Galeria(){
                     <p class="card-text">Canelones<br />$60</p>
                 </div>
                 </button>
-                <Dialog fullWidth open={openCn} onClose={handleCloseCanelones} TransitionComponent={Transition}>
+                <Dialog  maxWidth class='dialog_prod'  open={openCn} onClose={handleCloseCanelones} TransitionComponent={Transition}>
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseCanelones} aria-label="close">
@@ -420,7 +395,7 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="https://s3-us-west-2.amazonaws.com/laprensa-bucket/wp-content/uploads/2016/02/05112619/RECETA-4.jpg" alt="First slide" />
-            <p id="text">La venta es por unidad.<br />
+            <p id="text"><br />La venta es por unidad.<br />
             La compra minima es 1 unidad.<br />
             Con 2 unidades come 1 persona.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
@@ -435,13 +410,9 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={1} step={1} value={1} format={myFormatUnid}
+          />
             </div>
             <br /><br /><br />
             <div class="container">
@@ -468,7 +439,7 @@ function Galeria(){
                     <p class="card-text">Cappeleti<br />$220</p>
                 </div>
                 </button>
-                <Dialog fullWidth open={openCp} onClose={handleCloseCappeleti} TransitionComponent={Transition}>
+                <Dialog  maxWidth class='dialog_prod'  open={openCp} onClose={handleCloseCappeleti} TransitionComponent={Transition}>
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseCappeleti} aria-label="close">
@@ -485,7 +456,7 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="https://www.soniaperonaci.it/wp-content/uploads/2017/12/Pasta-fresca-kenwood_142-750x500.jpg" alt="First slide" />
-            <p id="text">La venta es por caja.<br />
+            <p id="text"><br />La venta es por caja.<br />
             La compra minima es 1 caja.<br />
             Con 2 cajas comen 3 personas.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
@@ -500,13 +471,9 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={1} step={1}  value={1} format={myFormatUnid}
+          />
             </div>
             <br /><br /><br />
             <div class="container">
@@ -533,7 +500,7 @@ function Galeria(){
                 <div class="card-body">
                     <p class="card-text">Ñoquis<br/> $250</p>
                 </div></button>
-                <Dialog fullWidth open={openGn} onClose={handleCloseGnoqui} TransitionComponent={Transition}>
+                <Dialog  maxWidth class='dialog_prod'  open={openGn} onClose={handleCloseGnoqui} TransitionComponent={Transition}>
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseGnoqui} aria-label="close">
@@ -550,10 +517,11 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="http://www.nomecomesnada.es/wp-content/gallery/noquis-caseros/%C3%B1oquis-7-web.jpg" alt="First slide" />
-            <p id="text">La venta es por kilo.<br />
+            <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
-            Con 1kg comen 3 personas.<br />
+            Con 1 kg comen 3 personas.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
+            
             </div>
            
 
@@ -565,14 +533,10 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
-            </div>
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+          />
+       </div>
             <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
@@ -601,7 +565,7 @@ function Galeria(){
                     <p class="card-text">Spaghetti<br />$210</p>
                 </div>
                 </button>
-                <Dialog fullWidth open={openSp} onClose={handleCloseSpaguetti} TransitionComponent={Transition}>
+                <Dialog  maxWidth class='dialog_prod'  open={openSp} onClose={handleCloseSpaguetti} TransitionComponent={Transition}>
         <AppBar id="appbarprod" className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleCloseSpaguetti} aria-label="close">
@@ -618,9 +582,9 @@ function Galeria(){
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
             <img class="d-block w-75" src="https://gdegastronomia.es/wp-content/uploads/2014/08/4nxkhlcrklo-jorge-zapata-750x500.jpg" alt="First slide" />
-            <p id="text">La venta es por kilo.<br />
+            <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
-            Con 1kg comen 3 personas.<br />
+            Con 1 kg comen 3 personas.<br />
             Igualmente, todo depende del apetito de los comensales!</p>
             </div>
            
@@ -633,13 +597,9 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <br />
-      <TextField
-        label="Cantidad"
-        id="simple-start-adornment"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-        }}
-      />
+            <p>Cantidad:</p>
+            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+          />
             </div>
             <br /><br /><br />
             <div class="container">
@@ -663,7 +623,6 @@ function Galeria(){
 
             </div>
         </div>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
       );
     

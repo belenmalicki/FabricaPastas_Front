@@ -23,6 +23,7 @@ export default function FormDialog() {
 
   function handleCloseLogOn() {
     setOpenLogOn(false);
+    setOpenLogIn(false);
   }
   function handleCloseLogIn() {
     setOpenLogIn(false);
@@ -35,7 +36,7 @@ export default function FormDialog() {
         <img src= {logo1} alt = "logo" title = "logo" id="logo"/>
       </div>
       <div class="col-12">
-        <div class="nav justify-content-center">
+        <div class="nav">
         
         <Button id="boton"  >
           Inicio  
@@ -63,6 +64,7 @@ export default function FormDialog() {
               label="Email"
               type="email"
               name="email"
+              fullWidth
               placeholder="Email"
               autoComplete="email"
               margin="normal"
@@ -75,6 +77,7 @@ export default function FormDialog() {
         <TextField
               id="outlined-password-input"
               label="Password"
+              fullWidth
               type="password"
               placeholder="Contraseña"
               autoComplete="current-password"
@@ -93,11 +96,119 @@ export default function FormDialog() {
               Ingresar
               </Button>
             </DialogActions>
+            <DialogContentText  class="reg_dialog" >
+                ¿No tenes una cuenta? <br />
+          Registrate y crea un nuevo usuario.
+              </DialogContentText>
+           
+           
+            <Button   size="small" id="registrarme" onClick={handleClickOpenLogOn} >
+            Registrarme
+          </Button>
 
+          <Dialog open={openLogOn} onClose={handleCloseLogOn} >
+            <DialogTitle >Registrarme</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="outlined-dense">
+                ¿No tenes una cuenta?
+          Registrate y crea un nuevo usuario.
+              </DialogContentText>
+
+          <h2 id="form-dialog-title">Datos</h2>   
+          <TextField
+              id="outlined-dense"
+              label="Nombre"
+              placeholder="Nombre"
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+
+      <TextField
+              id="outlined-dense"
+              label="Direccion"
+              placeholder="Direccion"
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+
+      <TextField
+              id="outlined-dense"
+              label="Telefono/Celular"
+              placeholder="Telefono/Celular"
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+              <TextField
+              id="outlined-email-input"
+              label ="Email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              autoComplete="email"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+
+        <TextField
+              id="outlined-password-input"
+              label="Password"
+          fullWidth
+              type="password"
+              placeholder="Contraseña"
+              autoComplete="current-password"
+              margin="normal"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseLogOn} id="confirmar">
+                Cancelar
+              </Button>
+              <Button onClick={handleCloseLogOn}  id="confirmar">
+              Registrarme
+              </Button>
+            </DialogActions>
+          </Dialog>
           </Dialog>
 
+      
         
-        <Button id="boton" onClick={handleClickOpenLogOn}>
+          <Button id="boton"  >
+          <AddShoppingCartIcon>Carrito</AddShoppingCartIcon>
+          </Button>
+          </div>
+      </div>
+    </div>
+    
+    </div>
+  );
+}
+/*<button type="button" class="btn btn-outline-light">
+      <a class="nav-link" href="https://www.youtube.com/">Nuestra Historia</a>
+      </button>*/
+
+
+      /* 
+      <Button id="boton" onClick={handleClickOpenLogOn}>
             Registrarme
           </Button>
           <Dialog open={openLogOn} onClose={handleCloseLogOn} aria-labelledby="form-dialog-title2">
@@ -182,16 +293,4 @@ export default function FormDialog() {
               </Button>
             </DialogActions>
           </Dialog>
-          <Button id="boton"  >
-          <AddShoppingCartIcon>Carrito</AddShoppingCartIcon>
-          </Button>
-          </div>
-      </div>
-    </div>
-    
-    </div>
-  );
-}
-/*<button type="button" class="btn btn-outline-light">
-      <a class="nav-link" href="https://www.youtube.com/">Nuestra Historia</a>
-      </button>*/
+      */

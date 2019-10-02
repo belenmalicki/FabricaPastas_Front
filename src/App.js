@@ -4,9 +4,9 @@ import './App.css';
 
 import Carousel from './components/carousel.js';
 import FormDialog from './components/navbar.js'
-
+import Story from './components/history.js';
 import Galeria from './components/productCard.js';
-
+import Contacto from './components/contactos.js';
 
 
 /* Cosas a ver:
@@ -16,9 +16,11 @@ import Galeria from './components/productCard.js';
 -Opciones de negocio: Va a tener Log in? Va a aceptar pagos por pag web? Va a hacer envios a domicilio? 
 -Ver mapa
 
+-Tamaño de boton de registrarme
+
 
 Cosas que quedan para hacer (un millon):
--Darle formato a "Nuestra Historia" (que quede menos feo)
+-!Darle formato a "Nuestra Historia" (que quede menos feo)
 -Hacer el "Contactos"
 -(tema log in): hacer log in, carrito, registrarse y pag web del dueño
 esto para el carroito
@@ -38,29 +40,11 @@ function App() {
 
   <Carousel />
 
-  
-    <div class = "container">
-      <div class = "row" >
-        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" ></div>
-        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" id="algo">
-          <div class="historia">
-          <br /><br /><br /><br /> <br /><br /><br /><br /><br />  <br /><br /><br />
-           <h1>Nuestra historia</h1>
-            <p>
-          
-           <h2>FACU HELP TENGO 0 IMAGINACION</h2>
-               Fundado en 1962 por Cosme y Fulanito.
-               Nos dedicamos a hacer las mejores pastas de Mar del Plata.
-               Estamos durante todo el verano y el invierno para brindarles a nuestros 
-               turistas y vecinos de la ciudad la mejor atención y sobre todo, la mejor calidad.
-             </p>
-             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-           </div>
-          </div>
-         </div>
-        </div>
+  <Story />
+   
         
 <Galeria />
+<Contacto />
 
      </div>
 
