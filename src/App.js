@@ -13,15 +13,20 @@ import Contacto from './components/contactos.js';
 
 
 -IMPORTANTE: COMO CONCATENAR PAGINAS (apretar un boton y que te lleve a galeria por ejemplo) SARASA
--Opciones de negocio: Va a tener Log in? Va a aceptar pagos por pag web? Va a hacer envios a domicilio? 
--Ver mapa
+ 
+-TOMAS, SE MOVIO EL CARROUSEL
 
 -Tamaño de boton de registrarme
+-imagen lasagna no se superpone
+-mapa contactos no anda
+-volar los br pero centrar: nuestras historia, contactos
+
+
+-MOSTRAR FACU NUESTRA HISTORIA
 
 
 Cosas que quedan para hacer (un millon):
 -!Darle formato a "Nuestra Historia" (que quede menos feo)
--Hacer el "Contactos"
 -(tema log in): hacer log in, carrito, registrarse y pag web del dueño
 esto para el carroito
 https://www.pastasamelia.com/pastas
@@ -35,16 +40,13 @@ function App() {
   return (
   
     <div>
- 
- <FormDialog />
-
-  <Carousel />
-
-  <Story />
-   
-        
-<Galeria />
-<Contacto />
+      <header>
+        <FormDialog />
+      </header>
+      <Carousel />
+      <Story />       
+      <Galeria />
+      <Contacto />
 
      </div>
 

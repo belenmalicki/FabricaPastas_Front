@@ -12,6 +12,8 @@ import logo1 from './logo10.png';
 export default function FormDialog() {
   const [openLogOn, setOpenLogOn] = React.useState(false);
   const [openLogIn, setOpenLogIn] = React.useState(false);
+  const [openCr , setOpenCarrito] = React.useState(false);
+
 
   function handleClickOpenLogOn() {
     setOpenLogOn(true);
@@ -27,6 +29,12 @@ export default function FormDialog() {
   }
   function handleCloseLogIn() {
     setOpenLogIn(false);
+  }
+  function handleClickOpenCarrito() {
+    setOpenCarrito(true);
+  }
+  function handleCloseCarrito() {
+    setOpenCarrito(false);
   }
 
   return (
@@ -53,10 +61,10 @@ export default function FormDialog() {
           <Button id="boton" onClick={handleClickOpenLogIn}>
           Ingresar
           </Button>
-          <Dialog open={openLogIn} onClose={handleCloseLogIn} aria-labelledby="form-dialog-title">
-            <DialogTitle id="form-dialog-title"><h2 id="form-dialog-title">Ingresar</h2></DialogTitle>
+          <Dialog maxWidth class='dialog_prod' open={openLogIn} onClose={handleCloseLogIn} >
+            <DialogTitle id="form-dialog-title"><h2 id="form-dialog-title" >Ingresar</h2></DialogTitle>
             <DialogContent>
-              <DialogContentText id="outlined-dense">
+              <DialogContentText id="outlined-dense" >
                 Ingresa a tu cuenta
               </DialogContentText>
               <TextField
@@ -96,6 +104,7 @@ export default function FormDialog() {
               Ingresar
               </Button>
             </DialogActions>
+            
             <DialogContentText  class="reg_dialog" >
                 ¿No tenes una cuenta? <br />
           Registrate y crea un nuevo usuario.
@@ -192,9 +201,22 @@ export default function FormDialog() {
 
       
         
-          <Button id="boton"  >
+          <Button id="boton" onClick={handleClickOpenCarrito} >
           <AddShoppingCartIcon>Carrito</AddShoppingCartIcon>
           </Button>
+          <Dialog maxWidth class='dialog_prod' open={openCr} onClose={handleCloseCarrito}>
+          <DialogContentText id="outlined-dense">
+             <h2>Productos:</h2>
+              </DialogContentText>
+        <div class = "container">
+        <DialogActions>
+              <Button onClick={handleCloseCarrito} id="confirmar">
+                Cancelar
+              </Button>
+            </DialogActions>
+        </div>
+
+      </Dialog>
           </div>
       </div>
     </div>

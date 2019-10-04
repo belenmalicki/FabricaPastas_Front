@@ -1,8 +1,9 @@
 import React from 'react';
-import SimpleMap from './map.js';
+import  MapBasics from './map.js';
 
 
 class Contacto extends React.Component{
+  
   render(){
     return(
       <div>
@@ -17,10 +18,10 @@ class Contacto extends React.Component{
            <div class="container" >
            <div class = "row" id="fondo_blanco">
            <h3 class= "letra_cont"> 
-           <br/>  Llamanos al 
+           <br/> <br/>  Llamanos al 
            <br/> 0223 472-0966 <br/>
             <br/>O mandanos un mail a: 
-            <br/> algo@hotmail.com <br/><br/>   
+            <br/> algo@hotmail.com <br/><br/> <br/>   
            </h3>
            </div>
 
@@ -50,7 +51,8 @@ class Contacto extends React.Component{
          </div>
         </div>
 <br /><br />
-    <SimpleMap />
+ PROTZIMAMENTE
+    <MapBasics />
 
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>

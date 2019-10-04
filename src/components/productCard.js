@@ -8,9 +8,22 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import NumericInput from 'react-numeric-input';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import ImageZoom from "react-medium-image-zoom";
+import { width } from '@material-ui/system';
 
 
 
+
+
+const letra={
+  fontFamily:'Josefin Slab',
+  minWidth: 250,
+  fontSize: '20px',
+
+  
+}
 
 
 const useStyles = makeStyles(theme => ({
@@ -33,10 +46,35 @@ const useStyles = makeStyles(theme => ({
 }
 function myFormatUnid(num) {
   return num + ' u';
+
 }
 
 
 function Galeria(){
+
+
+
+  const [state, setState] = React.useState({
+    age: '',
+    name: 'hai',
+  });
+
+ 
+
+  const handleChange = name => event => {
+    setState({
+      ...state,
+      [name]: event.target.value,
+    });
+  };
+
+
+
+
+
+
+
+
     const classes = useStyles();
     const [openGn, setOpenGnoqui] = React.useState(false);
     const [openSp,  setOpenSpaguetti] = React.useState(false);
@@ -147,10 +185,9 @@ function Galeria(){
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 2 personas.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
            
-
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
             <br />
             <div id="tit-past">
@@ -158,12 +195,11 @@ function Galeria(){
             <h5>$340</h5>
             </div>
             <div id="cant-past">
-            <br />
-            <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={1} step={1} value={1} format={myFormatUnid}
+           
+            <p> <br />Cantidad:</p>
+            <NumericInput mobile class="form-control" min={1} step={1} value={1} format={myFormatUnid}
           />
             </div>
-            <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
@@ -208,10 +244,8 @@ function Galeria(){
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 2 personas.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
-           
-
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
             <br />
             <div id="tit-past">
@@ -219,12 +253,11 @@ function Galeria(){
             <h5>$280</h5>
             </div>
             <div id="cant-past">
-            <br />
-            <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+           
+            <p > <br />Cantidad:</p>
+            <NumericInput mobile class="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
           />
             </div>
-            <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
@@ -239,10 +272,6 @@ function Galeria(){
         </div>
 
       </Dialog>
-
-
-
-
                 </div>
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
@@ -267,11 +296,27 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
+            <ImageZoom 
+          image={{
+            src:
+            "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
+            alt: "Lasagna",
+            class: "img",
+        
+
+          }}
+          zoomImage={{
+            src:
+            "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
+            alt: "Lasagna",
+            className: "img--zoomed"
+          }}
+        />
+
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 2 personas.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
            
 
@@ -282,12 +327,26 @@ function Galeria(){
             <h5>$440</h5>
             </div>
             <div id="cant-past">
-            <br />
-            <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+            <p><br />Seleccione el sabor que prefiera:</p>
+              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+                <Select
+                  native
+                  value={state.age}
+                  onChange={handleChange('age')}
+                  variant="outlined"
+                  style={letra}
+          
+                >
+                    <option value={10} style={letra}>Ricota, jamón y queso</option>
+                    <option value={20} style={letra}>Ricota y espinaca</option>
+                    <option value={20} style={letra}>Carne</option>
+                </Select>
+              </FormControl>           
+            <p><br /> <br />Cantidad:</p>
+            <NumericInput mobile class="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
            />
             </div>
-            <br /><br /><br />
+
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
@@ -295,15 +354,11 @@ function Galeria(){
           </button>
         </div>
            </div>
-
-
             </div>
            </div>
         </div>
 
       </Dialog>
-
-
                 <br />
                 <br />
                 <button class="bot">
@@ -333,7 +388,7 @@ function Galeria(){
             <p id="text"><br />La venta es por caja.<br />
             La compra minima es 1 caja.<br />
             Con 2 cajas comen 3 personas.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
            
 
@@ -344,12 +399,26 @@ function Galeria(){
             <h5>$230</h5>
             </div>
             <div id="cant-past">
-            <br />
+            <p><br />Seleccione el sabor que prefiera:</p>
+              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+                <Select
+                  native
+                  value={state.age}
+                  onChange={handleChange('age')}
+                  variant="outlined"
+                  style={letra}
+          
+                >
+                    <option value={10} style={letra}>Ricota y jamón</option>
+                    <option value={20} style={letra}>Pollo y espinaca</option>
+                    <option value={20} style={letra}>Cuatro quesos</option>
+                </Select>
+              </FormControl>
+              <br /> <br />
             <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={1} step={1} value={1} format={myFormatUnid}
+            <NumericInput mobile class="form-control" min={1} step={1} value={1} format={myFormatUnid}
           />
             </div>
-            <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
@@ -398,10 +467,8 @@ function Galeria(){
             <p id="text"><br />La venta es por unidad.<br />
             La compra minima es 1 unidad.<br />
             Con 2 unidades come 1 persona.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
-           
-
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
             <br />
             <div id="tit-past">
@@ -409,12 +476,26 @@ function Galeria(){
             <h5>$60</h5>
             </div>
             <div id="cant-past">
-            <br />
+            <p><br />Seleccione el sabor que prefiera:</p>
+              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+                <Select
+                  native
+                  value={state.age}
+                  onChange={handleChange('age')}
+                  variant="outlined"
+                  style={letra}
+          
+                >
+                    <option value={10} style={letra}>Ricota, jamón y queso</option>
+                    <option value={20} style={letra}>Ricota y nuez</option>
+                    <option value={20} style={letra}>Pollo y espinaca</option>
+                </Select>
+              </FormControl>
+              <br /> <br />
             <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={1} step={1} value={1} format={myFormatUnid}
+            <NumericInput mobile class="form-control" min={1} step={1} value={1} format={myFormatUnid}
           />
             </div>
-            <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
@@ -459,7 +540,7 @@ function Galeria(){
             <p id="text"><br />La venta es por caja.<br />
             La compra minima es 1 caja.<br />
             Con 2 cajas comen 3 personas.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
            
 
@@ -468,14 +549,29 @@ function Galeria(){
             <div id="tit-past">
             <h2>Cappeleti</h2>
             <h5>$220</h5>
+         
             </div>
-            <div id="cant-past">
-            <br />
+            <div id="cant-past" >
+            <p><br />Seleccione el sabor que prefiera:</p>
+              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+                <Select
+                  native
+                  value={state.age}
+                  onChange={handleChange('age')}
+                  variant="outlined"
+                  style={letra}
+          
+                >
+                    <option value={10} style={letra}>Jamon y queso</option>
+                    <option value={20} style={letra}>Ricota y espinaca</option>
+                    <option value={30} style={letra}>Cuatro quesos</option>
+                </Select>
+              </FormControl>
+              <br /> <br />
             <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={1} step={1}  value={1} format={myFormatUnid}
+            <NumericInput mobile class="form-control" min={1} step={1} totalWidth={240} totalHeight={5} value={1} format={myFormatUnid}
           />
             </div>
-            <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
@@ -520,7 +616,7 @@ function Galeria(){
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 3 personas.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             
             </div>
            
@@ -532,12 +628,25 @@ function Galeria(){
             <h5>$250</h5>
             </div>
             <div id="cant-past">
-            <br />
+            <p><br />Seleccione el sabor que prefiera:</p>
+              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+                <Select
+                  native
+                  value={state.age}
+                  onChange={handleChange('age')}
+                  variant="outlined"
+                  style={letra}
+          
+                >
+                    <option value={10} style={letra}>Papa</option>
+                    <option value={20} style={letra}>Espinaca</option>
+                </Select>
+              </FormControl>
+              <br /> <br />
             <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+            <NumericInput mobile class="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
           />
        </div>
-            <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
@@ -585,7 +694,7 @@ function Galeria(){
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 3 personas.<br />
-            Igualmente, todo depende del apetito de los comensales!</p>
+            Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
            
 
@@ -596,12 +705,12 @@ function Galeria(){
             <h5>$210</h5>
             </div>
             <div id="cant-past">
+
             <br />
             <p>Cantidad:</p>
-            <NumericInput mobile className="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
+            <NumericInput mobile class="form-control" min={0.5} step={0.5} precision={1} value={0.5} format={myFormat}
           />
             </div>
-            <br /><br /><br />
             <div class="container">
         <div class="btn-holder">
          <button id="carrito">
