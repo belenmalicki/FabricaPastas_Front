@@ -7,7 +7,7 @@ import React from 'react';
 class Carrusel extends React.Component{
 render(){
 	return(
-			<div>
+			<div id="inicio">
 				<div id="carouselExampleControls" class="carousel slide carousel-home" data-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">

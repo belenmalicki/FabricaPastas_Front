@@ -4,7 +4,7 @@ import React from 'react';
 class Story extends React.Component{
   render(){
     return(
-      <div>
+      <div id="nuestraHistoria">
        <h1 id="tituloPastas">Nuestra historia</h1>
        <br/><br/>
  <div class = "container-fluid">

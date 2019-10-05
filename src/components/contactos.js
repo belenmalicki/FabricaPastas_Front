@@ -6,7 +6,7 @@ class Contacto extends React.Component{
   
   render(){
     return(
-      <div>
+      <div id="contactos">
     <h1 id="tituloPastas">Contacto</h1>
     <br />
     <div class = "container">

@@ -151,7 +151,7 @@ function Galeria(){
   
  
       return (
-         
+         <div id="productos">       
         <div class = "galeria">
            <h1 id="tituloPastas">Nuestras Pastas</h1>
            <br /><br />
@@ -733,6 +733,7 @@ function Galeria(){
             </div>
         </div>
         </div>
+        </div>  
       );
     
 }

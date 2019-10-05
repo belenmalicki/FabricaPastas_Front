@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import logo1 from './logo10.png';
+import ScrollTo from 'react-scroll-into-view';
 
 export default function FormDialog() {
   const [openLogOn, setOpenLogOn] = React.useState(false);
@@ -45,19 +46,35 @@ export default function FormDialog() {
       </div>
       <div class="col-12">
         <div class="nav">
-        
-        <Button id="boton"  >
-          Inicio  
+        {/*cambiar id boton por class, Y NO ESTA BOTON INICIO*/ }
+        <ScrollTo
+          selector={`#${'inicio'}`}>
+         <Button id="boton" >
+            Inicio
           </Button>
+         </ScrollTo>
+
+         <ScrollTo
+            selector={`#${'nuestraHistoria'}`}>
+           <Button id="boton" >
+               Nuesta Historia
+           </Button>
+        </ScrollTo>
+
+        <ScrollTo
+          selector={`#${'productos'}`}>
           <Button id="boton" >
-        Nuesta Historia
+             Nuestros productos
           </Button>
+        </ScrollTo>
+
+        <ScrollTo
+          selector={`#${'contactos'}`}>
           <Button id="boton" >
-        Nuestros productos
+             Contacto
           </Button>
-          <Button id="boton" >
-        Contacto
-          </Button>
+        </ScrollTo>
+
           <Button id="boton" onClick={handleClickOpenLogIn}>
           Ingresar
           </Button>
