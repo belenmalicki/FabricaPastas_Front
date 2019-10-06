@@ -39,6 +39,7 @@ export default function FormDialog() {
   }
 
   return (
+    <div class="fixed-top">
     <div class="container-fluid">
     <div class="row">
       <div class="logo">
@@ -46,7 +47,6 @@ export default function FormDialog() {
       </div>
       <div class="col-12">
         <div class="nav">
-        {/*cambiar id boton por class, Y NO ESTA BOTON INICIO*/ }
         <ScrollTo
           selector={`#${'inicio'}`}>
          <Button id="boton" >
@@ -237,7 +237,7 @@ export default function FormDialog() {
           </div>
       </div>
     </div>
-    
+    </div>
     </div>
   );
 }
