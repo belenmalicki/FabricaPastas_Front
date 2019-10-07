@@ -181,10 +181,10 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
-            <p id="text"><br />La venta es por kilo.<br />
-            La compra minima es de medio kilo (0.5 kg)<br />
-            Con 1 kg comen 2 personas.<br />
+            <img class="d-block w-75" src="https://www.intentarlavida.site/images/fotos/recetas/sorrentinos.jpg" alt="First slide" />
+            <p id="text"><br />La venta es por caja.<br />
+            La compra minima es de una caja.<br />
+            Con 1 caja comen 2 personas.<br />
             Cantidad aproximada, todo depende del apetito de los comensales!</p>
             </div>
            
@@ -240,7 +240,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
+            <img class="d-block w-75" src="https://olivereats.ca/wp-content/uploads/2018/12/Fresh-pasta_041218_36-750x500.jpg" alt="First slide" />
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 2 personas.<br />
