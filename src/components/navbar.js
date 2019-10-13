@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import logo1 from './logo10.png';
+import logo1 from './img/logo10.png';
 import ScrollTo from 'react-scroll-into-view';
 
 export default function FormDialog() {
@@ -39,7 +39,7 @@ export default function FormDialog() {
   }
 
   return (
-    <div class="fixed-top">
+    <div class="fixed-top" id="appbarprod">
     <div class="container-fluid">
     <div class="row">
       <div class="logo">
@@ -57,7 +57,7 @@ export default function FormDialog() {
          <ScrollTo
             selector={`#${'nuestraHistoria'}`}>
            <Button id="boton" >
-               Nuesta Historia
+               Nuestra Historia
            </Button>
         </ScrollTo>
 
@@ -78,10 +78,10 @@ export default function FormDialog() {
           <Button id="boton" onClick={handleClickOpenLogIn}>
           Ingresar
           </Button>
-          <Dialog maxWidth class='dialog_prod' open={openLogIn} onClose={handleCloseLogIn} >
-            <DialogTitle id="form-dialog-title"><h2 id="form-dialog-title" >Ingresar</h2></DialogTitle>
+          <Dialog  fullWidth  open={openLogIn} onClose={handleCloseLogIn} >
+            <DialogTitle  id="form-dialog-title"><h2 id="form-dialog-title" >Ingresar</h2></DialogTitle>
             <DialogContent>
-              <DialogContentText id="outlined-dense" >
+              <DialogContentText  id="outlined-dense" >
                 Ingresa a tu cuenta
               </DialogContentText>
               <TextField
@@ -127,13 +127,13 @@ export default function FormDialog() {
           Registrate y crea un nuevo usuario.
               </DialogContentText>
            
-           
+              <DialogActions>
             <Button   size="small" id="registrarme" onClick={handleClickOpenLogOn} >
             Registrarme
           </Button>
-
+          </DialogActions>
           <Dialog open={openLogOn} onClose={handleCloseLogOn} >
-            <DialogTitle >Registrarme</DialogTitle>
+            <DialogTitle > <h2 id="form-dialog-title" > Registrarme</h2>  </DialogTitle>
             <DialogContent>
               <DialogContentText id="outlined-dense">
                 ¿No tenes una cuenta?

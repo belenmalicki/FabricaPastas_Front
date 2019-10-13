@@ -1,6 +1,6 @@
 import React from 'react';
-import foto1 from './cocina-amasando-211.jpg';
-import foto2 from './ravioles.jpg';
+import foto1 from './img/cocina-amasando-211.jpg';
+import foto2 from './img/ravioles.jpg';
 
 class Story extends React.Component{
   render(){

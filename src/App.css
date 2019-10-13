@@ -1,6 +1,6 @@
 
 body {
-	background-image: url("https://images.wallpaperscraft.com/image/texture_background_wood_dark_50971_2560x1080.jpg");
+	background-image: url("./components/img/background.jpg");
 	background-position: center;
 	background-size: 100% 50%;
 }
@@ -36,7 +36,13 @@ button:focus {
 		font-size: 34px !important;
 	}
 }*/
-
+#dropdown_letra{
+	font-family: 'Quicksand' ;
+	min-Width: 250;
+	font-size: '20px';
+	font-weight: lighter;
+	
+  }
 
 #letra-carousel{
 	text-align: center;
@@ -54,14 +60,6 @@ button:focus {
 	background:white;
 }
 
-.menu {
- 
- background-image: url("https://images.wallpaperscraft.com/image/texture_background_wood_dark_50971_2560x1080.jpg");
- background-size: 100% 50%;
- font-family: 'Josefin Slab';
- font-size: '300px';
- /*https://wallpaperscraft.com/download/texture_background_wood_dark_50971/2560x1080*/
-}
 
 /*NUESTRA HISTORIA*/
 
@@ -109,19 +107,19 @@ text-align: center;
 }
 
 #confirmar{
-	font-family: 'Josefin Slab';
+	font-family: 'Quicksand', sans-serif;
 	color:rgb(32, 156, 125);
 	/*color: black;*/ 
 	font-weight: bold;
 }
 .reg_dialog{
-  font-family: 'Josefin Slab';
+	font-family: 'Quicksand', sans-serif;
   font-size: 12px;
   text-align: right;
 }
 
 #registrarme{
-	font-family: 'Josefin Slab';
+	font-family: 'Quicksand', sans-serif;
 	color:rgb(32, 156, 125);
 	/*color: black;*/ 
   font-weight: bold;
@@ -131,13 +129,13 @@ text-align: center;
 }
 
 #outlined-dense , #outlined-email-input, #outlined-password-input , .card-text{
-	font-family: 'Josefin Slab';
+	font-family: 'Quicksand', sans-serif;
 	color: black;
 	font-size: large;
 }
 
 #form-dialog-title {
-	font-family: 'Josefin Slab';
+	font-family: 'Quicksand', sans-serif;
 	font-size: 45px;
 	
  
@@ -161,19 +159,21 @@ text-align: center;
 }
 
 #appbarprod{	
-background-image: url("https://images.wallpaperscraft.com/image/texture_background_wood_dark_50971_2560x1080.jpg");
+	background-image: url("./components/img/background.jpg");
 }
 .container .btn-holder {
 	justify-content: flex-end;
 	display: flex;
 }
 #tit-past{
-	font-family: 'Josefin Slab';
+	font-size: 100%;
+	font-weight: 1000;
+	font-family: 'Quicksand', sans-serif;
 }
 
 #text , #cant-past{
-  font-family: 'Josefin Slab';
-  font-size: 18px;
+	font-family: 'Quicksand', sans-serif;
+ 	font-size: 18px;
 }
 /*VER EL ALTO DEL DIALOGO*/
 .dialog_prod{
@@ -187,7 +187,7 @@ background-image: url("https://images.wallpaperscraft.com/image/texture_backgrou
 }
 
 #carrito{
-	font-family: 'Josefin Slab';
+	font-family: 'Quicksand', sans-serif;
 	background-color: white;
   	border: 1px solid rgb(34, 24, 24);
 	margin-top: 10%;

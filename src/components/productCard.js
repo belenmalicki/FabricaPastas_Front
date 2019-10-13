@@ -12,18 +12,16 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ImageZoom from "react-medium-image-zoom";
 import { width } from '@material-ui/system';
+import ravioles from './img/raviolesss.jpg';
+import canelones from './img/canelones.jpg';
+import cappeletti from './img/capeleti.jpg';
+import gnoqui from './img/gnoquis.jpg';
+import lasagna from './img/lasagna.jpg';
+import spaghetti from './img/spaguhetti.jpg';
+import tagliatelli from './img/tagliatelli.jpg';
+import sorrentinos from './img/sorrentinos.jpg';
 
 
-
-
-
-const letra={
-  fontFamily:'Josefin Slab',
-  minWidth: 250,
-  fontSize: '20px',
-
-  
-}
 
 
 const useStyles = makeStyles(theme => ({
@@ -159,7 +157,7 @@ function Galeria(){
             <div class = "row">
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6" >
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenSorrentinos} src="https://www.intentarlavida.site/images/fotos/recetas/sorrentinos.jpg" alt="First slide" /> 
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenSorrentinos} src= {sorrentinos} alt="Sorrentinos" /> 
                 <div class="card-body">
                     <p class="card-text">Sorrentinos<br /> $340</p>
                 </div>
@@ -181,7 +179,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://www.intentarlavida.site/images/fotos/recetas/sorrentinos.jpg" alt="First slide" />
+            <img class="d-block w-75" src= {sorrentinos} alt="Sorrentinos" />
             <p id="text"><br />La venta es por caja.<br />
             La compra minima es de una caja.<br />
             Con 1 caja comen 2 personas.<br />
@@ -218,7 +216,7 @@ function Galeria(){
                 <br />
                 <br />
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenTagliatellis} src="https://olivereats.ca/wp-content/uploads/2018/12/Fresh-pasta_041218_36-750x500.jpg" alt="First slide" />
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenTagliatellis} src= {tagliatelli} alt="Tagliatelli" />
                 <div class="card-body">
                     <p class="card-text">Tagliatelli<br />$280</p>
                 </div>
@@ -240,7 +238,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://olivereats.ca/wp-content/uploads/2018/12/Fresh-pasta_041218_36-750x500.jpg" alt="First slide" />
+            <img class="d-block w-75" src= {tagliatelli} alt="Tagliatelli" />
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 2 personas.<br />
@@ -275,7 +273,7 @@ function Galeria(){
                 </div>
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenLasagna} src="https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg" alt="First slide" />
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenLasagna} src= {lasagna} alt="Lasagna" />
                 <div class="card-body">
                     <p class="card-text">Lasagna<br />$440</p>
                 </div>
@@ -298,16 +296,14 @@ function Galeria(){
             <br />
             <ImageZoom 
           image={{
-            src:
-            "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
+            src: "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
             alt: "Lasagna",
             class: "img",
         
 
           }}
           zoomImage={{
-            src:
-            "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
+            src:  "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
             alt: "Lasagna",
             className: "img--zoomed"
           }}
@@ -330,16 +326,17 @@ function Galeria(){
             <p><br />Seleccione el sabor que prefiera:</p>
               <FormControl variant="standard" className={classes.formControl} margin="dense" >
                 <Select
+                  id="dropdown_letra"
                   native
                   value={state.age}
                   onChange={handleChange('age')}
                   variant="outlined"
-                  style={letra}
+         
           
                 >
-                    <option value={10} style={letra}>Ricota, jamón y queso</option>
-                    <option value={20} style={letra}>Ricota y espinaca</option>
-                    <option value={20} style={letra}>Carne</option>
+                    <option value={10}>Ricota, jamón y queso</option>
+                    <option value={20} >Ricota y espinaca</option>
+                    <option value={20} >Carne</option>
                 </Select>
               </FormControl>           
             <p><br /> <br />Cantidad:</p>
@@ -362,7 +359,7 @@ function Galeria(){
                 <br />
                 <br />
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenRavioles} src="https://sethlui.com/wp-content/uploads/2015/07/spruce-fire-station-10-750x500.jpg" alt="First slide" /> 
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenRavioles} src= {ravioles} alt="Ravioles" /> 
                 <div class="card-body">
                     <p class="card-text">Ravioles<br />$230</p>
                 </div>
@@ -384,7 +381,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://sethlui.com/wp-content/uploads/2015/07/spruce-fire-station-10-750x500.jpg" alt="First slide" />
+            <img class="d-block w-75"  src= {ravioles} alt="Ravioles" />
             <p id="text"><br />La venta es por caja.<br />
             La compra minima es 1 caja.<br />
             Con 2 cajas comen 3 personas.<br />
@@ -406,12 +403,12 @@ function Galeria(){
                   value={state.age}
                   onChange={handleChange('age')}
                   variant="outlined"
-                  style={letra}
+                  id="dropdown_letra"
           
                 >
-                    <option value={10} style={letra}>Ricota y jamón</option>
-                    <option value={20} style={letra}>Pollo y espinaca</option>
-                    <option value={20} style={letra}>Cuatro quesos</option>
+                    <option value={10}>Ricota y jamón</option>
+                    <option value={20} >Pollo y espinaca</option>
+                    <option value={20} >Cuatro quesos</option>
                 </Select>
               </FormControl>
               <br /> <br />
@@ -442,7 +439,7 @@ function Galeria(){
                 <br />
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenCanelones} src="https://s3-us-west-2.amazonaws.com/laprensa-bucket/wp-content/uploads/2016/02/05112619/RECETA-4.jpg" alt="First slide" /> 
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenCanelones}  src= {canelones} alt="Canelones" /> 
                 <div class="card-body">
                     <p class="card-text">Canelones<br />$60</p>
                 </div>
@@ -463,7 +460,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://s3-us-west-2.amazonaws.com/laprensa-bucket/wp-content/uploads/2016/02/05112619/RECETA-4.jpg" alt="First slide" />
+            <img class="d-block w-75" src= {canelones} alt="Canelones" />
             <p id="text"><br />La venta es por unidad.<br />
             La compra minima es 1 unidad.<br />
             Con 2 unidades come 1 persona.<br />
@@ -483,12 +480,12 @@ function Galeria(){
                   value={state.age}
                   onChange={handleChange('age')}
                   variant="outlined"
-                  style={letra}
+                  id="dropdown_letra"
           
                 >
-                    <option value={10} style={letra}>Ricota, jamón y queso</option>
-                    <option value={20} style={letra}>Ricota y nuez</option>
-                    <option value={20} style={letra}>Pollo y espinaca</option>
+                    <option value={10} >Ricota, jamón y queso</option>
+                    <option value={20} >Ricota y nuez</option>
+                    <option value={20}>Pollo y espinaca</option>
                 </Select>
               </FormControl>
               <br /> <br />
@@ -515,7 +512,7 @@ function Galeria(){
                 <br />
                 <br />
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenCappeleti} src="https://www.soniaperonaci.it/wp-content/uploads/2017/12/Pasta-fresca-kenwood_142-750x500.jpg" alt="First slide" />
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenCappeleti} src= {cappeletti} alt="Cappeletis" />
                 <div class="card-body">
                     <p class="card-text">Cappeleti<br />$220</p>
                 </div>
@@ -536,7 +533,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://www.soniaperonaci.it/wp-content/uploads/2017/12/Pasta-fresca-kenwood_142-750x500.jpg" alt="First slide" />
+            <img class="d-block w-75" src= {cappeletti} alt="Cappelettis" />
             <p id="text"><br />La venta es por caja.<br />
             La compra minima es 1 caja.<br />
             Con 2 cajas comen 3 personas.<br />
@@ -559,12 +556,12 @@ function Galeria(){
                   value={state.age}
                   onChange={handleChange('age')}
                   variant="outlined"
-                  style={letra}
+                  id="dropdown_letra"
           
                 >
-                    <option value={10} style={letra}>Jamon y queso</option>
-                    <option value={20} style={letra}>Ricota y espinaca</option>
-                    <option value={30} style={letra}>Cuatro quesos</option>
+                    <option value={10} >Jamon y queso</option>
+                    <option value={20} >Ricota y espinaca</option>
+                    <option value={30}>Cuatro quesos</option>
                 </Select>
               </FormControl>
               <br /> <br />
@@ -592,7 +589,7 @@ function Galeria(){
                 <br />
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenGnoqui} src="http://www.nomecomesnada.es/wp-content/gallery/noquis-caseros/%C3%B1oquis-7-web.jpg" alt="First slide" /> 
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenGnoqui} src= {gnoqui} alt="Ñoquis" /> 
                 <div class="card-body">
                     <p class="card-text">Ñoquis<br/> $250</p>
                 </div></button>
@@ -612,7 +609,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="http://www.nomecomesnada.es/wp-content/gallery/noquis-caseros/%C3%B1oquis-7-web.jpg" alt="First slide" />
+            <img class="d-block w-75" src= {gnoqui} alt="Ñoquis" />
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 3 personas.<br />
@@ -635,11 +632,11 @@ function Galeria(){
                   value={state.age}
                   onChange={handleChange('age')}
                   variant="outlined"
-                  style={letra}
+                  id="dropdown_letra"
           
                 >
-                    <option value={10} style={letra}>Papa</option>
-                    <option value={20} style={letra}>Espinaca</option>
+                    <option value={10} >Papa</option>
+                    <option value={20} >Espinaca</option>
                 </Select>
               </FormControl>
               <br /> <br />
@@ -669,7 +666,7 @@ function Galeria(){
 
 
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenSpaguetti} src="https://gdegastronomia.es/wp-content/uploads/2014/08/4nxkhlcrklo-jorge-zapata-750x500.jpg" alt="First slide" />
+                <img class="d-block w-100" id="bigger" onClick={handleClickOpenSpaguetti} src= {spaghetti} alt="Spaghetti" />
                 <div class="card-body">
                     <p class="card-text">Spaghetti<br />$210</p>
                 </div>
@@ -690,7 +687,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src="https://gdegastronomia.es/wp-content/uploads/2014/08/4nxkhlcrklo-jorge-zapata-750x500.jpg" alt="First slide" />
+            <img class="d-block w-75" src= {spaghetti} alt="Spaghetti" />
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />
             Con 1 kg comen 3 personas.<br />

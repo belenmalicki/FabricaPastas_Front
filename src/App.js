@@ -1,5 +1,4 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 
 import Carousel from './components/carousel.js';
@@ -20,13 +19,13 @@ import Contacto from './components/contactos.js';
 -imagen lasagna no se superpone
 -mapa contactos no anda
 -volar los br pero centrar: nuestras historia, contactos
+-Bajar las imagenes del carrousel sin usar <br />
 
 
 -MOSTRAR FACU NUESTRA HISTORIA
 
 
 Cosas que quedan para hacer (un millon):
--!Darle formato a "Nuestra Historia" (que quede menos feo)
 -(tema log in): hacer log in, carrito, registrarse y pag web del dueño
 esto para el carroito
 https://www.pastasamelia.com/pastas
