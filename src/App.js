@@ -10,10 +10,11 @@ import Contacto from './components/contactos.js';
 
 /* Cosas a ver:
 
+Cosas par afacu:
+-cuando te registras o ingresas te cambia el boton ingresar y te agrega el boton de perfil
+-validar los campos de ingreso 
 
--IMPORTANTE: COMO CONCATENAR PAGINAS (apretar un boton y que te lleve a galeria por ejemplo) SARASA
  
--TOMAS, SE MOVIO EL CARROUSEL
 
 -Tamaño de boton de registrarme
 -imagen lasagna no se superpone
@@ -42,6 +43,7 @@ function App() {
       <header>
         <FormDialog />
       </header>
+
       <Carousel />
       <Story />       
       <Galeria />
