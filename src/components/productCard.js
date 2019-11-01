@@ -20,8 +20,23 @@ import spaghetti from './img/spaguhetti.jpg';
 import tagliatelli from './img/tagliatelli.jpg';
 import sorrentinos from './img/sorrentinos.jpg';
 
-
-
+/*
+okBusqueda(newData)
+  {
+    var i,newArray = [];
+    for (i = 0; i < newData.length; i++) {
+      newArray.push(createData(newData[i],i));
+    }
+    this.setState({data: newArray});
+    //console.log("data");
+    //console.log(this.state.data);
+  }
+  componentDidMount()
+  {
+    //Leo los contactos de la API BD
+    ApiController.getContactos(this.okBusqueda.bind(this));
+  }
+*/
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -50,7 +65,7 @@ function myFormatUnid(num) {
 function Galeria(){
 
   const [state, setState] = React.useState({
-    age: '',
+    number: '',
     name: 'hai',
   });
 
@@ -317,15 +332,15 @@ function Galeria(){
                 <Select
                   id="dropdown_letra"
                   native
-                  value={state.age}
-                  onChange={handleChange('age')}
+                  value={state.number}
+                  onChange={handleChange('number')}
                   variant="outlined"
          
           
                 >
-                    <option value={10}>Ricota, jamón y queso</option>
-                    <option value={20} >Ricota y espinaca</option>
-                    <option value={20} >Carne</option>
+                    <option value={0}>Ricota, jamón y queso</option>
+                    <option value={1} >Ricota y espinaca</option>
+                    <option value={2} >Carne</option>
                 </Select>
               </FormControl>           
             <p><br /> <br />Cantidad:</p>
@@ -389,15 +404,15 @@ function Galeria(){
               <FormControl variant="standard" className={classes.formControl} margin="dense" >
                 <Select
                   native
-                  value={state.age}
-                  onChange={handleChange('age')}
+                  value={state.number}
+                  onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
                 >
-                    <option value={10}>Ricota y jamón</option>
-                    <option value={20} >Pollo y espinaca</option>
-                    <option value={20} >Cuatro quesos</option>
+                    <option value={0}>Ricota y jamón</option>
+                    <option value={1} >Pollo y espinaca</option>
+                    <option value={2} >Cuatro quesos</option>
                 </Select>
               </FormControl>
               <br /> <br />
@@ -466,15 +481,15 @@ function Galeria(){
               <FormControl variant="standard" className={classes.formControl} margin="dense" >
                 <Select
                   native
-                  value={state.age}
-                  onChange={handleChange('age')}
+                  value={state.number}
+                  onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
                 >
-                    <option value={10} >Ricota, jamón y queso</option>
-                    <option value={20} >Ricota y nuez</option>
-                    <option value={20}>Pollo y espinaca</option>
+                    <option value={0} >Ricota, jamón y queso</option>
+                    <option value={1} >Ricota y nuez</option>
+                    <option value={2}>Pollo y espinaca</option>
                 </Select>
               </FormControl>
               <br /> <br />
@@ -522,7 +537,7 @@ function Galeria(){
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <img class="d-block w-75" src= {cappeletti} alt="Cappelettis" />
+            <img class="d-block w-100" src= {cappeletti} alt="Cappelettis" />
             <p id="text"><br />La venta es por caja.<br />
             La compra minima es 1 caja.<br />
             Con 2 cajas comen 3 personas.<br />
@@ -542,15 +557,15 @@ function Galeria(){
               <FormControl variant="standard" className={classes.formControl} margin="dense" >
                 <Select
                   native
-                  value={state.age}
-                  onChange={handleChange('age')}
+                  value={state.number}
+                  onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
                 >
-                    <option value={10} >Jamon y queso</option>
-                    <option value={20} >Ricota y espinaca</option>
-                    <option value={30}>Cuatro quesos</option>
+                    <option value={0} >Jamon y queso</option>
+                    <option value={1} >Ricota y espinaca</option>
+                    <option value={2}>Cuatro quesos</option>
                 </Select>
               </FormControl>
               <br /> <br />
@@ -618,14 +633,14 @@ function Galeria(){
               <FormControl variant="standard" className={classes.formControl} margin="dense" >
                 <Select
                   native
-                  value={state.age}
-                  onChange={handleChange('age')}
+                  value={state.number}
+                  onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
                 >
-                    <option value={10} >Papa</option>
-                    <option value={20} >Espinaca</option>
+                    <option value={0} >Papa</option>
+                    <option value={1} >Espinaca</option>
                 </Select>
               </FormControl>
               <br /> <br />

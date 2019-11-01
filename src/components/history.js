@@ -20,7 +20,7 @@ class Story extends React.Component{
           <div class="historia">
           
             <p>
-             
+  
                Fundado en 1962 por Cosme y Fulanito.
                Nos dedicamos a hacer las mejores pastas de Mar del Plata.
                Estamos durante todo el verano y el invierno para brindarles a nuestros 

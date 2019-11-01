@@ -218,7 +218,7 @@ render(){
               </DialogContentText>
            
               <DialogActions>
-            <Button   size="small" id="registrarme" onClick={this.handleClickOpenLogOn} >
+            <Button size="small" id="registrarme" onClick={this.handleClickOpenLogOn} >
             Registrarme
           </Button>
           </DialogActions>
@@ -334,7 +334,12 @@ render(){
         </div>
 
       </Dialog>
+
+
+
+
           </div>
+       
       </div>
     </div>
     </div>

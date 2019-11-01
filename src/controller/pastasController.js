@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import {BrowserRouter as Router,Route,
  Redirect, Switch} from 'react-router-dom';
 import App from './App.js';
@@ -14,4 +14,4 @@ export default function Routes(){
       </div>
     </Router>
     )
-}
+}*/

@@ -3,6 +3,7 @@ import {Component} from 'react';
 const url ="http://localhost:3000/";
 const urlInsertContacto="insertContacto";
 const urlLogIn = "login";
+const urlGetProductos = "productos";
 class ApiController extends Component
 {
 
@@ -61,6 +62,25 @@ class ApiController extends Component
             
                 console.log("Recibi datos");
 
+    };
+
+   
+    getProductos(okBusqueda){
+        const endpoint = `${url}${urlGetProductos}`;
+        //console.log("Buscando")
+       fetch(endpoint).then ((response) => {
+            console.log("response",response);
+            return response.json();
+        }).then (responseData => {
+                console.log(responseData);
+            
+                //console.log("Recibi datos");
+                okBusqueda(responseData);
+                
+          
+          
+          
+        });
     }
 }
 
