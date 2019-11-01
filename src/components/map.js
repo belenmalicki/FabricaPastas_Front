@@ -32,4 +32,4 @@ class SimpleMap extends Component {
   }
 }
  
-export default SimpleMap;
+//export default SimpleMap;

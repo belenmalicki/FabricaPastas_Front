@@ -1,30 +1,17 @@
-import {Component} from 'react';
+import React from 'react';
+import {BrowserRouter as Router,Route,
+ Redirect, Switch} from 'react-router-dom';
+import App from './App.js';
+import Tutorials from './tutorials.js';
 
-const url ="http://localhost:3000/";
-const urlInsertContacto="insertContacto";
-class ApiController extends Component
-{
-   
-    insertContacto(usuario)
-    {
-        console.log("guardo contacto",usuario);
-        
-        
-        const endpoint = `${url}${urlInsertContacto}`;
-        console.log("Guardando");
-            fetch (endpoint,{
-            method:'POST',
-            mode:"cors",
-            headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify(usuario)
-        }).then ((response) => {
-            console.log("response");
-            console.log(response);
-            return response.json();
-           
-        }).catch(err => console.error(err));
-        
-    }
+export default function Routes(){
+    return (
+    <Router>
+      <div>
+        <Switch>
+           <Route path="/" component = {App} />
+        </Switch>
+      </div>
+    </Router>
+    )
 }
-
-export default new ApiController();

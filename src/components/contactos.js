@@ -1,5 +1,12 @@
 import React from 'react';
 import  MapBasics from './map.js';
+import r1 from './img/rivadavia1.png';
+import r2 from './img/rivadavia2.png';
+import r3 from './img/rivadavia4.png';
+import g1 from './img/guemes1.png';
+import g2 from './img/guemes2.png';
+import g3 from './img/guemes3.png';
+import ImageZoom from "react-medium-image-zoom";
 
 
 class Contacto extends React.Component{
@@ -13,16 +20,39 @@ class Contacto extends React.Component{
       <div class = "row" >
         <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12" >
          <div>
-           <h2 class="contactos">- Contactanos -</h2>
+           <h2 class="contactos">- Sucursal Rivadavia -</h2>
            <br /><br />
            <div class="container" >
            <div class = "row" id="fondo_blanco">
            <h3 class= "letra_cont"> 
-           <br/> <br/>  Llamanos al 
-           <br/> 0223 472-0966 <br/>
-            <br/>O mandanos un mail a: 
-            <br/> algo@hotmail.com <br/><br/> <br/>   
+           <br/> 
+           Rivadavia 4035  - Mar del Plata <br/>  
+           Lunes a sabados de 8hs a 13:15hs y de 17hs a 21.30hs <br/> 
+           Domingos de 8hs a 13:15hs
+           <br/><br/>Llamanos al: 
+           <br/> 0223 472-0966 <br/><br/>
            </h3>
+           </div>
+           <br /><br />
+           <div class = "row" style={{justifyContent:'center'}}>
+           <ImageZoom 
+          image={{
+            src: r3,
+            alt:"Rivadavia 4035",
+            title:"Rivadavia 4035",
+            style: {  height:'450px'},
+        
+
+          }}
+          zoomImage={{
+            src:  r3,
+            alt:"Rivadavia 4035",
+            title:"Rivadavia 4035",
+            className: "img--zoomed",
+            style: { backgroundColor:'black' },
+          }}
+        />
+          
            </div>
 
            </div>
@@ -30,18 +60,38 @@ class Contacto extends React.Component{
            </div>
         <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12" >
           <div>
-          <h2  class="contactos">- Visitanos -</h2>
+          <h2  class="contactos">- Sucursal Güemes -</h2>
           <br /><br />
            <div class="container">
            <div class = "row" id="fondo_blanco" >
            <h3  class= "letra_cont"> 
             <br/>  Güemes 3331  - Mar del Plata 
             <br/>  Lunes a sabados de 8hs a 13:15hs y de 17hs a 21.30hs <br/> 
-           Domingos de 8hs a 13:15hs<br/><br/>
-           Rivadavia 4035  - Mar del Plata <br/>  
-           Lunes a sabados de 8hs a 13:15hs y de 17hs a 21.30hs <br/> 
-           Domingos de 8hs a 13:15hs <br/>   <br/>  
+           Domingos de 8hs a 13:15hs<br/>
+           <br/>Llamanos al: 
+           <br/> 0223 472-0966 <br/><br/>
            </h3>
+           </div>
+           <br /><br />
+           <div class = "row" style={{justifyContent:'center'}}>
+           <ImageZoom 
+          image={{
+            src: g2,
+            alt:"Güemes 3331",
+            title:"Güemes 3331",
+            style: {  height:'450px' },
+        
+
+          }}
+          zoomImage={{
+            src:  g2,
+            alt:"Güemes 3331",
+            title:"Güemes 3331",
+            className: "img--zoomed",
+            style: { backgroundColor:'black' },
+          }}
+        />
+        
            </div>
 
            </div>
@@ -51,8 +101,6 @@ class Contacto extends React.Component{
          </div>
         </div>
 <br /><br />
- PROTZIMAMENTE
-    <MapBasics />
 
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>

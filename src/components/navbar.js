@@ -9,7 +9,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import logo1 from './img/logo10.png';
 import ScrollTo from 'react-scroll-into-view';
-import pastaController from '../controller/pastasController'
+import pastaController from '../controller/pastaController';
+import {Redirect} from 'react-router-dom';
+import App from '../App';
 
 
 export default class FormDialog extends Component {
@@ -49,6 +51,27 @@ export default class FormDialog extends Component {
     this.setState({opencr: false});
   }
 
+
+
+
+  okUsuario()
+  {
+    alert("Te has registrado con exito");
+    return  <Redirect  to="/" component = {App}  />
+  }
+
+  errorUsuario(textoError)
+  {
+    alert("Error: " + textoError);
+  }
+  usuarioMal(textoError){
+    alert(textoError);
+  }
+  okIngresar(textoOk){
+    alert(textoOk);
+
+  }
+
   handleSave =(e) =>{
     let usuario = {
         nombre: this.state.nombre,
@@ -57,7 +80,7 @@ export default class FormDialog extends Component {
         password:this.state.password,
         telefono:this.state.telefono
     };
-    pastaController.insertContacto(usuario);
+    pastaController.insertContacto(usuario,this.okUsuario.bind(this),this.errorUsuario.bind(this));
     this.setState({open: false})
   };
   onChangeNombre (e){
@@ -79,6 +102,23 @@ export default class FormDialog extends Component {
 
 
 
+  handleSearch=(e)=>{
+      let usuarioLogIn={
+        mail:this.state.mail,
+        password:this.state.password,
+      }
+
+    pastaController.logIn(usuarioLogIn,this.okIngresar.bind(this), this.usuarioMal.bind(this));
+  }
+    SearchMail = (e)=>{
+      this.setState({mail : e.target.value});
+    }
+    SearchPassword = (e)=>{
+      this.setState({password : e.target.value});
+    }
+  
+  
+
 
 render(){ 
   return (
@@ -88,7 +128,8 @@ render(){
       <div class="logo">
         <img src= {logo1} alt = "logo" title = "logo" id="logo"/>
       </div>
-      <div class="col-12">
+      <div class="col-lg-12 col-md-4 col-sm-12 col-xs-12  "></div>
+      <div class="col-lg-12 col-md-4 col-sm-12 col-xs-12  ">
         <div class="nav">
         <ScrollTo
           selector={`#${'inicio'}`}>
@@ -133,10 +174,13 @@ render(){
               type="email"
               name="email"
               fullWidth
+              required
               placeholder="Email"
               autoComplete="email"
               margin="normal"
               variant="outlined"
+              value={this.state.mail}
+              onChange={this.SearchMail.bind(this)}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -151,6 +195,9 @@ render(){
               autoComplete="current-password"
               margin="normal"
               variant="outlined"
+              required
+              value = {this.state.password}
+              onChange={this.SearchPassword.bind(this)}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -160,7 +207,7 @@ render(){
               <Button onClick={this.handleCloseLogIn} id="confirmar">
                 Cancelar
               </Button>
-              <Button onClick={this.handleCloseLogIn} id="confirmar">
+              <Button onClick={this.handleSearch} id="confirmar">
               Ingresar
               </Button>
             </DialogActions>
@@ -262,7 +309,7 @@ render(){
               <Button onClick={this.handleCloseLogOn} id="confirmar">
                 Cancelar
               </Button>
-              <Button onClick={this.handleSave}  id="confirmar">
+              <Button onClick={this.handleSave} id="confirmar">
               Registrarme
               </Button>
             </DialogActions>
@@ -310,7 +357,6 @@ render(){
                 ¿No tenes una cuenta?
           Registrate y crea un nuevo usuario.
               </DialogContentText>
-
           <h2 id="form-dialog-title">Datos</h2>   
           <TextField
               id="outlined-dense"
@@ -323,7 +369,6 @@ render(){
                 shrink: true,
               }}
             />
-
       <TextField
               id="outlined-dense"
               label="Direccion"
@@ -335,7 +380,6 @@ render(){
                 shrink: true,
               }}
             />
-
       <TextField
               id="outlined-dense"
               label="Telefono/Celular"
@@ -361,7 +405,6 @@ render(){
                 shrink: true,
               }}
             />
-
         <TextField
               id="outlined-password-input"
               label="Password"

@@ -11,7 +11,6 @@ import NumericInput from 'react-numeric-input';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ImageZoom from "react-medium-image-zoom";
-import { width } from '@material-ui/system';
 import ravioles from './img/raviolesss.jpg';
 import canelones from './img/canelones.jpg';
 import cappeletti from './img/capeleti.jpg';
@@ -50,8 +49,6 @@ function myFormatUnid(num) {
 
 function Galeria(){
 
-
-
   const [state, setState] = React.useState({
     age: '',
     name: 'hai',
@@ -65,13 +62,6 @@ function Galeria(){
       [name]: event.target.value,
     });
   };
-
-
-
-
-
-
-
 
     const classes = useStyles();
     const [openGn, setOpenGnoqui] = React.useState(false);
@@ -149,8 +139,7 @@ function Galeria(){
   
  
       return (
-         <div id="productos">       
-        <div class = "galeria">
+         <div id="productos" class = "container-fluid">       
            <h1 id="tituloPastas">Nuestras Pastas</h1>
            <br /><br />
         <div class = "container-fluid">
@@ -730,7 +719,7 @@ function Galeria(){
             </div>
         </div>
         </div>
-        </div>  
+
       );
     
 }
