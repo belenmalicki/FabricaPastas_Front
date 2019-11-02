@@ -13,7 +13,7 @@ import Contacto from './components/contactos.js';
 Cosas par afacu:
 -cuando te registras o ingresas te cambia el boton ingresar y te agrega el boton de perfil
 -validar los campos de ingreso 
-
+//https://deepstream.io/tutorials/example-apps/realtime-cart/
  
 
 -imagen lasagna no se superpone

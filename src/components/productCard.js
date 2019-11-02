@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
@@ -59,100 +59,98 @@ const useStyles = makeStyles(theme => ({
 function myFormatUnid(num) {
   return num + ' u';
 
-}
+}/*
+const [state, setState] = React.useState({
+  number: '',
+  name: 'hai',
+});
+*/
 
-
-function Galeria(){
-
-  const [state, setState] = React.useState({
-    number: '',
-    name: 'hai',
+/*
+const handleChange = name => event => {
+  setState({
+    ...state,
+    [name]: event.target.value,
   });
+};
+*/
 
- 
+class Galeria extends Component{
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      open: false,
+      number:''
+    };
+  }
 
-  const handleChange = name => event => {
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  };
-
-    const classes = useStyles();
-    const [openGn, setOpenGnoqui] = React.useState(false);
-    const [openSp,  setOpenSpaguetti] = React.useState(false);
-    const [openCp,  setOpenCappeleti] = React.useState(false);
-    const [openCn,  setOpenCanelones] = React.useState(false);
-    const [openRv,  setOpenRavioles] = React.useState(false);
-    const [openLn,  setOpenLasagna] = React.useState(false);
-    const [openTg,  setOpenTagliatellis] = React.useState(false);
-    const [openSr,  setOpenSorrentinos] = React.useState(false);
+   handleClickOpenSorrentinos= () => {
+    this.setState({openSr: true});
+    
+    };
   
-    function handleClickOpenSorrentinos() {
-      setOpenSorrentinos(true);
-    }
-  
-    function handleCloseSorrentinos() {
-      setOpenSorrentinos(false);
+    handleCloseSorrentinos= () => {
+      this.setState({openSr: false});
     }
 
-    function handleClickOpenTagliatellis() {
-      setOpenTagliatellis(true);
+    handleClickOpenTagliatellis= () => {
+      this.setState({openTg: true});
     }
   
-    function handleCloseTagliatellis() {
-      setOpenTagliatellis(false);
+      handleCloseTagliatellis= () => {
+        this.setState({openTg: false});
     }
 
-    function handleClickOpenLasagna() {
-      setOpenLasagna(true);
+      handleClickOpenLasagna= () => {
+        this.setState({openLn: true});
     }
   
-    function handleCloseLasagna() {
-      setOpenLasagna(false);
+      handleCloseLasagna= () => {
+        this.setState({openLn: false});
     }
 
-    function handleClickOpenRavioles() {
-      setOpenRavioles(true);
+      handleClickOpenRavioles= () => {
+        this.setState({openRv: true});
     }
   
-    function handleCloseRavioles() {
-      setOpenRavioles(false);
+      handleCloseRavioles= () => {
+        this.setState({openRv: false});
     }
-    function handleClickOpenCanelones() {
-      setOpenCanelones(true);
+      handleClickOpenCanelones= () => {
+        this.setState({openCn: true});
     }
   
-    function handleCloseCanelones() {
-      setOpenCanelones(false);
+      handleCloseCanelones= () => {
+        this.setState({openCn: false});
     }
 
-    function handleClickOpenCappeleti() {
-      setOpenCappeleti(true);
+      handleClickOpenCappeleti= () => {
+        this.setState({openCp: true});
     }
   
-    function handleCloseCappeleti() {
-      setOpenCappeleti(false);
+      handleCloseCappeleti= () => {
+        this.setState({openCp: false});
     }
 
-    function handleClickOpenGnoqui() {
-      setOpenGnoqui(true);
+      handleClickOpenGnoqui= () => {
+        this.setState({openGn: true});
     }
   
-    function handleCloseGnoqui() {
-      setOpenGnoqui(false);
+      handleCloseGnoqui= () => {
+        this.setState({openGn: false});
     }
 
 
-    function handleClickOpenSpaguetti() {
-      setOpenSpaguetti(true);
+      handleClickOpenSpaguetti= () => {
+        this.setState({openSp: true});
     }
   
-    function handleCloseSpaguetti() {
-      setOpenSpaguetti(false);
+      handleCloseSpaguetti= () => {
+        this.setState({openSp: false});
     }
   
- 
+    render(){ 
       return (
          <div id="productos" class = "container-fluid">       
            <h1 id="tituloPastas">Nuestras Pastas</h1>
@@ -161,19 +159,19 @@ function Galeria(){
             <div class = "row">
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6" >
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenSorrentinos} src= {sorrentinos} alt="Sorrentinos" /> 
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenSorrentinos} src= {sorrentinos} alt="Sorrentinos" /> 
                 <div class="card-body">
                     <p class="card-text">Sorrentinos<br /> $340</p>
                 </div>
                 </button>
-                <Dialog maxWidth class='dialog_prod' open={openSr} onClose={handleCloseSorrentinos} 
+                <Dialog maxWidth class='dialog_prod' open={this.state.openSr} onClose={this.handleCloseSorrentinos} 
                 TransitionComponent={Transition} >
-        <AppBar id="appbarprod" className={classes.appBar}>
+        <AppBar id="appbarprod" className= 'appBar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseSorrentinos} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseSorrentinos} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className='title'>
               
             </Typography>
            
@@ -220,19 +218,19 @@ function Galeria(){
                 <br />
                 <br />
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenTagliatellis} src= {tagliatelli} alt="Tagliatelli" />
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenTagliatellis} src= {tagliatelli} alt="Tagliatelli" />
                 <div class="card-body">
                     <p class="card-text">Tagliatelli<br />$280</p>
                 </div>
                 </button>
-      <Dialog  maxWidth  class='dialog_prod' open={openTg} onClose={handleCloseTagliatellis} TransitionComponent={Transition}
+      <Dialog  maxWidth  class='dialog_prod' open={this.state.openTg} onClick={this.handleCloseTagliatellis} TransitionComponent={Transition}
               >
-        <AppBar id="appbarprod" className={classes.appBar}>
+        <AppBar id="appbarprod" className='appBar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseTagliatellis} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseTagliatellis} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className='title'>
               
             </Typography>
            
@@ -277,18 +275,18 @@ function Galeria(){
                 </div>
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenLasagna} src= {lasagna} alt="Lasagna" />
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenLasagna} src= {lasagna} alt="Lasagna" />
                 <div class="card-body">
                     <p class="card-text">Lasagna<br />$440</p>
                 </div>
                 </button>
-                <Dialog  maxWidth class='dialog_prod'  open={openLn} onClose={handleCloseLasagna} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className={classes.appBar}>
+                <Dialog  maxWidth class='dialog_prod'  open={this.state.openLn} onClick={this.handleCloseLasagna} TransitionComponent={Transition}>
+        <AppBar id="appbarprod" className=   ' appbar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseLasagna} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseLasagna} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className=   'title'>
               
             </Typography>
            
@@ -328,12 +326,12 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <p><br />Seleccione el sabor que prefiera:</p>
-              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+              <FormControl variant="standard" className=  'formControl' margin="dense" >
                 <Select
                   id="dropdown_letra"
                   native
-                  value={state.number}
-                  onChange={handleChange('number')}
+                  value={this.state.number}
+                  //onChange={this.handleChange('number')}
                   variant="outlined"
          
           
@@ -363,19 +361,19 @@ function Galeria(){
                 <br />
                 <br />
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenRavioles} src= {ravioles} alt="Ravioles" /> 
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenRavioles} src= {ravioles} alt="Ravioles" /> 
                 <div class="card-body">
                     <p class="card-text">Ravioles<br />$230</p>
                 </div>
                 </button>
 
-                <Dialog  maxWidth class='dialog_prod'  open={openRv} onClose={handleCloseRavioles} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className={classes.appBar}>
+                <Dialog  maxWidth class='dialog_prod' open={this.state.openRv}  onClick={this.handleCloseRavioles} TransitionComponent={Transition}>
+        <AppBar id="appbarprod" className=   ' appbar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseRavioles} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseRavioles} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className=   'title'>
               
             </Typography>
            
@@ -401,11 +399,11 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <p><br />Seleccione el sabor que prefiera:</p>
-              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+              <FormControl variant="standard" className=  'formControl' margin="dense" >
                 <Select
                   native
-                  value={state.number}
-                  onChange={handleChange('number')}
+                  value={this.state.number}
+                  //onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
@@ -443,18 +441,18 @@ function Galeria(){
                 <br />
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenCanelones}  src= {canelones} alt="Canelones" /> 
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenCanelones}  src= {canelones} alt="Canelones" /> 
                 <div class="card-body">
                     <p class="card-text">Canelones<br />$60</p>
                 </div>
                 </button>
-                <Dialog  maxWidth class='dialog_prod'  open={openCn} onClose={handleCloseCanelones} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className={classes.appBar}>
+                <Dialog  maxWidth class='dialog_prod' open={this.state.openCn} onClick={this.handleCloseCanelones} TransitionComponent={Transition}>
+        <AppBar id="appbarprod" className=   ' appbar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseCanelones} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseCanelones} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className=   'title'>
               
             </Typography>
            
@@ -478,11 +476,11 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <p><br />Seleccione el sabor que prefiera:</p>
-              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+              <FormControl variant="standard" className= 'formControl' margin="dense" >
                 <Select
                   native
-                  value={state.number}
-                  onChange={handleChange('number')}
+                  value={this.state.number}
+                  //onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
@@ -516,18 +514,18 @@ function Galeria(){
                 <br />
                 <br />
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenCappeleti} src= {cappeletti} alt="Cappeletis" />
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenCappeleti} src= {cappeletti} alt="Cappeletis" />
                 <div class="card-body">
                     <p class="card-text">Cappeleti<br />$220</p>
                 </div>
                 </button>
-                <Dialog  maxWidth class='dialog_prod'  open={openCp} onClose={handleCloseCappeleti} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className={classes.appBar}>
+                <Dialog  maxWidth class='dialog_prod' open={this.state.openCp}  onClick={this.handleCloseCappeleti} TransitionComponent={Transition}>
+        <AppBar id="appbarprod" className=   ' appbar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseCappeleti} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseCappeleti} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className=   'title'>
               
             </Typography>
            
@@ -554,11 +552,11 @@ function Galeria(){
             </div>
             <div id="cant-past" >
             <p><br />Seleccione el sabor que prefiera:</p>
-              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+              <FormControl variant="standard" className=  'formControl' margin="dense" >
                 <Select
                   native
-                  value={state.number}
-                  onChange={handleChange('number')}
+                  value={this.state.number}
+                  //onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
@@ -593,17 +591,17 @@ function Galeria(){
                 <br />
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenGnoqui} src= {gnoqui} alt="Ñoquis" /> 
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenGnoqui} src= {gnoqui} alt="Ñoquis" /> 
                 <div class="card-body">
                     <p class="card-text">Ñoquis<br/> $250</p>
                 </div></button>
-                <Dialog  maxWidth class='dialog_prod'  open={openGn} onClose={handleCloseGnoqui} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className={classes.appBar}>
+                <Dialog  maxWidth class='dialog_prod' open={this.state.openGn} onClick={this.handleCloseGnoqui} TransitionComponent={Transition}>
+        <AppBar id="appbarprod" className=   ' appbar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseGnoqui} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseGnoqui} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className=   'title'>
               
             </Typography>
            
@@ -630,11 +628,11 @@ function Galeria(){
             </div>
             <div id="cant-past">
             <p><br />Seleccione el sabor que prefiera:</p>
-              <FormControl variant="standard" className={classes.formControl} margin="dense" >
+              <FormControl variant="standard" className=  'formControl' margin="dense" >
                 <Select
                   native
-                  value={state.number}
-                  onChange={handleChange('number')}
+                  value={this.state.number}
+                 // onChange={handleChange('number')}
                   variant="outlined"
                   id="dropdown_letra"
           
@@ -670,18 +668,18 @@ function Galeria(){
 
 
                 <button class="bot">
-                <img class="d-block w-100" id="bigger" onClick={handleClickOpenSpaguetti} src= {spaghetti} alt="Spaghetti" />
+                <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenSpaguetti} src= {spaghetti} alt="Spaghetti" />
                 <div class="card-body">
                     <p class="card-text">Spaghetti<br />$210</p>
                 </div>
                 </button>
-                <Dialog  maxWidth class='dialog_prod'  open={openSp} onClose={handleCloseSpaguetti} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className={classes.appBar}>
+                <Dialog  maxWidth class='dialog_prod' open={this.state.openSp} onClick={this.handleCloseSpaguetti} TransitionComponent={Transition}>
+        <AppBar id="appbarprod" className=   ' appbar'>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleCloseSpaguetti} aria-label="close">
+            <IconButton edge="start" color="inherit" onClick={this.handleCloseSpaguetti} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className=   'title'>
               
             </Typography>
            
@@ -736,7 +734,7 @@ function Galeria(){
         </div>
 
       );
-    
+        }
 }
 
 export default Galeria;

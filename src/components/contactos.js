@@ -7,6 +7,7 @@ import g1 from './img/guemes1.png';
 import g2 from './img/guemes2.png';
 import g3 from './img/guemes3.png';
 import ImageZoom from "react-medium-image-zoom";
+import { rgbToHex } from '@material-ui/core/styles';
 
 
 class Contacto extends React.Component{
@@ -20,7 +21,7 @@ class Contacto extends React.Component{
       <div class = "row" >
         <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12" >
          <div>
-           <h2 class="contactos">- Sucursal Rivadavia -</h2>
+           <h2 class="contacto">- Sucursal Rivadavia -</h2>
            <br /><br />
            <div class="container" >
            <div class = "row" id="fondo_blanco">
@@ -49,7 +50,6 @@ class Contacto extends React.Component{
             alt:"Rivadavia 4035",
             title:"Rivadavia 4035",
             className: "img--zoomed",
-            style: { backgroundColor:'black' },
           }}
         />
           
@@ -60,7 +60,7 @@ class Contacto extends React.Component{
            </div>
         <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12" >
           <div>
-          <h2  class="contactos">- Sucursal Güemes -</h2>
+          <h2  class="contacto">- Sucursal Güemes -</h2>
           <br /><br />
            <div class="container">
            <div class = "row" id="fondo_blanco" >
@@ -88,7 +88,7 @@ class Contacto extends React.Component{
             alt:"Güemes 3331",
             title:"Güemes 3331",
             className: "img--zoomed",
-            style: { backgroundColor:'black' },
+
           }}
         />
         
@@ -102,7 +102,7 @@ class Contacto extends React.Component{
         </div>
 <br /><br />
 
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      
       </div>
       );}}
     export default Contacto;
