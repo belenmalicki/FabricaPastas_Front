@@ -10,7 +10,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import logo1 from './img/logo10.png';
 import ScrollTo from 'react-scroll-into-view';
 import pastaController from '../controller/pastaController';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import App from '../App';
 
 
@@ -158,183 +158,18 @@ render(){
              Contacto
           </Button>
         </ScrollTo>
-
-          <Button id="boton" onClick={this.handleClickOpenLogIn}>
+     
+        <Link to='/login'>  
+        <Button id="boton" >
           Ingresar
           </Button>
-          <Dialog  fullWidth  open={this.state.openLi} onClose={this.handleCloseLogIn} >
-            <DialogTitle  id="form-dialog-title"><h2 id="form-dialog-title" >Ingresar</h2></DialogTitle>
-            <DialogContent>
-              <DialogContentText  id="outlined-dense" >
-                Ingresa a tu cuenta
-              </DialogContentText>
-              <TextField
-              id="outlined-email-input"
-              label="Email"
-              type="email"
-              name="email"
-              fullWidth
-              required
-              placeholder="Email"
-              autoComplete="email"
-              margin="normal"
-              variant="outlined"
-              value={this.state.mail}
-              onChange={this.SearchMail.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-          <br />
-        <TextField
-              id="outlined-password-input"
-              label="Password"
-              fullWidth
-              type="password"
-              placeholder="Contraseña"
-              autoComplete="current-password"
-              margin="normal"
-              variant="outlined"
-              required
-              value = {this.state.password}
-              onChange={this.SearchPassword.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={this.handleCloseLogIn} id="confirmar">
-                Cancelar
-              </Button>
-              <Button onClick={this.handleSearch} id="confirmar">
-              Ingresar
-              </Button>
-            </DialogActions>
-            
-            <DialogContentText  class="reg_dialog" >
-                ¿No tenes una cuenta? <br />
-          Registrate y crea un nuevo usuario.
-              </DialogContentText>
-           
-              <DialogActions>
-            <Button size="small" id="registrarme" onClick={this.handleClickOpenLogOn} >
-            Registrarme
-          </Button>
-          </DialogActions>
-          <Dialog open={this.state.openLo} onClose={this.handleCloseLogOn} >
-            <DialogTitle > <h2 id="form-dialog-title" > Registrarme</h2>  </DialogTitle>
-            <DialogContent>
-              <DialogContentText id="outlined-dense">
-                ¿No tenes una cuenta?
-          Registrate y crea un nuevo usuario.
-              </DialogContentText>
-
-          <h2 id="form-dialog-title">Datos</h2>   
-          <TextField
-              id="nombre"
-              label="Nombre"
-              placeholder="Nombre"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              value ={this.state.nombre}
-              onChange={this.onChangeNombre.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-
-      <TextField
-              id="direccion"
-              label="Direccion"
-              placeholder="Direccion"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              value ={this.state.direccion}
-              onChange={this.onChangeDireccion.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-
-      <TextField
-              id="telefono"
-              label="Telefono/Celular"
-              placeholder="Telefono/Celular"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              value={this.state.telefono}
-              onChange={this.onChangeTelefono.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-              <TextField
-              id="mail"
-              label ="Email"
-              type="email"
-              name="email"
-              placeholder="Email"
-              autoComplete="email"
-              margin="normal"
-              variant="outlined"
-              value={this.state.mail}
-              onChange={this.onChangeMail.bind(this)}
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-
-        <TextField
-              id="password"
-              label="Password"
-          fullWidth
-              type="password"
-              placeholder="Contraseña"
-              autoComplete="current-password"
-              margin="normal"
-              variant="outlined"
-              value = {this.state.password}
-              onChange={this.onChangePassword.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={this.handleCloseLogOn} id="confirmar">
-                Cancelar
-              </Button>
-              <Button onClick={this.handleSave} id="confirmar">
-              Registrarme
-              </Button>
-            </DialogActions>
-          </Dialog>
-          </Dialog>
-
-      
-        
+          </Link>
+          <Link  to='/shoppingcart'>
           <Button id="boton" onClick={this.handleClickOpenCarrito} >
-          <AddShoppingCartIcon>Carrito</AddShoppingCartIcon>
+          <AddShoppingCartIcon />
           </Button>
-          <Dialog maxWidth class='dialog_prod' open={this.state.openCr} onClose={this.handleCloseCarrito}>
-          <DialogContentText id="outlined-dense">
-             <h2>Productos:</h2>
-              </DialogContentText>
-        <div class = "container">
-        <DialogActions>
-              <Button onClick={this.handleCloseCarrito} id="confirmar">
-                Cancelar
-              </Button>
-            </DialogActions>
-        </div>
-
-      </Dialog>
-
+          </Link>
+          
 
 
 

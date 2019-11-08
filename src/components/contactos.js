@@ -1,13 +1,8 @@
 import React from 'react';
-import  MapBasics from './map.js';
-import r1 from './img/rivadavia1.png';
-import r2 from './img/rivadavia2.png';
 import r3 from './img/rivadavia4.png';
-import g1 from './img/guemes1.png';
 import g2 from './img/guemes2.png';
-import g3 from './img/guemes3.png';
 import ImageZoom from "react-medium-image-zoom";
-import { rgbToHex } from '@material-ui/core/styles';
+
 
 
 class Contacto extends React.Component{

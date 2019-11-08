@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import {Link, Redirect} from 'react-router-dom';
 
 const url ="http://localhost:3000/";
 const urlInsertContacto="insertContacto";
@@ -54,6 +55,7 @@ class ApiController extends Component
             if (response.status===200)
             {  
                 OkIngresar('Ingreso correcto');
+               
             }
             return response.json();
         }).then (responseData => {

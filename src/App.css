@@ -1,4 +1,12 @@
 
+.backLogin {
+/*background-image: url("./components/img/backlogin.jpg");*/
+	background-image: url("./components/img/backlogin3ColorDarker.jpg");
+	background-color: black;
+	background-size: 100% 100%;
+}
+
+
 body {
 	background-image: url("./components/img/background.jpg");
 	background-position: center;

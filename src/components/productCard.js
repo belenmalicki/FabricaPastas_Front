@@ -19,7 +19,7 @@ import lasagna from './img/lasagna.jpg';
 import spaghetti from './img/spaguhetti.jpg';
 import tagliatelli from './img/tagliatelli.jpg';
 import sorrentinos from './img/sorrentinos.jpg';
-
+import PastaController from '../controller/pastaController'
 /*
 okBusqueda(newData)
   {
@@ -37,26 +37,27 @@ okBusqueda(newData)
     ApiController.getContactos(this.okBusqueda.bind(this));
   }
 */
-
-const useStyles = makeStyles(theme => ({
-  appBar: {
-    position: 'relative',
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-}));
+function createData(item,idArray) 
+{ console.log(item.nombre);
+  return { 
+    id : idArray, 
+    _id: item._id, 
+    nombre: item.nombre, 
+    tipo: item.tipo,
+    precio :item.precio,
+  };
+ 
+}
 
   const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
+    return <Slide direction="down" ref={ref} {...props} />;
   });
-  
   
   function myFormat(num) {
     return num + ' kg';
 }
-function myFormatUnid(num) {
+
+  function myFormatUnid(num) {
   return num + ' u';
 
 }/*
@@ -76,12 +77,13 @@ const handleChange = name => event => {
 */
 
 class Galeria extends Component{
+
   constructor(props)
   {
     super(props);
     this.state = {
       open: false,
-      number:''
+      nombre: createData.nombre,
     };
   }
 
@@ -92,65 +94,86 @@ class Galeria extends Component{
   
     handleCloseSorrentinos= () => {
       this.setState({openSr: false});
-    }
+    };
 
     handleClickOpenTagliatellis= () => {
       this.setState({openTg: true});
-    }
+    };
   
       handleCloseTagliatellis= () => {
         this.setState({openTg: false});
-    }
+    };
 
       handleClickOpenLasagna= () => {
         this.setState({openLn: true});
-    }
+    };
   
       handleCloseLasagna= () => {
         this.setState({openLn: false});
-    }
+    };
 
       handleClickOpenRavioles= () => {
         this.setState({openRv: true});
-    }
+    };
   
       handleCloseRavioles= () => {
         this.setState({openRv: false});
-    }
+    };
       handleClickOpenCanelones= () => {
         this.setState({openCn: true});
-    }
+    };
   
       handleCloseCanelones= () => {
         this.setState({openCn: false});
-    }
+    };
 
       handleClickOpenCappeleti= () => {
         this.setState({openCp: true});
-    }
+    };
   
       handleCloseCappeleti= () => {
         this.setState({openCp: false});
-    }
+    };
 
       handleClickOpenGnoqui= () => {
         this.setState({openGn: true});
-    }
+    };
   
       handleCloseGnoqui= () => {
         this.setState({openGn: false});
-    }
+    };
 
 
       handleClickOpenSpaguetti= () => {
         this.setState({openSp: true});
-    }
+    };
   
       handleCloseSpaguetti= () => {
         this.setState({openSp: false});
+    };
+    
+
+    okBusqueda(newData)
+  {
+    var i,newArray = [];
+    for (i = 0; i <1; i++) {
+      newArray.push(createData(newData[i],i));
     }
+    this.setState({data: newArray});
+    console.log("data");
+    console.log(this.state.data);
+    
+  }
+
+
+    componentDidMount()
+  {
+    //Leo los contactos de la API BD
+   PastaController.getProductos(this.okBusqueda.bind(this));
+  }
   
     render(){ 
+     // var data = createData();
       return (
          <div id="productos" class = "container-fluid">       
            <h1 id="tituloPastas">Nuestras Pastas</h1>
@@ -161,12 +184,13 @@ class Galeria extends Component{
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenSorrentinos} src= {sorrentinos} alt="Sorrentinos" /> 
                 <div class="card-body">
-                    <p class="card-text">Sorrentinos<br /> $340</p>
+                    <p class="card-text">{createData.prototype.nombre}<br /> $340</p>
+                
                 </div>
                 </button>
                 <Dialog maxWidth class='dialog_prod' open={this.state.openSr} onClose={this.handleCloseSorrentinos} 
                 TransitionComponent={Transition} >
-        <AppBar id="appbarprod" className= 'appBar'>
+        <AppBar id="appbarprod" className= 'appBar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseSorrentinos} aria-label="close">
               <CloseIcon />
@@ -225,7 +249,7 @@ class Galeria extends Component{
                 </button>
       <Dialog  maxWidth  class='dialog_prod' open={this.state.openTg} onClick={this.handleCloseTagliatellis} TransitionComponent={Transition}
               >
-        <AppBar id="appbarprod" className='appBar'>
+        <AppBar id="appbarprod" className='appBar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseTagliatellis} aria-label="close">
               <CloseIcon />
@@ -281,7 +305,7 @@ class Galeria extends Component{
                 </div>
                 </button>
                 <Dialog  maxWidth class='dialog_prod'  open={this.state.openLn} onClick={this.handleCloseLasagna} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className=   ' appbar'>
+        <AppBar id="appbarprod" className='appbar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseLasagna} aria-label="close">
               <CloseIcon />
@@ -368,7 +392,7 @@ class Galeria extends Component{
                 </button>
 
                 <Dialog  maxWidth class='dialog_prod' open={this.state.openRv}  onClick={this.handleCloseRavioles} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className=   ' appbar'>
+        <AppBar id="appbarprod" className=   'appbar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseRavioles} aria-label="close">
               <CloseIcon />
@@ -447,7 +471,7 @@ class Galeria extends Component{
                 </div>
                 </button>
                 <Dialog  maxWidth class='dialog_prod' open={this.state.openCn} onClick={this.handleCloseCanelones} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className=   ' appbar'>
+        <AppBar id="appbarprod" className= 'appbar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseCanelones} aria-label="close">
               <CloseIcon />
@@ -520,7 +544,7 @@ class Galeria extends Component{
                 </div>
                 </button>
                 <Dialog  maxWidth class='dialog_prod' open={this.state.openCp}  onClick={this.handleCloseCappeleti} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className=   ' appbar'>
+        <AppBar id="appbarprod" className= 'appbar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseCappeleti} aria-label="close">
               <CloseIcon />
@@ -596,7 +620,7 @@ class Galeria extends Component{
                     <p class="card-text">Ñoquis<br/> $250</p>
                 </div></button>
                 <Dialog  maxWidth class='dialog_prod' open={this.state.openGn} onClick={this.handleCloseGnoqui} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className=   ' appbar'>
+        <AppBar id="appbarprod" className= 'appbar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseGnoqui} aria-label="close">
               <CloseIcon />
@@ -674,7 +698,7 @@ class Galeria extends Component{
                 </div>
                 </button>
                 <Dialog  maxWidth class='dialog_prod' open={this.state.openSp} onClick={this.handleCloseSpaguetti} TransitionComponent={Transition}>
-        <AppBar id="appbarprod" className=   ' appbar'>
+        <AppBar id="appbarprod" className=  'appbar' style={{position: 'relative'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={this.handleCloseSpaguetti} aria-label="close">
               <CloseIcon />
