@@ -36,7 +36,7 @@ class ApiController extends Component
     };
 
 
-      logIn(data, UsuarioMal, OkIngresar)
+      logIn(data, log,usuarioMal)
     {
         const endpoint = `${url}${urlLogIn}`;
         console.log("Buscando")
@@ -47,22 +47,24 @@ class ApiController extends Component
             headers:{ 'Content-Type': 'application/json'},
             body: JSON.stringify(data) // data can be `string` or {object}!
         }).then ((response) => {
-            console.log("response",response);
+            console.log("response",response.status);
             if(response.status===501)
             {
-                UsuarioMal("Datos incorrectos, intente nuevamente");
+                console.log("entre al 501")
+                usuarioMal("Datos incorrectos, intente ");
             }
             if (response.status===200)
             {  
-                OkIngresar('Ingreso correcto');
+                console.log("entre al 200")
+                log('Ingreso el usuario correcto');
                
             }
-            return response.json();
-        }).then (responseData => {
+            //return response.json();
+        });/*.then (responseData => {
                 console.log(responseData);
             });
             
-                console.log("Recibi datos");
+                console.log("Recibi datos");*/
 
     };
 

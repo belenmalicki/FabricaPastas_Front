@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Button} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
@@ -163,6 +163,16 @@ class Galeria extends Component{
     console.log("data");
     console.log(this.state.data);
     
+  };
+  handleAgregar()
+  {
+    console.log("localStorage",localStorage.length);
+    if(localStorage.getItem('Usuariologueado')!==null){
+      alert('Todo joya');
+    }
+    else{
+      alert('Logueate pa');
+    }
   }
 
 
@@ -174,6 +184,7 @@ class Galeria extends Component{
   
     render(){ 
      // var data = createData();
+     console.log("localStorage", localStorage.getItem('Usuariologueado'));
       return (
          <div id="productos" class = "container-fluid">       
            <h1 id="tituloPastas">Nuestras Pastas</h1>
@@ -226,7 +237,7 @@ class Galeria extends Component{
             </div>
             <div class="container">
         <div class="btn-holder">
-         <button id="carrito">
+         <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
          Agregar al carrito
           </button>
         </div>
@@ -296,7 +307,7 @@ class Galeria extends Component{
         </div>
 
       </Dialog>
-                </div>
+    </div>
                 <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6">
                 <button class="bot">
                 <img class="d-block w-100" id="bigger" onClick={this.handleClickOpenLasagna} src= {lasagna} alt="Lasagna" />
@@ -320,20 +331,7 @@ class Galeria extends Component{
           <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <br />
-            <ImageZoom 
-          image={{
-            src: "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
-            alt: "Lasagna",
-            class: "img",
-        
-
-          }}
-          zoomImage={{
-            src:  "https://mejorrecetas.info/wp-content/uploads/2019/07/18767e2208f85638186154816d971526-750x500.jpg",
-            alt: "Lasagna",
-            className: "img--zoomed"
-          }}
-        />
+            <img class="d-block w-75" src= {lasagna} alt="Lasagna" />
 
             <p id="text"><br />La venta es por kilo.<br />
             La compra minima es de medio kilo (0.5 kg)<br />

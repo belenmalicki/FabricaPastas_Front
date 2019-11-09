@@ -54,35 +54,8 @@ export default class FormDialog extends Component {
 
 
 
-  okUsuario()
-  {
-    alert("Te has registrado con exito");
-    return  <Redirect  to="/" component = {App}  />
-  }
-
-  errorUsuario(textoError)
-  {
-    alert("Error: " + textoError);
-  }
-  usuarioMal(textoError){
-    alert(textoError);
-  }
-  okIngresar(textoOk){
-    alert(textoOk);
-
-  }
-
-  handleSave =(e) =>{
-    let usuario = {
-        nombre: this.state.nombre,
-        direccion: this.state.direccion,
-        mail:this.state.mail,
-        password:this.state.password,
-        telefono:this.state.telefono
-    };
-    pastaController.insertContacto(usuario,this.okUsuario.bind(this),this.errorUsuario.bind(this));
-    this.setState({open: false})
-  };
+  
+  
   onChangeNombre (e){
     
     this.setState({nombre : e.target.value});
@@ -102,14 +75,7 @@ export default class FormDialog extends Component {
 
 
 
-  handleSearch=(e)=>{
-      let usuarioLogIn={
-        mail:this.state.mail,
-        password:this.state.password,
-      }
-
-    pastaController.logIn(usuarioLogIn,this.okIngresar.bind(this), this.usuarioMal.bind(this));
-  }
+  
     SearchMail = (e)=>{
       this.setState({mail : e.target.value});
     }
@@ -121,6 +87,8 @@ export default class FormDialog extends Component {
 
 
 render(){ 
+  //limpio LocalStorage
+  localStorage.clear();
   return (
     <div class="fixed-top" id="appbarprod">
     <div class="container-fluid">
@@ -181,91 +149,3 @@ render(){
     </div>
   );}
 }
-/*<button type="button" class="btn btn-outline-light">
-      <a class="nav-link" href="https://www.youtube.com/">Nuestra Historia</a>
-      </button>*/
-
-
-      /* 
-      <Button id="boton" onClick={handleClickOpenLogOn}>
-            Registrarme
-          </Button>
-          <Dialog open={openLogOn} onClose={handleCloseLogOn} aria-labelledby="form-dialog-title2">
-            <DialogTitle id="form-dialog-title2"><h2 id="form-dialog-title">Registrarme</h2></DialogTitle>
-            <DialogContent>
-              <DialogContentText id="outlined-dense">
-                ¿No tenes una cuenta?
-          Registrate y crea un nuevo usuario.
-              </DialogContentText>
-          <h2 id="form-dialog-title">Datos</h2>   
-          <TextField
-              id="outlined-dense"
-              label="Nombre"
-              placeholder="Nombre"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-      <TextField
-              id="outlined-dense"
-              label="Direccion"
-              placeholder="Direccion"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-      <TextField
-              id="outlined-dense"
-              label="Telefono/Celular"
-              placeholder="Telefono/Celular"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-              <TextField
-              id="outlined-email-input"
-              label ="Email"
-              type="email"
-              name="email"
-              placeholder="Email"
-              autoComplete="email"
-              margin="normal"
-              variant="outlined"
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-        <TextField
-              id="outlined-password-input"
-              label="Password"
-          fullWidth
-              type="password"
-              placeholder="Contraseña"
-              autoComplete="current-password"
-              margin="normal"
-              variant="outlined"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleCloseLogOn} id="confirmar">
-                Cancelar
-              </Button>
-              <Button onClick={handleCloseLogOn} id="confirmar">
-              Registrarme
-              </Button>
-            </DialogActions>
-          </Dialog>
-      */

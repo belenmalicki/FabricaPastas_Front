@@ -5,7 +5,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import pastaController from '../controller/pastaController';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import logo1 from './img/logo10.png';
 
 
@@ -19,7 +19,8 @@ class Login extends Component {
       direccion:'',
       mail:'',
       password:'',
-      telefono:''
+      telefono:'',
+      logueado: true,
     };
   }
   handleSearch=(e)=>{
@@ -28,7 +29,7 @@ class Login extends Component {
       password:this.state.password,
     }
 
-  pastaController.logIn(usuarioLogIn,this.okIngresar.bind(this), this.usuarioMal.bind(this));
+  pastaController.logIn(usuarioLogIn,this.loginCorrecto.bind(this), this.usuarioMal.bind(this));
 }
   SearchMail = (e)=>{
     this.setState({mail : e.target.value});
@@ -39,13 +40,44 @@ class Login extends Component {
   usuarioMal(textoError){
     alert(textoError);
   }
-  okIngresar(textoOk){
-    alert(textoOk);
-    return <Link to='/' />
+  
+  loginCorrecto(textoOk)
+  {
 
+
+    localStorage.setItem('Usuariologueado', this.state.nombre);
+    this.setState({logueado: false});
+    console.log("logueadoLogin",this.state.logueado);
+    alert(textoOk);
+
+    
+
+  }
+  condicionarIngresar()
+  {
+    console.log("estadologueado",this.state.logueado)
+    if (this.state.logueado)
+    {
+      return(
+        <Button onClick={this.handleSearch.bind(this)} id="confirmar">
+        Ingresar
+      </Button>
+      );
+    }
+    else
+    {
+      console.log("entre al redirect",this.state.logueado)
+      return(
+        <Redirect to='/'/>
+      );
+     
+      
+    }
+    
   }
 
   render() {
+    console.log("logueadoRender",this.state.logueado);
     return (
       // Important! Always set the container height explicitly
       <div class='backLogin'>
@@ -113,10 +145,9 @@ class Login extends Component {
                 Cancelar
               </Button>
               </Link>
-    
-              <Button onClick={this.handleSearch} id="confirmar">
-              Ingresar
-              </Button>
+              
+              {this.condicionarIngresar()}
+              
             </DialogActions>
           <br />
             <DialogContentText  class="reg_dialog" >
