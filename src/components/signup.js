@@ -19,7 +19,8 @@ class Signup extends React.Component {
       direccion:'',
       mail:'',
       password:'',
-      telefono:''
+      telefono:'',
+      logueado: true,
     };
   }
 
@@ -53,13 +54,32 @@ onChangeTelefono = (e)=>{
 
 okUsuario()
   {
+    this.setState({logueado: false});
     alert("Te has registrado con exito");
-    return  <Redirect  to="/"/>
   }
 
   errorUsuario(textoError)
   {
     alert("Error: " + textoError);
+  }
+  condicionarIngresar()
+  {
+    console.log("estadologueado",this.state.logueado)
+    if (this.state.logueado)
+    {
+      return(
+        <Button onClick={this.handleSave.bind(this)} id="confirmar">
+        Registrar
+      </Button>
+      );
+    }
+    else
+    {
+      console.log("entre al redirect",this.state.logueado)
+      return(
+        <Redirect to='/'/>
+      ); 
+    }
   }
   render() {
     return (
@@ -171,9 +191,7 @@ okUsuario()
                 Cancelar
               </Button>
               </Link>
-              <Button onClick={this.handleSave} id="confirmar">
-              Registrarme
-              </Button>
+              {this.condicionarIngresar()}
             </DialogActions>
        
        

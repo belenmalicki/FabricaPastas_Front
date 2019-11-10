@@ -14,7 +14,7 @@ import {Link, Redirect} from 'react-router-dom';
 import App from '../App';
 
 
-export default class FormDialog extends Component {
+export default class TopBar extends Component {
   constructor(props)
   {
     super(props);

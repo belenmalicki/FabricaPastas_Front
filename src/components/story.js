@@ -6,7 +6,9 @@ class Story extends React.Component{
   render(){
     return(
       <div id="nuestraHistoria">
+        <div class = "container-fluid">
        <h1 id="tituloPastas">Nuestra historia</h1>
+       </div>
        <br/><br/>
  <div class = "container-fluid">
       <div class = "row" id='foto_hist'>
@@ -17,7 +19,7 @@ class Story extends React.Component{
         </div>
         <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" id="algo">
         <br/><br/><br/><br/><br/><br/><br/><br/>
-          <div class="historia">
+          <div class="historia" >
           
             <p>
   

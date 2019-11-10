@@ -76,14 +76,8 @@ class ApiController extends Component
             console.log("response",response);
             return response.json();
         }).then (responseData => {
-                console.log(responseData);
-            
-                //console.log("Recibi datos");
+                console.log("Recibi datos", responseData);
                 okBusqueda(responseData);
-                
-          
-          
-          
         });
     }
 }

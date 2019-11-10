@@ -61,11 +61,11 @@ button:focus {
 	text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
 }
 .card-body{
-	background:white;
+	background:#f3f3eb;
 }
 
 .navbar{
-	background:white;
+	background:#f3f3eb;
 }
 
 
@@ -74,26 +74,14 @@ button:focus {
 
 .historia{
 	font-family: 'Josefin Slab';
-	color: white;
+	color: #f3f3eb;
 	text-align: center;
 	font-size: 20px;
 }
 #algo{
 	border-style: groove;
 }
-/*
-.historia{
- background-color:white;
- text-align: center;
- font-family: 'Josefin Slab';
- font-size: 20px;
- 
-}
 
-#algo{
-	background-color: white;
-
-}*/
 .logo {
 	position: absolute;
 	left: 0;
@@ -124,6 +112,8 @@ text-align: center;
 	font-family: 'Quicksand', sans-serif;
   font-size: 12px;
   text-align: right;
+  margin-right:2% ;
+
 }
 
 #registrarme{
@@ -132,7 +122,8 @@ text-align: center;
 	/*color: black;*/ 
   font-weight: bold;
   font-size: 10px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+ 
 
 }
 
@@ -171,6 +162,8 @@ text-align: center;
 
 #appbarprod{	
 	background-image: url("./components/img/background.jpg");
+	border: 0.5px;
+	border-style: groove; 
 }
 .container .btn-holder {
 	justify-content: flex-end;
@@ -199,7 +192,7 @@ text-align: center;
 
 #carrito{
 	font-family: 'Quicksand', sans-serif;
-	background-color: white;
+	background-color: rgb(243, 243, 235);
   	border: 1px solid rgb(34, 24, 24);
 	margin-top: 10%;
 }
@@ -208,7 +201,7 @@ text-align: center;
 
 .contacto{
   font-family: 'Josefin Slab';
-  color: white;
+  color: rgb(243, 243, 235);
   text-align: center;
   font-size: 40px;
   
@@ -216,7 +209,7 @@ text-align: center;
 }
 #fondo_blanco{
   font-family: 'Josefin Slab';
-  color:white;
+  color:#f3f3eb;
   font-size: 20px;
   text-align: center !important;
   justify-content: center;
@@ -236,7 +229,11 @@ text-align: center;
 	margin: 0 auto;
   }
   
+#footer{
 
+	border: 0.5px;
+	border-style: groove; 
+}
 
 
 

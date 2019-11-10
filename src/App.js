@@ -2,20 +2,17 @@ import React from 'react';
 import './App.css';
 
 import Carousel from './components/carousel.js';
-import FormDialog from './components/navbar.js'
-import Story from './components/history.js';
-import Galeria from './components/productCard.js';
+import TopBar from './components/topBar.js'
+import Story from './components/story.js';
+import Galeria from './components/prodList.js';
 import Contacto from './components/contactos.js';
+import Footer from './components/footer.js';
 
 
 
 
 /* Cosas a ver:
 
-TOMAR DECISION:
-1) hacer el login y registrarse como modals y ver si puedo cambiar el nombre para hacerlo perfil
-2) hacer "Ingresar" como un dropdown. con la opcion login o perfil
-3) hacer el login como otra pag aparte y que sea el perfil 
 
 
 Cosas par afacu:
@@ -28,14 +25,15 @@ https://deepstream.io/tutorials/example-apps/realtime-cart/
 
 -volar los br pero centrar: nuestras historia, contactos
 - agregar espacion en Nuestros productos sin usar br
--cambiar el background de Contactos cuando haces zoom
+-los mapas de contactos no quedan centrados y agregan mucho espacio al final
+-como se pueden redondear las puntas del cuadro del login y registrarse
 
--MOSTRAR FACU NUESTRA HISTORIA
 
 
 Cosas que quedan para hacer (un millon):
--(tema log in): hacer log in, carrito, registrarse y pag web del dueño
-esto para el carroito
+-  carrito  y pag web del dueño
+
+esto para el carrito
 https://www.pastasamelia.com/pastas
 
 */
@@ -48,15 +46,14 @@ function App() {
   
     <div>
       <header>
-        <FormDialog />
+        <TopBar />
       </header>
-
       <Carousel />
       <Story />       
       <Galeria />
       <Contacto />
-
-     </div>
+      <Footer />
+    </div>
 
   );
 } 

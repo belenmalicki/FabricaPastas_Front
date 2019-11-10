@@ -6,7 +6,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import pastaController from '../controller/pastaController';
 import {Link, Redirect} from 'react-router-dom';
-import logo1 from './img/logo10.png';
 
 
 class Login extends Component {
@@ -37,6 +36,7 @@ class Login extends Component {
   SearchPassword = (e)=>{
     this.setState({password : e.target.value});
   }
+  
   usuarioMal(textoError){
     alert(textoError);
   }
@@ -44,13 +44,10 @@ class Login extends Component {
   loginCorrecto(textoOk)
   {
 
-
     localStorage.setItem('Usuariologueado', this.state.nombre);
     this.setState({logueado: false});
     console.log("logueadoLogin",this.state.logueado);
     alert(textoOk);
-
-    
 
   }
   condicionarIngresar()
@@ -69,11 +66,8 @@ class Login extends Component {
       console.log("entre al redirect",this.state.logueado)
       return(
         <Redirect to='/'/>
-      );
-     
-      
+      ); 
     }
-    
   }
 
   render() {
@@ -155,21 +149,13 @@ class Login extends Component {
           Registrate y crea un nuevo usuario.
           <DialogActions>
           <Link to='/insertContacto'>
-            <Button size="small" id="registrarme" >
+            <Button  id="registrarme" >
             Registrarme
           </Button>
           </Link>
           </DialogActions>
               </DialogContentText>
-           
-             
-           {/* 
-            <DialogTitle > <h2 id="form-dialog-title" > Registrarme</h2>  </DialogTitle>
-        
-              <DialogContentText id="outlined-dense">
-                ¿No tenes una cuenta?
-          Registrate y crea un nuevo usuario.
-              </DialogContentText>*/}
+
               </div>
               </div>
               </div>
