@@ -104,7 +104,7 @@ text-align: center;
 
 #confirmar{
 	font-family: 'Quicksand', sans-serif;
-	color:rgb(32, 156, 125);
+	color:#209c7d;
 	/*color: black;*/ 
 	font-weight: bold;
 }
@@ -233,6 +233,13 @@ text-align: center;
 
 	border: 0.5px;
 	border-style: groove; 
+}
+
+.perfil{
+	font-size: 24px;
+	color:'black';
+  font-family: 'Quicksand';
+  text-align: center;
 }
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Ej from './signup';
-import Footer from './footer.js';
+
+
 
 /*export default {
     cart: [],
@@ -20,7 +20,7 @@ import Footer from './footer.js';
             <Link to='/'>Volver al inicio</Link>
            
             </div>
-            <Footer />
+       
             </div>
         );
     }

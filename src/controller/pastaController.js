@@ -5,6 +5,7 @@ const url ="http://localhost:3000/";
 const urlInsertContacto="insertContacto";
 const urlLogIn = "login";
 const urlGetProductos = "productos";
+const urlGetContacto = "getContacto";
 class ApiController extends Component
 {
 
@@ -39,23 +40,21 @@ class ApiController extends Component
       logIn(data, log,usuarioMal)
     {
         const endpoint = `${url}${urlLogIn}`;
-        console.log("Buscando")
-        console.log(data);
        fetch(endpoint,{
             method: 'POST', // or 'PUT'
             mode: "cors",
             headers:{ 'Content-Type': 'application/json'},
             body: JSON.stringify(data) // data can be `string` or {object}!
         }).then ((response) => {
-            console.log("response",response.status);
+            //console.log("response",response.status);
             if(response.status===501)
             {
-                console.log("entre al 501")
-                usuarioMal("Datos incorrectos, intente ");
+                
+                usuarioMal("Datos incorrectos, intente nuevamente");
             }
             if (response.status===200)
             {  
-                console.log("entre al 200")
+              
                 log('Ingreso el usuario correcto');
                
             }
@@ -79,7 +78,29 @@ class ApiController extends Component
                 console.log("Recibi datos", responseData);
                 okBusqueda(responseData);
         });
+    };
+
+    getContacto(data, okContacto)
+    {
+        const endpoint = `${url}${urlGetContacto}`;
+        //console.log("Buscando")
+        console.log('mi mail es: ', data);
+       fetch(endpoint,{
+            method: 'POST', // or 'PUT'
+            mode: "cors",
+            headers:{ 'Content-Type': 'application/json'},
+            body: JSON.stringify(data) // data can be `string` or {object}!
+        }).then ((response) => {
+            console.log("Recibi datos getContacto response", response);
+            return response.json();
+        }).then (responseData => {
+                console.log("Recibi datos getContacto",responseData);
+                okContacto(responseData);
+                
+        });
     }
+
+
 }
 
 export default new ApiController(); 

@@ -11,17 +11,17 @@ const Footer=() =>{
           <footer className='footer is-primary'   id="footer" style={{color:'#f3f3eb'}}>
               <div className='container'>
                 <div className='row'>
-                  <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12 " style={{ textAlign:'rigth', fontSize:'15px',}}>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 " style={{ textAlign:'rigth', fontSize:'15px',}}>
                
                       
                   </div>
-                  <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12 " style={{textAlign:'center', fontSize:'12px', marginTop:'8px', fontFamily:'Quicksand' }}>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 " style={{textAlign:'center', fontSize:'12px', marginTop:'8px', fontFamily:'Quicksand' }}>
                   <p>©Los muchachos <br/>
                   <a href='https://www.facebook.com/'  style={{fontSize:'small',color:'#f3f3eb'}}> <FacebookIcon /> </a>    
                   <a href='https://www.instagram.com/' style={{fontSize:'small',color:'#f3f3eb'}}>  <InstagramIcon  /> </a>   
                   </p> 
                   </div>
-                  <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12 "style={{textAlign:'right', fontSize:'12px', marginTop:'8px'}}>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 "style={{textAlign:'right', fontSize:'12px', marginTop:'8px'}}>
                      
                   </div>
                </div>

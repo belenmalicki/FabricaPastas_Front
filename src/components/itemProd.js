@@ -42,7 +42,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 function createData(item,idArray) 
-{   console.log('item ejemplo:',item);
+{   
   return {
     id:idArray,
     _id: item._id, 
@@ -52,12 +52,6 @@ function createData(item,idArray)
     descripcion:item.descripcion,
   };
 }
-/*function stableSort(array) {
-    console.log('stableSort', array)
-    const stabilizedThis = array.map((el) => [el]);
-    return stabilizedThis.map(el => el[0]);
-}*/
-
 
 export default class ItemProd extends Component{
     state = {
@@ -67,13 +61,11 @@ export default class ItemProd extends Component{
       
     okBusqueda(pastas){
         var i ,array=[]
-        console.log('ejemplomap', pastas);
+        //console.log('ejemplomap', pastas);
         for( i=0; i<pastas.length;i++){
             array.push(createData(pastas[i],i))
         }
         this.setState({data: array});
-        for(i=0;i<array.length;i++)
-        console.log('okbusqueda',this.state.data[i].nombre)
 
 
     }
@@ -93,12 +85,12 @@ export default class ItemProd extends Component{
     };
     handleAgregar()
             {
-                //console.log("localStorage",localStorage.length);
+                console.log("localStorage",localStorage.length);
                 if(localStorage.getItem('Usuariologueado')!==null){
                     alert('Todo joya');
                 }
                 else{
-                    alert('Logueate pa');
+                    alert('Para poder realizar un pedido, debe estar logueado');
                 }
             };
 
@@ -108,7 +100,7 @@ export default class ItemProd extends Component{
     render(){
         let{prod}=[]
         prod=this.state.data;
-        console.log(prod);
+   
         
         
         return(

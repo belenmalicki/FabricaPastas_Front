@@ -44,15 +44,15 @@ class Login extends Component {
   loginCorrecto(textoOk)
   {
 
-    localStorage.setItem('Usuariologueado', this.state.nombre);
+    localStorage.setItem('Usuariologueado', this.state.mail);
     this.setState({logueado: false});
-    console.log("logueadoLogin",this.state.logueado);
+    //console.log("Tamaño del storage",Storage.length);
+
     alert(textoOk);
 
   }
   condicionarIngresar()
   {
-    console.log("estadologueado",this.state.logueado)
     if (this.state.logueado)
     {
       return(
@@ -63,7 +63,7 @@ class Login extends Component {
     }
     else
     {
-      console.log("entre al redirect",this.state.logueado)
+      //console.log("entre al redirect",this.state.logueado)
       return(
         <Redirect to='/'/>
       ); 
@@ -71,7 +71,6 @@ class Login extends Component {
   }
 
   render() {
-    console.log("logueadoRender",this.state.logueado);
     return (
       // Important! Always set the container height explicitly
       <div class='backLogin'>

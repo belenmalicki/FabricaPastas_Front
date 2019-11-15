@@ -83,12 +83,29 @@ export default class TopBar extends Component {
       this.setState({password : e.target.value});
     }
   
-  
+  CambiarBoton(){
+
+    console.log('mi local storage', localStorage.getItem('Usuariologueado'))
+    if(localStorage.getItem('Usuariologueado')!==null){
+      return <Link to='/micuenta'>  
+      <Button id="boton" >
+        Mi cuenta
+        </Button>
+        </Link>;
+    }
+    else{
+      return <Link to='/login'>  
+      <Button id="boton" >
+        Ingresar
+        </Button>
+        </Link>;
+    }
+  }
 
 
 render(){ 
   //limpio LocalStorage
-  localStorage.clear();
+  //localStorage.clear();
   return (
     <div class="fixed-top" id="appbarprod">
     <div class="container-fluid">
@@ -126,12 +143,10 @@ render(){
              Contacto
           </Button>
         </ScrollTo>
-     
-        <Link to='/login'>  
-        <Button id="boton" >
-          Ingresar
-          </Button>
-          </Link>
+
+        {this.CambiarBoton()}
+
+        
           <Link  to='/shoppingcart'>
           <Button id="boton" onClick={this.handleClickOpenCarrito} >
           <AddShoppingCartIcon />
