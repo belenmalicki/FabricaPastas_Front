@@ -101,6 +101,15 @@ export default class TopBar extends Component {
         </Link>;
     }
   }
+  Carrito(){
+    if(localStorage.getItem('Usuariologueado')!==null){
+      return <Link  to='/shoppingcart'>
+      <Button id="boton" onClick={this.handleClickOpenCarrito} >
+      <AddShoppingCartIcon />
+      </Button>
+      </Link>
+    }
+  }
 
 
 render(){ 
@@ -124,21 +133,21 @@ render(){
          </ScrollTo>
 
          <ScrollTo
-            selector={`#${'nuestraHistoria'}`}>
+            selector={`#${'linkNuestraHistoria'}`}>
            <Button id="boton" >
                Nuestra Historia
            </Button>
         </ScrollTo>
 
         <ScrollTo
-          selector={`#${'productos'}`}>
+          selector={`#${'linkProductos'}`}>
           <Button id="boton" >
              Nuestros productos
           </Button>
         </ScrollTo>
 
         <ScrollTo
-          selector={`#${'contactos'}`}>
+          selector={`#${'linkContactos'}`}>
           <Button id="boton" >
              Contacto
           </Button>
@@ -146,12 +155,7 @@ render(){
 
         {this.CambiarBoton()}
 
-        
-          <Link  to='/shoppingcart'>
-          <Button id="boton" onClick={this.handleClickOpenCarrito} >
-          <AddShoppingCartIcon />
-          </Button>
-          </Link>
+        {this.Carrito()}
           
 
 

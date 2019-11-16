@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import PastaController from '../controller/pastaController'
+import TextField from '@material-ui/core/TextField';
 
 function createData(item,idArray) 
 {   
@@ -56,6 +57,7 @@ function createData(item,idArray)
         let con=[];
         con = this.state.data;
         console.log('mi con', con);
+        
        
 
         return(
@@ -73,7 +75,16 @@ function createData(item,idArray)
                             <div class='misDatos'style ={{ textAlign:'left'}}>
                                 <br /><br />
                                 Mis datos: <br />
-                                Direccion: {con.direccion} <Button> Modificar</Button> <br />
+                                Direccion:  <TextField
+                                    id="outlined-password-input"
+                                    hiddenLabel
+                                    margin="normal"
+                                    variant="outlined"
+                                    value = {con.direccion}
+                                    />
+
+                               
+                               <Button> Modificar</Button> <br />
                                 Telefono: {con.telefono} <Button> Modificar</Button>
                             </div>
                             <br /><br />
@@ -83,6 +94,7 @@ function createData(item,idArray)
                             </div>
                             <br /><br />
                             <div style ={{ textAlign:'right'}}>
+                            <Link to='/'>Volver al inicio</Link>
                             {this.CerrarSesion()}
                             </div>
                         </div>

@@ -104,57 +104,58 @@ export default class ItemProd extends Component{
         
         
         return(
-            <div style={{backgroundColor:'white'}}>
-             {prod.map(prod => 
-             <div>
-                <button class="bot" onClick={this.handleClickOpenSorrentinos} >
-                    <img class="d-block w-100" id="bigger" src= {Sorrentinos} alt="Sorrentinos" /> 
-                        <div class="card-body">
-                            <p class="card-text">{prod.nombre}<br /> <br />${prod.precio}</p>
-                        </div>
-                </button>
-                <Dialog maxWidth class='dialog_prod' open={this.state.openSr} onClose={this.handleCloseSorrentinos} TransitionComponent={Transition} >
-                    <AppBar id="appbarprod" className= 'appBar' style={{position: 'relative'}}>
-                        <Toolbar>
-                            <IconButton edge="start" color="inherit" onClick={this.handleCloseSorrentinos} aria-label="close">
-                                <CloseIcon />
-                            </IconButton>
+            <div class="row">
+                {prod.map(prod => 
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="product-box">
+                        <button class="bot" onClick={this.handleClickOpenSorrentinos} >
+                            <img class="d-block w-100" id="bigger" src= {Sorrentinos} alt="Sorrentinos" /> 
+                                <div class="card-body">
+                                    <p class="card-text">{prod.nombre}<br /> <br />${prod.precio}</p>
+                                </div>
+                        </button>
+                        <Dialog maxWidth class='dialog_prod' open={this.state.openSr} onClose={this.handleCloseSorrentinos} TransitionComponent={Transition} >
+                            <AppBar id="appbarprod" className= 'appBar' style={{position: 'relative'}}>
+                                <Toolbar>
+                                    <IconButton edge="start" color="inherit" onClick={this.handleCloseSorrentinos} aria-label="close">
+                                        <CloseIcon />
+                                    </IconButton>
 
-                        </Toolbar>
-                    </AppBar>
-                    <div class = "container">
-                        <div class = "row">
-                            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <br />
-                                <img class="d-block w-75" src= {Sorrentinos} alt="Sorrentinos" />
-                                <p id="text"><br />
-                                {prod.descripcion}</p>
-                            </div>
-            
-                            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-                                <br />
-                                <div id="tit-past">
-                                    <h2>{prod.nombre}</h2>
-                                    <h5>${prod.precio}</h5>
-                                </div>
-                                <div id="cant-past">
-                
-                                    <p> <br />Cantidad:</p>
-                                    <NumericInput mobile class="form-control" min={1} step={1} value={1} format={myFormatUnid}/>
-                                </div>
-                                <div class="container">
-                                    <div class="btn-holder">
-                                        <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
-                                            Agregar al carrito
-                                        </button>
+                                </Toolbar>
+                            </AppBar>
+                            <div class = "container">
+                                <div class = "row">
+                                    <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <br />
+                                        <img class="d-block w-75" src= {Sorrentinos} alt="Sorrentinos" />
+                                        <p id="text"><br />
+                                        {prod.descripcion}</p>
                                     </div>
-                                </div>
-                                </div>
+                    
+                                    <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                                        <br />
+                                        <div id="tit-past">
+                                            <h2>{prod.nombre}</h2>
+                                            <h5>${prod.precio}</h5>
+                                        </div>
+                                        <div id="cant-past">
+                        
+                                            <p> <br />Cantidad:</p>
+                                            <NumericInput mobile class="form-control" min={1} step={1} value={1} format={myFormatUnid}/>
+                                        </div>
+                                        <div class="container">
+                                            <div class="btn-holder">
+                                                <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
+                                                    Agregar al carrito
+                                                </button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
                             </div>
+                        </Dialog>
                     </div>
-                </Dialog>
-            </div>)}
-
+                </div>)}
             </div>
         );
     }

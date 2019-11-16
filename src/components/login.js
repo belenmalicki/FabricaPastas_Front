@@ -73,95 +73,83 @@ class Login extends Component {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div class='backLogin'>
-            <div class = "container-fluid" >
-                <div class = "row" id='foto_hist'>
-    <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" > </div>
-  <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" >
+      <div class='backLogin' style={{width: window.innerWidth, height: window.innerHeight}}>
+        <div class="table-content">
+          <div class="row-content">
+            <div class="box-content">
 
 
-      </div></div></div>
-      <div class = "container-fluid"  >
-
-      <div class = "row" id='foto_hist'>
-      <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" > </div>
-        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" style={{marginTop:'18%'}} >
-      <div style={{backgroundColor:'white'}}>
-      
-       
             <DialogContent>
-           {/* <img src= {logo1} alt = "logo" title = "logo" id="logo" style={{justifyContent:'center',width:'200px', borderRadius:5}}/>*/}
-              
-              <DialogContentText  id="outlined-dense" style={{fontSize:'22px'}}>
-               Ingresar
-               <br /> 
-              </DialogContentText>
-              
-              <TextField
-              id="outlined-email-input"
-              label="Email"
-              type="email"
-              name="email"
-              fullWidth
-              required
-              placeholder="Email"
-              autoComplete="email"
-              margin="normal"
-              variant="outlined"
-              value={this.state.mail}
-              onChange={this.SearchMail.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-          <br />
-        <TextField
-              id="outlined-password-input"
-              label="Password"
-              fullWidth
-              type="password"
-              placeholder="Contraseña"
-              autoComplete="current-password"
-              margin="normal"
-              variant="outlined"
-              required
-              value = {this.state.password}
-              onChange={this.SearchPassword.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            </DialogContent>
+            {/* <img src= {logo1} alt = "logo" title = "logo" id="logo" style={{justifyContent:'center',width:'200px', borderRadius:5}}/>*/}
+                
+                <DialogContentText  id="outlined-dense" style={{fontSize:'22px'}}>
+                Ingresar
+                <br /> 
+                </DialogContentText>
+                
+                <TextField
+                id="outlined-email-input"
+                label="Email"
+                type="email"
+                name="email"
+                fullWidth
+                required
+                placeholder="Email"
+                autoComplete="email"
+                margin="normal"
+                variant="outlined"
+                value={this.state.mail}
+                onChange={this.SearchMail.bind(this)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            <br />
+          <TextField
+                id="outlined-password-input"
+                label="Password"
+                fullWidth
+                type="password"
+                placeholder="Contraseña"
+                autoComplete="current-password"
+                margin="normal"
+                variant="outlined"
+                required
+                value = {this.state.password}
+                onChange={this.SearchPassword.bind(this)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              </DialogContent>
+              <DialogActions>
+              <Link to='/'>
+                <Button onClick={this.handleCloseLogIn} id="confirmar">
+                  Cancelar
+                </Button>
+                </Link>
+                
+                {this.condicionarIngresar()}
+                
+              </DialogActions>
+            <br />
+              <DialogContentText  class="reg_dialog" >
+                  ¿No tenes una cuenta? <br />
+            Registrate y crea un nuevo usuario.
             <DialogActions>
-            <Link to='/'>
-              <Button onClick={this.handleCloseLogIn} id="confirmar">
-                Cancelar
-              </Button>
-              </Link>
-              
-              {this.condicionarIngresar()}
-              
+            <Link to='/insertContacto'>
+              <Button  id="registrarme" >
+              Registrarme
+            </Button>
+            </Link>
             </DialogActions>
-          <br />
-            <DialogContentText  class="reg_dialog" >
-                ¿No tenes una cuenta? <br />
-          Registrate y crea un nuevo usuario.
-          <DialogActions>
-          <Link to='/insertContacto'>
-            <Button  id="registrarme" >
-            Registrarme
-          </Button>
-          </Link>
-          </DialogActions>
-              </DialogContentText>
-
-              </div>
-              </div>
-              </div>
-
+                </DialogContentText>
+            
+            </div>
+          </div>
+        </div>
       </div>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </div>
+
     );
   }
 }
