@@ -80,7 +80,8 @@ button:focus {
 		font-size: 34px !important;
 	}
 }*/
-#dropdown_letra{
+.dropdown_letra{
+	width: 250px;
 	font-family: 'Quicksand' ;
 	min-Width: 250;
 	font-size: '20px';
@@ -211,9 +212,10 @@ text-align: center;
 	font-family: 'Quicksand', sans-serif;
 }
 
-#text , #cant-past{
-	font-family: 'Quicksand', sans-serif;
- 	font-size: 18px;
+#text , .cant-past{
+	margin-top: 15px;
+	font-family: 'Quicksand', sans-serif, 18px;
+	border-radius: 2px;
 }
 /*VER EL ALTO DEL DIALOGO*/
 .dialog_prod{
@@ -226,10 +228,15 @@ text-align: center;
 
 }
 
-#carrito{
+.carrito{
 	font-family: 'Quicksand', sans-serif;
-	background-color: rgb(243, 243, 235);
-  	border: 1px solid rgb(34, 24, 24);
+	font-size: 18px;
+	/*background-color: rgb(243, 243, 235);  rgb(34, 24, 24);*/
+	background-color:white;
+	  border: 1px solid black;
+	  height: 40px;
+	  width: 180px;
+	  border-radius: 5px;
 	margin-top: 10%;
 }
 

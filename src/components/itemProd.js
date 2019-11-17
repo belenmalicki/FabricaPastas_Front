@@ -16,21 +16,12 @@ import Lasagna from './img/lasagna.jpg';
 import Spaghetti from './img/spaguhetti.jpg';
 import Tagliatelli from './img/tagliatelli.jpg';
 import Sorrentinos from './img/sorrentinos.jpg';
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { Button } from "@material-ui/core";
 
-/*return (
-         <div id="productos" class = "container-fluid">       
-           <h1 id="tituloPastas">Nuestras Pastas</h1>
-           <br /><br />
-            <div class = "container-fluid">
-              <div class = "row">
-                <div class = "col-lg-3 col-md-4 col-sm-4 col-xs-6" >
-                <Ejemplo />
-                </div>
-              </div>
-            </div>
-          </div>
-
-      );*/
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="down" ref={ref} {...props} />;
@@ -39,8 +30,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   function myFormatUnid(num) {
   return num + ' u';
   }
-
-
+ 
 function createData(item,idArray) 
 {   
   return {
@@ -50,68 +40,170 @@ function createData(item,idArray)
     tipo: item.tipo,
     precio :item.precio,
     descripcion:item.descripcion,
+    unidad: item.unidad,
   };
 }
 
 export default class ItemProd extends Component{
-    state = {
-        data: [],
-        open: false,
-      };
-      
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            data: [],
+            open: false,
+            cart: [],
+            cantidad: 1,
+            tipe:' ',
+        }
+        this.handleInputChange = this.handleInputChange.bind(this);
+        }
+
+
     okBusqueda(pastas){
         var i ,array=[]
         //console.log('ejemplomap', pastas);
-        for( i=0; i<pastas.length;i++){
+        for( i=4; i<5;i++){
             array.push(createData(pastas[i],i))
         }
         this.setState({data: array});
 
 
     }
-    
     componentDidMount()
   {
     //Leo los contactos de la API BD
    PastaController.getProductos(this.okBusqueda.bind(this));
   }
-
     handleClickOpenSorrentinos= () => {
+       
     this.setState({openSr: true});
     };
-  
     handleCloseSorrentinos= () => {
       this.setState({openSr: false});
     };
     handleAgregar()
             {
                 console.log("localStorage",localStorage.length);
-                if(localStorage.getItem('Usuariologueado')!==null){
-                    alert('Todo joya');
-                }
-                else{
+                if(localStorage.getItem('Usuariologueado')===null){
                     alert('Para poder realizar un pedido, debe estar logueado');
                 }
+
             };
 
+    handleInputChange(evt) {
+        this.setState({ [evt.target.name]: evt.target.value });
+        }
+              
 
+    tipoPasta(prod){
+        if(prod.tipo.length>1 && prod.unidad===true){
+        return  <div >
+         <form onSubmit={this.handleSubmit} style={{borderRadius:'5px'}} >
+        <label style={{fontFamily:'Quicksand', fontSize:'18px'}}>
+          Seleccione el sabor que prefiera :
+          <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px'}} name={'tipe'}value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
+            <option value={prod.tipo[0]} type="submit" >{prod.tipo[0]}</option>
+            <option value={prod.tipo[1]} type="submit" >{prod.tipo[1]}</option>
+            <option value={prod.tipo[2]} type="submit" >{prod.tipo[2]}</option>
+          </select>
+        </label>
+        <label style={{fontFamily:'Quicksand', fontSize:'18px',borderRadius:'5px'}}>
+           Cantidad:<br />
+           <input
+            name="cantidad"
+            type="number"
+            min={1}
+            value={this.state.cantidad}
+            onChange={this.handleInputChange} /> unid.
+         </label>
+      
+      </form>
+             <Button class="carrito" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
+                Agregar al carrito
+            </Button>
+       </div>
+        }
+        if(prod.tipo.length>1 && prod.unidad!==true){
+            return  <div >
+             <form onSubmit={this.handleSubmit}  style={{borderRadius:'5px'}}>
+            <label style={{fontFamily:'Quicksand', fontSize:'18px'}}>
+              Seleccione el sabor que prefiera :
+              <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px'}} name={'tipe'} value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
+                <option value={prod.tipo[0]} >{prod.tipo[0]}</option>
+                <option value={prod.tipo[1]} >{prod.tipo[1]}</option>
+                <option value={prod.tipo[2]} >{prod.tipo[2]}</option>
+              </select>
+            </label>
+            <label class="cant-past">
+               Cantidad:<br />
+               <input
+                name="cantidad"
+                type="number"
+                min={0.5}
+                value={this.state.cantidad}
+                onChange={this.handleInputChange}  /> kg.
+             </label>
+          
+          </form>
+             
+           </div>
+            }
+    
+    }
+
+        agregarItem= (prod) =>{
+            if(localStorage.getItem('Usuariologueado')!==null){
+            alert('Producto agregado')
+            var cart= [];
+           var Item = function(nombre, precio, cantidad, tipo){
+               this.nombre=nombre;
+               this.precio =precio;
+               this.cantidad=cantidad;
+               this.tipo =tipo
+            };
+            console.log('Your input value agregar item cant agregar: ' + this.state.cantidad)
+            console.log('Your input value agregar item tipe sagregar: ' + this.state.tipe)
+            cart.push(new Item(prod.nombre, prod.precio, this.state.cantidad ,this.state.tipe))
+            
+           // cart.push(new Item('Canelones',60,2,'verdura'));
+           // cart.push(new Item('Ravioles',220,4,'jamon y queso'));
+            console.log('mi carrito es:', cart);
+            localStorage.setItem('carrito', JSON.stringify(cart));
+            console.log('mi carrito es ls:', localStorage.getItem('carrito'));
+        } 
+        else{
+            alert('Para poder realizar un pedido, debe estar logueado');
+        }
+};
+        
+
+        agregarCarrito(prod){
+            //var inputVal = document.getElementById("inputValue").value;
+            //console.log('cantidad es:', inputVal);
+            return <Button class="carrito" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
+                Agregar al carrito
+            </Button>
+
+        }
+
+
+            
 
 
     render(){
         let{prod}=[]
         prod=this.state.data;
-   
-        
-        
         return(
             <div class="row">
                 {prod.map(prod => 
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div key={prod.id} class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="product-box">
-                        <button class="bot" onClick={this.handleClickOpenSorrentinos} >
+                    
+                        <button class="bot" onClick={(id)=>this.handleClickOpenSorrentinos(prod.id)} >
                             <img class="d-block w-100" id="bigger" src= {Sorrentinos} alt="Sorrentinos" /> 
                                 <div class="card-body">
-                                    <p class="card-text">{prod.nombre}<br /> <br />${prod.precio}</p>
+                                    <p class="card-text">{prod.nombre}</p> 
+                                    <p class="card-text">${prod.precio}</p>
                                 </div>
                         </button>
                         <Dialog maxWidth class='dialog_prod' open={this.state.openSr} onClose={this.handleCloseSorrentinos} TransitionComponent={Transition} >
@@ -138,16 +230,20 @@ export default class ItemProd extends Component{
                                             <h2>{prod.nombre}</h2>
                                             <h5>${prod.precio}</h5>
                                         </div>
-                                        <div id="cant-past">
-                        
-                                            <p> <br />Cantidad:</p>
-                                            <NumericInput mobile class="form-control" min={1} step={1} value={1} format={myFormatUnid}/>
+                                        {this.tipoPasta(prod)}
+
+                                        <div class="cant-past">
+
+                                          {/*  <NumericInput mobile class="form-control"  min={1} step={1} value={this.state.cantidad} onClick={this.updateInput} format={myFormatUnid}/>*/}
+    
                                         </div>
                                         <div class="container">
                                             <div class="btn-holder">
+                                            {/*this.agregarCarrito(prod)*/}
+                                            {/*
                                                 <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
                                                     Agregar al carrito
-                                                </button>
+                                                </button> */}
                                             </div>
                                         </div>
                                         </div>
