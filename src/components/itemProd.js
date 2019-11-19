@@ -62,7 +62,7 @@ export default class ItemProd extends Component{
     okBusqueda(pastas){
         var i ,array=[]
         //console.log('ejemplomap', pastas);
-        for( i=4; i<5;i++){
+        for( i=0; i<pastas.length;i++){
             array.push(createData(pastas[i],i))
         }
         this.setState({data: array});
@@ -74,8 +74,9 @@ export default class ItemProd extends Component{
     //Leo los contactos de la API BD
    PastaController.getProductos(this.okBusqueda.bind(this));
   }
-    handleClickOpenSorrentinos= () => {
-       
+    handleClickOpenSorrentinos= (id) => {
+        console.log('mi id es:', id)
+    
     this.setState({openSr: true});
     };
     handleCloseSorrentinos= () => {
@@ -151,7 +152,7 @@ export default class ItemProd extends Component{
     
     }
 
-        agregarItem= (prod) =>{
+    agregarItem= (prod) =>{
             if(localStorage.getItem('Usuariologueado')!==null){
             alert('Producto agregado')
             var cart= [];
@@ -165,8 +166,8 @@ export default class ItemProd extends Component{
             console.log('Your input value agregar item tipe sagregar: ' + this.state.tipe)
             cart.push(new Item(prod.nombre, prod.precio, this.state.cantidad ,this.state.tipe))
             
-           // cart.push(new Item('Canelones',60,2,'verdura'));
-           // cart.push(new Item('Ravioles',220,4,'jamon y queso'));
+            cart.push(new Item('Canelones',60,2,'verdura'));
+            cart.push(new Item('Ravioles',220,4,'jamon y queso'));
             console.log('mi carrito es:', cart);
             localStorage.setItem('carrito', JSON.stringify(cart));
             console.log('mi carrito es ls:', localStorage.getItem('carrito'));
@@ -177,7 +178,7 @@ export default class ItemProd extends Component{
 };
         
 
-        agregarCarrito(prod){
+    agregarCarrito(prod){
             //var inputVal = document.getElementById("inputValue").value;
             //console.log('cantidad es:', inputVal);
             return <Button class="carrito" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
@@ -199,14 +200,14 @@ export default class ItemProd extends Component{
                 <div key={prod.id} class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="product-box">
                     
-                        <button class="bot" onClick={(id)=>this.handleClickOpenSorrentinos(prod.id)} >
+                        <Button class="bot" onClick={()=>this.handleClickOpenSorrentinos(prod.id)} >
                             <img class="d-block w-100" id="bigger" src= {Sorrentinos} alt="Sorrentinos" /> 
                                 <div class="card-body">
                                     <p class="card-text">{prod.nombre}</p> 
                                     <p class="card-text">${prod.precio}</p>
                                 </div>
-                        </button>
-                        <Dialog maxWidth class='dialog_prod' open={this.state.openSr} onClose={this.handleCloseSorrentinos} TransitionComponent={Transition} >
+                        </Button>
+                        <Dialog key={prod.id} maxWidth class='dialog_prod' open={this.state.openSr} onClose={this.handleCloseSorrentinos} TransitionComponent={Transition} >
                             <AppBar id="appbarprod" className= 'appBar' style={{position: 'relative'}}>
                                 <Toolbar>
                                     <IconButton edge="start" color="inherit" onClick={this.handleCloseSorrentinos} aria-label="close">
