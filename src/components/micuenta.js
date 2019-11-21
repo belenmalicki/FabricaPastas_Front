@@ -12,6 +12,8 @@ function createData(item,idArray)
     nombre: item.nombre, 
     direccion: item.direccion,
     telefono :item.telefono,
+    mail: item.mail,
+
   };
 }
 
@@ -61,53 +63,55 @@ function createData(item,idArray)
        
 
         return(
-            <div>
-            <div style ={{backgroundColor:'white', textAlign:'center'}}> 
+            <div class='backPerfil' style={{width: window.innerWidth, height: window.innerHeight}}>
+           
             {con.map(con =>
-            <div style ={{justifyContent:'center'}}>
-                <div class = "container-fluid">
-                    <div class = "row" >
-                        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" ></div> 
-                        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" >
-                            <div class='perfil'>
-                                Bienvenido:  {con.nombre}
+            
+                <div class="table-content">
+                    <div class="row-content">
+                         <div class="box-content">
+                         <div id="profile">
+                            <div>
+                                <h1 class='perfil'><strong>Bienvenido, {con.nombre}</strong></h1>
                             </div>
-                            <div class='misDatos'style ={{ textAlign:'left'}}>
-                                <br /><br />
-                                Mis datos: <br />
-                                Direccion:  <TextField
-                                    id="outlined-password-input"
-                                    hiddenLabel
-                                    margin="normal"
-                                    variant="outlined"
-                                    value = {con.direccion}
-                                    />
-
+                            <div>
+                            <h2 class="perfil">Mis datos: </h2>
+                                    <p class="letra_perfil"> Direccion: {con.direccion}</p>
+									<p class="letra_perfil"> Mail: {con.mail}</p>
+                                    <p class="letra_perfil"> Telefono: {con.telefono}</p>
+                       
                                
                                <Button> Modificar</Button> <br />
-                                Telefono: {con.telefono} <Button> Modificar</Button>
+                                 <Button> Modificar</Button>
                             </div>
                             <br /><br />
                             <div class='pedidos'>
                                 Pedido pendiente:
 
                             </div>
-                            <br /><br />
+                            
+                            
                             <div style ={{ textAlign:'right'}}>
-                            <Link to='/'>Volver al inicio</Link>
+                            <Button>
+                            <Link to='/'>VOLVER AL INICIO</Link>
+                            </Button>
                             {this.CerrarSesion()}
+                            
+                            </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+           
+           
+         </div>
             )}
            
             
            
             </div>
        
-            </div>
+         
+            
         );
     }
     
