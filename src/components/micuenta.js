@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import PastaController from '../controller/pastaController'
 import TextField from '@material-ui/core/TextField';
 
@@ -70,34 +71,50 @@ function createData(item,idArray)
                 <div class="table-content">
                     <div class="row-content">
                          <div class="box-content">
-                         <div id="profile">
-                            <div>
-                                <h1 class='perfil'><strong>Bienvenido, {con.nombre}</strong></h1>
+                            <div id="profile">
+                                <div>
+                                    <h1 class='perfil'><strong>¡Bienvenido, {con.nombre}!</strong></h1>
+                                </div>
+                                <div>
+                                    <h3 class="misDatos">Mis datos: </h3>
+                                    <Divider />
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p class="letra_perfil"> <strong>Mail:</strong> {con.mail}</p>
+                                        </div>
+                                    </div>
+                                    <Divider />
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p class="letra_perfil"> <strong>Direccion:</strong> {con.direccion} </p>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <Button size="small" style={{float: 'right', marginTop: '12px'}}><strong>Modificar</strong></Button>
+                                        </div>
+                                    </div>
+                                    <Divider />
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p class="letra_perfil"> <strong>Telefono:</strong> {con.telefono}</p>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <Button size="small" style={{float: 'right', marginTop: '12px'}}><strong>Modificar</strong></Button>
+                                        </div>
+                                    </div>
+                                    <Divider />
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p class="letra_perfil"> <strong>Pedido pendiente:</strong> </p>
+                                        </div>
+                                    </div>
+                                    <Divider />
+                                </div>
                             </div>
-                            <div>
-                            <h2 class="perfil">Mis datos: </h2>
-                                    <p class="letra_perfil"> Direccion: {con.direccion}</p>
-									<p class="letra_perfil"> Mail: {con.mail}</p>
-                                    <p class="letra_perfil"> Telefono: {con.telefono}</p>
-                       
-                               
-                               <Button> Modificar</Button> <br />
-                                 <Button> Modificar</Button>
-                            </div>
-                            <br /><br />
-                            <div class='pedidos'>
-                                Pedido pendiente:
-
-                            </div>
-                            
-                            
-                            <div style ={{ textAlign:'right'}}>
-                            <Button>
-                            <Link to='/'>VOLVER AL INICIO</Link>
-                            </Button>
-                            {this.CerrarSesion()}
-                            
-                            </div>
+                            <div style ={{ textAlign:'right', position: 'absolute', bottom: 10, right: 10}}>
+                                <Button>
+                                    <Link to='/' style={{color:'#209c7d'}}>VOLVER AL INICIO</Link>
+                                </Button>
+                                {this.CerrarSesion()}
                             </div>
                         </div>
                     </div>

@@ -51,7 +51,7 @@ body {
 
 .backPerfil {
 	/*background-image: url("./components/img/backlogin.jpg");*/
-		background-image: url("./components/img/backlogin3Color.jpg");
+		background-image: url("./components/img/backlogin.jpg");
 		background-color: black;
 		background-size: 100% 100%;
 	}
@@ -74,7 +74,7 @@ body {
 		margin: 0 auto;
 		width: 500px;
 		height: 500px;
-		background:blanchedalmond;
+		background:white;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 10px;
@@ -84,6 +84,7 @@ body {
 		padding-top: 25px;
 		padding-left: 25px;
 		padding-right: 25px;
+		position: relative;
 	}
 
 	#profile .perfil{
@@ -91,6 +92,15 @@ body {
 		color: black(243, 243, 235);
 		text-align: center;
 		  font-size: 40px;
+		  margin-top: 10px;
+
+	  }
+
+	  #profile .misDatos{
+		font-family: 'Josefin Slab';
+		color: black(243, 243, 235);
+		text-align: center;
+		  font-size: 30px;
 		  margin-top: 10px;
 
 	  }
@@ -113,13 +123,14 @@ body {
 	
 	  }
 	  
-	  #profile .content-place .letra_perfil {
-		font-size: 20px;
+	  #profile p.letra_perfil {
+		font-size: 22px;
 		font-family: 'Josefin Slab';
-		  text-align: center;
+		  text-align: left;
 		  line-height: 20px;
-		  
+		  padding-top: 18px;
 	  }
+	
 
 button:focus {
 	outline:0;
