@@ -31,7 +31,8 @@ https://deepstream.io/tutorials/example-apps/realtime-cart/
 
 
 Cosas que quedan para hacer (un millon):
--  carrito  y pag web del dueño
+- completar el campo de pedido pendeinte
+-hacer un update de los campos
 
 esto para el carrito
 https://www.pastasamelia.com/pastas
