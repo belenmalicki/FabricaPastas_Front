@@ -279,22 +279,39 @@ export default class ItemProd extends Component{
 
     agregarItem= (prod) =>{
             if(localStorage.getItem('Usuariologueado')!==null){
-            alert('Producto agregado')
-            var cart= [];
-           var Item = function(nombre, precio, cantidad, tipo){
-               this.nombre=nombre;
-               this.precio =precio;
-               this.cantidad=cantidad;
-               this.tipo =tipo;
-            };
-            console.log('Your input value agregar item cant agregar: ' + this.state.cantidad)
-            console.log('Your input value agregar item tipe sagregar: ' + this.state.tipe)
-            cart.push(new Item(prod.nombre, prod.precio, this.state.cantidad ,this.state.tipe))
-            
-            cart.push(new Item('Canelones',60,2,'verdura'));
-            cart.push(new Item('Ravioles',220,4,'jamon y queso'));
+            alert('Producto agregado');
+            var cartLS = JSON.parse(localStorage.getItem('carrito'));
+            if (cartLS===null)
+            {
+                var cart= [];
+                var Item = function(nombre, precio, cantidad, tipo){
+                this.nombre=nombre;
+                this.precio =precio;
+                this.cantidad=cantidad;
+                this.tipo =tipo;
+                };
+                console.log('Your input value agregar item cant agregar: ' + this.state.cantidad)
+                console.log('Your input value agregar item tipe sagregar: ' + this.state.tipe)
+                cart.push(new Item(prod.nombre, prod.precio, this.state.cantidad ,this.state.tipe))
+                localStorage.setItem('carrito', JSON.stringify(cart));
+            }
+            else
+            {
+                var Item = function(nombre, precio, cantidad, tipo){
+                    this.nombre=nombre;
+                    this.precio =precio;
+                    this.cantidad=cantidad;
+                    this.tipo =tipo;
+                    };
+                    console.log('Your input value agregar item cant agregar: ' + this.state.cantidad)
+                    console.log('Your input value agregar item tipe sagregar: ' + this.state.tipe)
+                    cartLS.push(new Item(prod.nombre, prod.precio, this.state.cantidad ,this.state.tipe))
+                    localStorage.setItem('carrito', JSON.stringify(cartLS));
+            }
+            //cart.push(new Item('Canelones',60,2,'verdura'));
+           // cart.push(new Item('Ravioles',220,4,'jamon y queso'));
             console.log('mi carrito es:', cart);
-            localStorage.setItem('carrito', JSON.stringify(cart));
+            
             console.log('mi carrito es ls:', localStorage.getItem('carrito'));
         } 
         else{
@@ -318,6 +335,7 @@ export default class ItemProd extends Component{
 
     render(){
         let prods=this.state.data;
+        
         return(
             <div class="row">
                 {prods.map(prod => 

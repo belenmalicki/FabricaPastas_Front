@@ -60,14 +60,22 @@ import { Form, Checkbox } from 'semantic-ui-react'
       }
 
     render(){
-      var rows
+      var rows,total;
       //JSON.parse(localStorage.getItem('carrito'))).length===0|| 
       if(JSON.parse(localStorage.getItem('carrito'))===null){
          rows = [
           createData('No se seleccionó ningún producto', ' ', ' ', ' ', ' ')]
       }
-      else{
+      else
+      {
          rows=JSON.parse(localStorage.getItem('carrito'))
+         total=0;
+         for (let i = 0; i < rows.length; i++) 
+         {
+          total = total + (parseInt(rows[i].precio)* parseInt(rows[i].cantidad));
+          console.log()
+         }
+       
       }
       
       console.log('rows',rows);
@@ -96,10 +104,14 @@ import { Form, Checkbox } from 'semantic-ui-react'
                   <TableCell align="left" style={{fontSize:'16px'}}>{row.cantidad}</TableCell>
                   <TableCell align="left" style={{fontSize:'16px'}}>{row.precio}</TableCell>
                   <TableCell align="left" style={{fontSize:'16px'}}>{row.precio*row.cantidad}</TableCell>
+                  
                   <Link  to='/shoppingcart'>
                   <Button key={row.nombre} onClick={()=>this.eliminarProd(row.nombre, row.tipo)}>Eliminar</Button>
                   </Link>
-                  {sum=sum +row.precio*row.cantidad}
+                  <div>
+                    
+                  </div>
+                 
 
                   </TableRow>
                 
@@ -108,7 +120,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
                   <TableCell align="left"></TableCell>
                   <TableCell align="left"></TableCell>
                   <TableCell align="left" style={{fontSize:'25px'}} >Total:</TableCell>
-                  <TableCell align="left" style={{fontSize:'25px'}}>{sum}</TableCell>
+                  <TableCell align="left" style={{fontSize:'25px'}}>{total}</TableCell>
 
             </TableBody>
           </Table>
@@ -142,8 +154,9 @@ import { Form, Checkbox } from 'semantic-ui-react'
           sucursal:this.sucursal,
         }
         console.log('parse json', pedidoUsuario );
-
-        //pastaController.insertPedido(pedidoUsuario);
+        localStorage.setItem('pedido',JSON.stringify(pedidoUsuario));
+       // console.log('stringfy de pedido', localStorage.getItem('pedido'));
+        pastaController.insertPedido(pedidoUsuario);
       }
       else if((JSON.parse(localStorage.getItem('carrito'))).length===0){
         alert('No se encontró ningun pedido');
@@ -236,7 +249,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
                                Gracias por realizar su pedido 
                               </p>
                               <p style={{ marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'18px' }}>
-                               Uno de nuestros representantes se comunicara con usted a la brevedad
+                               Uno de nuestros representantes se comunicara con usted a la brevedad.
                               </p>
                               <p style={{ marginBottom:'5px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'18px' }}>
                               Recuerde informar su mail de usuario a la hora de retirar el pedido.
