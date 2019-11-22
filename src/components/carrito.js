@@ -10,11 +10,20 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import pastaController from '../controller/pastaController';
 import Modal from 'react-bootstrap/Modal'
+import Dialog from '@material-ui/core/Dialog';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Slide from '@material-ui/core/Slide';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import { Form, Checkbox } from 'semantic-ui-react'
 
   function createData(nombre, tipo, cantidad, precio, total) {
     return {nombre, tipo, cantidad, precio, total };
   }
-
+  const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="down" ref={ref} {...props} />;
+  });
 
   class ProdTable extends React.Component{
     constructor(props){
@@ -52,7 +61,8 @@ import Modal from 'react-bootstrap/Modal'
 
     render(){
       var rows
-      if((JSON.parse(localStorage.getItem('carrito'))).length===0){
+      //JSON.parse(localStorage.getItem('carrito'))).length===0|| 
+      if(JSON.parse(localStorage.getItem('carrito'))===null){
          rows = [
           createData('No se seleccionó ningún producto', ' ', ' ', ' ', ' ')]
       }
@@ -110,72 +120,60 @@ import Modal from 'react-bootstrap/Modal'
     }
   }
  
-  function MyVerticallyCenteredModal(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-
   class Shoppingcart extends React.Component{
+    constructor(props){
+      super(props);
+      
+      this.state = {
+          open: false,
+          openMsj:false,
+          sucursal:'',
+      }
+    }
+    handleGrabar=()=>{
 
-    handleGrabar(){
-      if((JSON.parse(localStorage.getItem('carrito'))).length!==0){
-        alert('grabar');
+      if((JSON.parse(localStorage.getItem('carrito'))).length!==0 && this.sucursal!== undefined){
+        //alert('grabar');
+        this.setState({openMsj: true});
+        console.log('la sucursal que seleccionaste fue:', this.sucursal);
         let pedidoUsuario={
           pedido:JSON.parse(localStorage.getItem('carrito')),
           cliente:localStorage.getItem('Usuariologueado'),
+          sucursal:this.sucursal,
         }
         console.log('parse json', pedidoUsuario );
 
         //pastaController.insertPedido(pedidoUsuario);
       }
-    }
+      else if((JSON.parse(localStorage.getItem('carrito'))).length===0){
+        alert('No se encontró ningun pedido');
+      }
+      else if(this.sucursal === undefined){
+        alert('Seleccione una sucursal para continuar');
+      }
 
-    handleClickOpenConfirmar(){
-      //this.setState({openSr: true,prodSelec:aux});
     }
-   /* handleClickOpenSorrentinos= (id) => {
-      console.log('mi id es:', id)
-      let aux = this.state.data[id];
-      console.log('prod selec:', aux)
- 
+    handleClickOpenConfirmar= () => {
+      this.setState({openConf: true});
   };
-  handleCloseSorrentinos= () => {
-    this.setState({openSr: false});
-  };*/
-      state = { show: false };
-      showModal = () => {
-        this.setState({ show: true });
-      };
+    handleCloseConfirmar= () => {
+      this.setState({openConf: false});
+  };
 
-      hideModal = () => {
-        this.setState({ show: false });
-      };
-
+  handleCloseMensaje= () => {
+    this.setState({openMsj: false});
+    this.setState({openConf: false});
+};
+  handleInputChange(evt) {
+  this.setState({ [evt.target.name]: evt.target.value });
+  }
+       
+   state = {}
+  handleChangeSucursal = (e, { value }) => this.setState({ value })
+//https://react.semantic-ui.com/modules/checkbox/ 
     render(){
-      
+      console.log('la sucursal es:', this.sucursal);
+      this.sucursal=this.state.value;
         return(
             <div  class='' style={{width: window.innerWidth, height: window.innerHeight}}>
             <div id="tituloPastas" style ={{textAlign:'center', marginTop:'30px'}}> 
@@ -187,17 +185,78 @@ import Modal from 'react-bootstrap/Modal'
                 <ProdTable />
                 </div>
             <br /><br />
-            <Modal show={this.state.show} handleClose={this.hideModal}>
-              <p>Modal</p>
-              <p>Data</p>
-            </Modal>
-            <Button onClick={this.showModal}>Confirmar pedido</Button>
+            
+            
+            <Button onClick={()=>this.handleClickOpenConfirmar()} style={{color:'white'}} >Confirmar pedido</Button>
+            <Dialog  open={this.state.openConf} onClose={this.handleCloseConfirmar} TransitionComponent={Transition} style={{textAlign:'center'}}>
+                           
+                <p style={{marginTop:'40px', marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'24px' ,fontWeight:'bold'}}>
+                    ¿Desea confirmar la reserva? 
+                </p>
+                <p style={{ marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'16px'}}>
+                    Te llamaremos en las proximas 24 hs. horas para confirmar el día y horario de retiro.
+                </p>
+                <p style={{fontFamily:'Quicksand', fontSize:'18px', textAlign:'left', marginLeft:'60px', marginBottom:'20px'}}>
+                    Seleccione la sucursal a retirar su pedido.
+                </p>
+
+                  <Form style={{fontFamily:'Quicksand', fontSize:'18px', textAlign:'left', marginLeft:'80px', marginBottom:'60px'}}>
+                      <Form.Field>
+                      </Form.Field>
+                      <Form.Field>
+                        <Checkbox
+                          radio
+                          label='Güemes 3331'
+                          name='checkboxRadioGroup'
+                          value='Guemes'
+                          checked={this.state.value === 'Guemes'}
+                          onChange={this.handleChangeSucursal}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <Checkbox
+                          radio
+                          label='Rivadavia 4035'
+                          name='checkboxRadioGroup'
+                          value='Rivadavia'
+                          checked={this.state.value === 'Rivadavia'}
+                          onChange={this.handleChangeSucursal}
+                        />
+                      </Form.Field>
+
+                    </Form>
+
+
+                <div >
+                    <Button  style={{justifyContent:'flex-start',marginRight:'100px',marginBottom:'40px', color:'#209c7d', fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={()=>this.handleGrabar()}>
+                        Aceptar
+                    </Button>
+                            <Dialog  open={this.state.openMsj} onClose={this.handleCloseMensaje} TransitionComponent={Transition} style={{textAlign:'center'}}>
+                            <p style={{marginTop:'40px', marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'24px' ,fontWeight:'bold'}}>
+                               Gracias por realizar su pedido 
+                              </p>
+                              <p style={{ marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'18px' }}>
+                               Uno de nuestros representantes se comunicara con usted a la brevedad
+                              </p>
+                              <p style={{ marginBottom:'5px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'18px' }}>
+                              Recuerde informar su mail de usuario a la hora de retirar el pedido.
+                              </p>
+                                        
+                                  <Button style={{justifyContent:'flex-end', marginBottom:'40px', color:'#209c7d',  fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseMensaje}>
+                                      Volver al inicio
+                                  </Button>
+                                                  
+                              </Dialog>
+           
+
+                    <Button style={{justifyContent:'flex-end', marginBottom:'40px', color:'#209c7d',  fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseConfirmar}>
+                        Cancelar
+                    </Button>
+                      </div>                     
+              </Dialog>
            
             <Link to='/'>Volver al inicio</Link>
 
-        <button type="button" >
-          open
-        </button>
             
        
             </div>
