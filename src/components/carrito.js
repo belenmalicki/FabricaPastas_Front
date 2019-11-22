@@ -8,13 +8,15 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import pastaController from '../controller/pastaController';
+import Modal from 'react-bootstrap/Modal'
 
   function createData(nombre, tipo, cantidad, precio, total) {
     return {nombre, tipo, cantidad, precio, total };
   }
 
 
-  class Tabless extends React.Component{
+  class ProdTable extends React.Component{
     constructor(props){
       super(props);
       
@@ -44,8 +46,7 @@ import Paper from '@material-ui/core/Paper';
         //console.log('Vector final ult', aux);
         var a= JSON.stringify(aux);
         localStorage.setItem('carrito', a);
-
-        //console.log('vector string a:', a);
+        console.log('localstorage', localStorage.getItem('carrito'));
       }
       }
 
@@ -108,10 +109,73 @@ import Paper from '@material-ui/core/Paper';
       );
     }
   }
+ 
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
 
   class Shoppingcart extends React.Component{
-    render(){
 
+    handleGrabar(){
+      if((JSON.parse(localStorage.getItem('carrito'))).length!==0){
+        alert('grabar');
+        let pedidoUsuario={
+          pedido:JSON.parse(localStorage.getItem('carrito')),
+          cliente:localStorage.getItem('Usuariologueado'),
+        }
+        console.log('parse json', pedidoUsuario );
+
+        //pastaController.insertPedido(pedidoUsuario);
+      }
+    }
+
+    handleClickOpenConfirmar(){
+      //this.setState({openSr: true,prodSelec:aux});
+    }
+   /* handleClickOpenSorrentinos= (id) => {
+      console.log('mi id es:', id)
+      let aux = this.state.data[id];
+      console.log('prod selec:', aux)
+ 
+  };
+  handleCloseSorrentinos= () => {
+    this.setState({openSr: false});
+  };*/
+      state = { show: false };
+      showModal = () => {
+        this.setState({ show: true });
+      };
+
+      hideModal = () => {
+        this.setState({ show: false });
+      };
+
+    render(){
+      
         return(
             <div  class='' style={{width: window.innerWidth, height: window.innerHeight}}>
             <div id="tituloPastas" style ={{textAlign:'center', marginTop:'30px'}}> 
@@ -120,14 +184,20 @@ import Paper from '@material-ui/core/Paper';
    
 
              <div style={{justifyContent:'center', marginTop:'80px'}}>                   
-                <Tabless />
+                <ProdTable />
                 </div>
             <br /><br />
-            
-            <Button>Confirmar pedido</Button>
-            
-            <Link to='/'>Volver al inicio</Link>
+            <Modal show={this.state.show} handleClose={this.hideModal}>
+              <p>Modal</p>
+              <p>Data</p>
+            </Modal>
+            <Button onClick={this.showModal}>Confirmar pedido</Button>
            
+            <Link to='/'>Volver al inicio</Link>
+
+        <button type="button" >
+          open
+        </button>
             
        
             </div>

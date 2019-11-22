@@ -54,6 +54,7 @@ export default class ItemProd extends Component{
             cart: [],
             cantidad: 1,
             tipe:' ',
+            prodSelec: null,
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         }
@@ -76,8 +77,9 @@ export default class ItemProd extends Component{
   }
     handleClickOpenSorrentinos= (id) => {
         console.log('mi id es:', id)
-    
-    this.setState({openSr: true});
+        let aux = this.state.data[id];
+        console.log('prod selec:', aux)
+    this.setState({openSr: true,prodSelec:aux});
     };
     handleCloseSorrentinos= () => {
       this.setState({openSr: false});
@@ -96,60 +98,183 @@ export default class ItemProd extends Component{
         }
               
 
-    tipoPasta(prod){
-        if(prod.tipo.length>1 && prod.unidad===true){
-        return  <div >
-         <form onSubmit={this.handleSubmit} style={{borderRadius:'5px'}} >
-        <label style={{fontFamily:'Quicksand', fontSize:'18px'}}>
-          Seleccione el sabor que prefiera :
-          <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px'}} name={'tipe'}value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
-            <option value={prod.tipo[0]} type="submit" >{prod.tipo[0]}</option>
-            <option value={prod.tipo[1]} type="submit" >{prod.tipo[1]}</option>
-            <option value={prod.tipo[2]} type="submit" >{prod.tipo[2]}</option>
-          </select>
-        </label>
-        <label style={{fontFamily:'Quicksand', fontSize:'18px',borderRadius:'5px'}}>
-           Cantidad:<br />
-           <input
-            name="cantidad"
-            type="number"
-            min={1}
-            value={this.state.cantidad}
-            onChange={this.handleInputChange} /> unid.
-         </label>
-      
-      </form>
-             <Button class="carrito" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
-                Agregar al carrito
-            </Button>
-       </div>
-        }
-        if(prod.tipo.length>1 && prod.unidad!==true){
-            return  <div >
-             <form onSubmit={this.handleSubmit}  style={{borderRadius:'5px'}}>
-            <label style={{fontFamily:'Quicksand', fontSize:'18px'}}>
-              Seleccione el sabor que prefiera :
-              <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px'}} name={'tipe'} value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
-                <option value={prod.tipo[0]} >{prod.tipo[0]}</option>
-                <option value={prod.tipo[1]} >{prod.tipo[1]}</option>
-                <option value={prod.tipo[2]} >{prod.tipo[2]}</option>
-              </select>
-            </label>
-            <label class="cant-past">
-               Cantidad:<br />
-               <input
-                name="cantidad"
-                type="number"
-                min={0.5}
-                value={this.state.cantidad}
-                onChange={this.handleInputChange}  /> kg.
-             </label>
-          
-          </form>
-             
-           </div>
+    tipoPasta(){
+        
+        let prod = this.state.prodSelec;
+        console.log("tipopastaPROD",this.state.prodSelec)
+        if (prod!==null)
+        {
+            if (prod.tipo.length>1 && prod.unidad===true)
+            {
+                return(
+                <div class = "container">
+                    <div class = "row">
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <br />
+                            <img class="d-block w-75" src= {Sorrentinos} alt="Sorrentinos" />
+                            <p id="text"><br />
+                            {prod.descripcion}</p>
+                        </div>
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                            <br />
+                            <div id="tit-past">
+                                <h2>{prod.nombre}</h2>
+                                <h5>${prod.precio}</h5>
+                            </div>
+                        <div >
+                        <form onSubmit={this.handleSubmit} style={{borderRadius:'5px'}} >
+                            <label style={{fontFamily:'Quicksand', fontSize:'18px'}}>
+                                Seleccione el sabor que prefiera :
+                                <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px'}} name={'tipe'}value={this.state.tipo} onChange={this.handleInputChange}  variant="outlined" >
+                                    <option value={prod.tipo[0]} type="submit" >{prod.tipo[0]}</option>
+                                    <option value={prod.tipo[1]} type="submit" >{prod.tipo[1]}</option>
+                                    <option value={prod.tipo[2]} type="submit" >{prod.tipo[2]}</option>
+                                </select>
+                            </label>
+                            <label style={{fontFamily:'Quicksand', fontSize:'18px',borderRadius:'5px'}}>
+                                Cantidad:<br />
+                            <input
+                                name="cantidad"
+                                type="number"
+                                min={1}
+                                value={this.state.cantidad}
+                                onChange={this.handleInputChange} /> unid.
+                            </label>
+                        </form>
+                        <Button class="carrito" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
+                            Agregar al carrito
+                        </Button>
+                    </div>
+                    <div class="cant-past">
+                    {/*  <NumericInput mobile class="form-control"  min={1} step={1} value={this.state.cantidad} onClick={this.updateInput} format={myFormatUnid}/>*/}
+
+                    </div>
+                    <div class="container">
+                        <div class="btn-holder">
+                            {/*this.agregarCarrito(prod)*/}
+                            {/*
+                                <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
+                                    Agregar al carrito
+                                </button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                )
             }
-    
+            if(prod.tipo.length>1 && prod.unidad!==true)
+            {
+                return(
+                <div class = "container">
+                    <div class = "row">
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <br />
+                            <img class="d-block w-75" src= {Sorrentinos} alt="Sorrentinos" />
+                            <p id="text"><br />
+                            {prod.descripcion}</p>
+                        </div>
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                            <br />
+                            <div id="tit-past">
+                                <h2>{prod.nombre}</h2>
+                                <h5>${prod.precio}</h5>
+                            </div>
+                        <div >
+                        <form onSubmit={this.handleSubmit}  style={{borderRadius:'5px'}}>
+                            <label style={{fontFamily:'Quicksand', fontSize:'18px'}}>
+                                Seleccione el sabor que prefiera :
+                                <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px'}} name={'tipe'} value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
+                                    <option value={prod.tipo[0]} >{prod.tipo[0]}</option>
+                                    <option value={prod.tipo[1]} >{prod.tipo[1]}</option>
+                                    <option value={prod.tipo[2]} >{prod.tipo[2]}</option>
+                                </select>
+                            </label>
+                            <label class="cant-past">
+                                Cantidad:<br />
+                                <input
+                                    name="cantidad"
+                                    type="number"
+                                    min={0.5}
+                                    value={this.state.cantidad}
+                                    onChange={this.handleInputChange}  /> kg.
+                            </label>
+                        </form>    
+                        <Button class="carrito" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
+                            Agregar al carrito
+                        </Button>
+                    </div>
+                    <div class="cant-past">
+                        {/*  <NumericInput mobile class="form-control"  min={1} step={1} value={this.state.cantidad} onClick={this.updateInput} format={myFormatUnid}/>*/}
+
+                    </div>
+                    <div class="container">
+                        <div class="btn-holder">
+                                {/*this.agregarCarrito(prod)*/}
+                                {/*
+                                    <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
+                                        Agregar al carrito
+                                    </button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        )
+    }    
+        
+        if(prod.tipo.length===1 )
+        {
+            return(
+            <div class = "container">
+                <div class = "row">
+                    <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <br />
+                        <img class="d-block w-75" src= {Sorrentinos} alt="Sorrentinos" />
+                        <p id="text"><br />
+                        {prod.descripcion}</p>
+                    </div>
+                    <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                        <br />
+                        <div id="tit-past">
+                            <h2>{prod.nombre}</h2>
+                            <h5>${prod.precio}</h5>
+                        </div>
+                    <div >
+                    <form onSubmit={this.handleSubmit}  style={{borderRadius:'5px'}}>
+                        <label class="cant-past">
+                            Cantidad:<br />
+                            <input
+                                name="cantidad"
+                                type="number"
+                                min={0.5}
+                                value={this.state.cantidad}
+                                onChange={this.handleInputChange}  /> kg.
+                        </label>
+                    </form>    
+                    <Button class="carrito" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
+                            Agregar al carrito
+                        </Button>
+                </div>
+                <div class="cant-past">
+                    {/*  <NumericInput mobile class="form-control"  min={1} step={1} value={this.state.cantidad} onClick={this.updateInput} format={myFormatUnid}/>*/}
+
+                </div>
+                <div class="container">
+                    <div class="btn-holder">
+                            {/*this.agregarCarrito(prod)*/}
+                            {/*
+                                <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
+                                    Agregar al carrito
+                                </button> */}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    )
+        }    
+    }
     }
 
     agregarItem= (prod) =>{
@@ -160,7 +285,7 @@ export default class ItemProd extends Component{
                this.nombre=nombre;
                this.precio =precio;
                this.cantidad=cantidad;
-               this.tipo =tipo
+               this.tipo =tipo;
             };
             console.log('Your input value agregar item cant agregar: ' + this.state.cantidad)
             console.log('Your input value agregar item tipe sagregar: ' + this.state.tipe)
@@ -192,11 +317,10 @@ export default class ItemProd extends Component{
 
 
     render(){
-        let{prod}=[]
-        prod=this.state.data;
+        let prods=this.state.data;
         return(
             <div class="row">
-                {prod.map(prod => 
+                {prods.map(prod => 
                 <div key={prod.id} class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="product-box">
                     
@@ -216,40 +340,10 @@ export default class ItemProd extends Component{
 
                                 </Toolbar>
                             </AppBar>
-                            <div class = "container">
-                                <div class = "row">
-                                    <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <br />
-                                        <img class="d-block w-75" src= {Sorrentinos} alt="Sorrentinos" />
-                                        <p id="text"><br />
-                                        {prod.descripcion}</p>
-                                    </div>
-                    
-                                    <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-                                        <br />
-                                        <div id="tit-past">
-                                            <h2>{prod.nombre}</h2>
-                                            <h5>${prod.precio}</h5>
-                                        </div>
-                                        {this.tipoPasta(prod)}
+                            {this.tipoPasta()}
 
-                                        <div class="cant-past">
-
-                                          {/*  <NumericInput mobile class="form-control"  min={1} step={1} value={this.state.cantidad} onClick={this.updateInput} format={myFormatUnid}/>*/}
-    
-                                        </div>
-                                        <div class="container">
-                                            <div class="btn-holder">
-                                            {/*this.agregarCarrito(prod)*/}
-                                            {/*
-                                                <button id="carrito"  onClick={this.handleAgregar.bind(this)}>
-                                                    Agregar al carrito
-                                                </button> */}
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                            </div>
+                                       
+                                      
                         </Dialog>
                     </div>
                 </div>)}

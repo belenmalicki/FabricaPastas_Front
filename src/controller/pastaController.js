@@ -1,11 +1,13 @@
 import {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 
+
 const url ="http://localhost:3000/";
 const urlInsertContacto="insertContacto";
 const urlLogIn = "login";
 const urlGetProductos = "productos";
 const urlGetContacto = "getContacto";
+const urlInsertPedido="insertPedido";
 class ApiController extends Component
 {
 
@@ -99,6 +101,30 @@ class ApiController extends Component
                 
         });
     }
+    insertPedido(pedido)
+    {
+        console.log("guardo pedido",pedido);
+        const endpoint = `${url}${urlInsertPedido}`;
+        console.log("Guardando");
+            fetch (endpoint,{
+            method:'POST',
+            mode:"cors",
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(pedido)
+        }).then (response => {
+            console.log("response",response);
+            if(response.status===501)
+            {
+                console.log('no se ingresó el pedido');
+            }
+            if (response.status===200)
+            {  
+                console.log('el pedido ingreso corrtamente');
+            }
+
+        }).catch(err => console.error(err));
+
+    };
 
 
 }
