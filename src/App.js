@@ -37,6 +37,8 @@ Cosas que quedan para hacer (un millon):
 esto para el carrito
 https://www.pastasamelia.com/pastas
 
+QUE ME BORRE EL CARRITO CUANDO CONFIRMO PEDIDO PERREQUE MALECKE
+
 */
 
 
