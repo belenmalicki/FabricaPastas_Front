@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import pastaController from '../controller/pastaController';
 import Modal from 'react-bootstrap/Modal'
 import Dialog from '@material-ui/core/Dialog';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Slide from '@material-ui/core/Slide';
@@ -24,6 +25,17 @@ import { Form, Checkbox } from 'semantic-ui-react'
   const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="down" ref={ref} {...props} />;
   });
+
+  const BootstrapButton = withStyles({
+    root: {
+      boxShadow: 'none',
+      textTransform: 'none',
+      fontSize: 14,
+      padding: '6px 12px',
+      lineHeight: 1.5,
+      backgroundColor: 'white',
+    }
+  })(Button);
 
   class ProdTable extends React.Component{
     constructor(props){
@@ -82,9 +94,9 @@ import { Form, Checkbox } from 'semantic-ui-react'
       var sum=0;
       
       return(
-        <div style={{ justifyContent:'center',width: '75%'}}>
+        <div style={{ justifyContent:'center',width: '75%', marginLeft: 'auto', marginRight: 'auto'}}>
         <Paper style={{justifyContent:'center', width: '100%', overflowX: 'auto',}}>
-          <Table  style={{ justifyContent:'center', minWidth: 650}}size="small" aria-label="a dense table">
+          <Table  style={{ justifyContent:'center', minWidth: 650, marginTop:'10px', marginBottom:'10px'}}size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
                 <TableCell style={{fontSize:'16px'}}>Pasta</TableCell>
@@ -92,6 +104,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
                 <TableCell align="left" style={{fontSize:'16px'}}>Cantidad</TableCell>
                 <TableCell align="left" style={{fontSize:'16px'}}>Precio unitario</TableCell>
                 <TableCell align="left" style={{fontSize:'16px'}}>Subtotal</TableCell>
+                <TableCell align="left" style={{fontSize:'16px'}}></TableCell>
               </TableRow>
            </TableHead> 
             <TableBody>
@@ -102,12 +115,13 @@ import { Form, Checkbox } from 'semantic-ui-react'
                   </TableCell>
                   <TableCell align="left" style={{fontSize:'16px'}}>{row.tipo}</TableCell>
                   <TableCell align="left" style={{fontSize:'16px'}}>{row.cantidad}</TableCell>
-                  <TableCell align="left" style={{fontSize:'16px'}}>{row.precio}</TableCell>
-                  <TableCell align="left" style={{fontSize:'16px'}}>{row.precio*row.cantidad}</TableCell>
-                  
+                  <TableCell align="left" style={{fontSize:'16px'}}>${row.precio}</TableCell>
+                  <TableCell align="left" style={{fontSize:'16px'}}>${row.precio*row.cantidad}</TableCell>
+                  <TableCell align="center" style={{fontSize:'16px'}}>
                   <Link  to='/shoppingcart'>
                   <Button key={row.nombre} onClick={()=>this.eliminarProd(row.nombre, row.tipo)}>Eliminar</Button>
                   </Link>
+                  </TableCell>
                   <div>
                     
                   </div>
@@ -116,12 +130,14 @@ import { Form, Checkbox } from 'semantic-ui-react'
                   </TableRow>
                 
               ))}
+              <TableRow style={{backgroundColor:'#DEE2E0'}}>
               <TableCell align="left"></TableCell>
                   <TableCell align="left"></TableCell>
                   <TableCell align="left"></TableCell>
                   <TableCell align="left" style={{fontSize:'25px'}} >Total:</TableCell>
-                  <TableCell align="left" style={{fontSize:'25px'}}>{total}</TableCell>
-
+                  <TableCell align="left" style={{fontSize:'25px'}}>${total}</TableCell>
+                  <TableCell align="left"></TableCell>
+                  </TableRow>
             </TableBody>
           </Table>
         </Paper>
@@ -189,7 +205,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
       this.sucursal=this.state.value;
         return(
             <div  class='' style={{width: window.innerWidth, height: window.innerHeight}}>
-            <div id="tituloPastas" style ={{textAlign:'center', marginTop:'30px'}}> 
+            <div id="tituloPastas" style ={{textAlign:'center', marginTop:'30px', paddingTop:'12px'}}> 
             <h1> Carrito de compras</h1>
             </div>
    
@@ -197,10 +213,10 @@ import { Form, Checkbox } from 'semantic-ui-react'
              <div style={{justifyContent:'center', marginTop:'80px'}}>                   
                 <ProdTable />
                 </div>
-            <br /><br />
+           
             
-            
-            <Button onClick={()=>this.handleClickOpenConfirmar()} style={{color:'white'}} >Confirmar pedido</Button>
+            <div class="row" style={{textAlign:'right', position: 'absolute', right: 190, marginTop:'20px'}}>
+            <BootstrapButton onClick={()=>this.handleClickOpenConfirmar()} style={{color:'#209c7d'}} variant="contained">CONFIRMAR PEDIDO</BootstrapButton>
             <Dialog  open={this.state.openConf} onClose={this.handleCloseConfirmar} TransitionComponent={Transition} style={{textAlign:'center'}}>
                            
                 <p style={{marginTop:'40px', marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'24px' ,fontWeight:'bold'}}>
@@ -256,7 +272,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
                               </p>
                                         
                                   <Button style={{justifyContent:'flex-end', marginBottom:'40px', color:'#209c7d',  fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseMensaje}>
-                                      Volver al inicio
+                                  <Link to='/' style={{color:'#209c7d'}}>Volver al inicio</Link>
                                   </Button>
                                                   
                               </Dialog>
@@ -267,10 +283,10 @@ import { Form, Checkbox } from 'semantic-ui-react'
                     </Button>
                       </div>                     
               </Dialog>
-           
-            <Link to='/'>Volver al inicio</Link>
-
-            
+            <BootstrapButton style={{marginLeft:'20px'}} variant="contained">
+              <Link to='/' style={{color:'#209c7d'}}>VOLVER AL INICIO</Link> 
+            </BootstrapButton>
+            </div>
        
             </div>
         );
