@@ -13,6 +13,7 @@ class Carrusel extends React.Component{
 render(){
 	return(
 			<div id="inicio">
+			
 				<div id="carouselExampleControls" class="carousel slide carousel-home" data-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">

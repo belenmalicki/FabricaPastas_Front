@@ -17,10 +17,20 @@ function createData(item,idArray)
 
   };
 }
+function createDataPedido(item,idArray) 
+{   
+  return {
+    id:idArray,
+    pedido: item.pedido, 
+    
+
+  };
+}
 
   class MiCuenta extends React.Component{
     state = {
         data: [],
+        pedido:[],
       };
 
       close=()=>localStorage.removeItem('Usuariologueado')
@@ -44,6 +54,16 @@ function createData(item,idArray)
 
            // console.log('mi data:', this.state.data[0]);
         }
+        okPedido(pedido){
+            var i , array=[];
+            for( i=0; i<pedido.length;i++){
+                array.push(createDataPedido(pedido[i],i))
+            }
+            this.setState({pedido: array});
+    
+
+           // console.log('mi data:', this.state.data[0]);
+        }
 
     
         componentDidMount()
@@ -54,13 +74,16 @@ function createData(item,idArray)
           let data={mail: localStorage.getItem('Usuariologueado')}
           console.log(data);
          PastaController.getContacto(data, this.okContacto.bind(this));
+         PastaController.getPedido(data, this.okPedido.bind(this));
         }
     
     render(){
         let con=[];
         con = this.state.data;
         console.log('mi con', con);
-        
+        let prod=[];
+        prod = this.state.pedido;
+        console.log('mi pedido en mi cuenta:', localStorage.getItem('pedido'));
        
 
         return(
@@ -89,7 +112,7 @@ function createData(item,idArray)
                                             <p class="letra_perfil"> <strong>Direccion:</strong> {con.direccion} </p>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <Button size="small" style={{float: 'right', marginTop: '12px'}}><strong>Modificar</strong></Button>
+                                            <Button size="small" style={{float: 'right', marginTop: '12px', color:'#209c7d'}}>Modificar</Button>
                                         </div>
                                     </div>
                                     <Divider />
@@ -98,7 +121,7 @@ function createData(item,idArray)
                                             <p class="letra_perfil"> <strong>Telefono:</strong> {con.telefono}</p>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <Button size="small" style={{float: 'right', marginTop: '12px'}}><strong>Modificar</strong></Button>
+                                            <Button size="small" style={{float: 'right', marginTop: '12px', color:'#209c7d'}}>Modificar</Button>
                                         </div>
                                     </div>
                                     <Divider />
@@ -112,7 +135,7 @@ function createData(item,idArray)
                             </div>
                             <div style ={{ textAlign:'right', position: 'absolute', bottom: 10, right: 10}}>
                                 <Button>
-                                    <Link to='/' style={{color:'#209c7d'}}>VOLVER AL INICIO</Link>
+                                    <Link to='/' style={{color:'#209c7d', marginRight:'20px'}}>VOLVER AL INICIO</Link>
                                 </Button>
                                 {this.CerrarSesion()}
                             </div>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,14 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import pastaController from '../controller/pastaController';
-import Modal from 'react-bootstrap/Modal'
 import Dialog from '@material-ui/core/Dialog';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Slide from '@material-ui/core/Slide';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 import { Form, Checkbox } from 'semantic-ui-react'
 
   function createData(nombre, tipo, cantidad, precio, total) {
@@ -173,6 +167,8 @@ import { Form, Checkbox } from 'semantic-ui-react'
         localStorage.setItem('pedido',JSON.stringify(pedidoUsuario));
        // console.log('stringfy de pedido', localStorage.getItem('pedido'));
         pastaController.insertPedido(pedidoUsuario);
+        localStorage.removeItem('carrito');
+        return <Redirect to='/'></Redirect>
       }
       else if((JSON.parse(localStorage.getItem('carrito'))).length===0){
         alert('No se encontró ningun pedido');
@@ -216,7 +212,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
            
             
             <div class="row" style={{textAlign:'right', position: 'absolute', right: 190, marginTop:'20px'}}>
-            <BootstrapButton onClick={()=>this.handleClickOpenConfirmar()} style={{color:'#209c7d'}} variant="contained">CONFIRMAR PEDIDO</BootstrapButton>
+            <Button onClick={()=>this.handleClickOpenConfirmar()} style={{color:'black'}} variant="contained">CONFIRMAR PEDIDO</Button>
             <Dialog  open={this.state.openConf} onClose={this.handleCloseConfirmar} TransitionComponent={Transition} style={{textAlign:'center'}}>
                            
                 <p style={{marginTop:'40px', marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'24px' ,fontWeight:'bold'}}>
@@ -283,9 +279,9 @@ import { Form, Checkbox } from 'semantic-ui-react'
                     </Button>
                       </div>                     
               </Dialog>
-            <BootstrapButton style={{marginLeft:'20px'}} variant="contained">
-              <Link to='/' style={{color:'#209c7d'}}>VOLVER AL INICIO</Link> 
-            </BootstrapButton>
+            <Button style={{marginLeft:'20px'}} variant="contained">
+              <Link to='/' style={{color:'black'}}>VOLVER AL INICIO</Link> 
+            </Button>
             </div>
        
             </div>
@@ -295,73 +291,3 @@ import { Form, Checkbox } from 'semantic-ui-react'
     }
     export default Shoppingcart;
 
-
-    
-
-
-/*export default {
-    cart: [],
-    add(id) { this.cart.push(id) },
-    remove(id) { this.cart = this.cart.filter(p => p.id !== id)
-  }}*/
-  
- /* 
-  function createData(producto, tipo, cantidad, precio, total) {
-    return { producto, tipo, cantidad, precio, total };
-  }
-
-  function MiCarrito(){
-    console.log('mi carriro en carrito',localStorage.getItem('carrito'));
-   var i ,array=[]
-   var parseado=JSON.parse(localStorage.getItem('carrito'))
-   
-   for( i=0; i<parseado.length;i++){
-       array.push(createData(parseado[i],i))
-   }
-   //this.setState({data: array});
-   
-   const rows = [
-    createData( parseado[0].nombre,  parseado[0].tipo,  parseado[0].cantidad,  parseado[0].precio, ( parseado[0].cantidad* parseado[0].precio)),
-    //createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-   // createData('Eclair', 262, 16.0, 24, 6.0),
-   // createData('Cupcake', 305, 3.7, 67, 4.3),
-    //createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
-  this.setState({row: rows});
-  }
-  
-
-  function DenseTable() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root}>
-        <Paper className={classes.paper}>
-          <Table className={classes.table} size="small" aria-label="a dense table">
-           <TableHead>
-              <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                <TableCell align="right">Protein&nbsp;(g)</TableCell>
-              </TableRow>
-           </TableHead> 
-            <TableBody>
-              {rows.map(row => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Paper>
-      </div>
-    );
-  }*/

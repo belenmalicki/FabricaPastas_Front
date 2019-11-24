@@ -113,8 +113,7 @@ export default class TopBar extends Component {
 
 
 render(){ 
-  //limpio LocalStorage
-  //localStorage.clear();
+
   return (
     <div class="fixed-top" id="appbarprod">
     <div class="container-fluid">
@@ -142,7 +141,7 @@ render(){
         <ScrollTo
           selector={`#${'linkProductos'}`}>
           <Button id="boton" >
-             Nuestros productos
+             Nuestras pastas
           </Button>
         </ScrollTo>
 

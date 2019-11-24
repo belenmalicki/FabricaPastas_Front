@@ -48,7 +48,7 @@ class Login extends Component {
     this.setState({logueado: false});
     //console.log("Tamaño del storage",Storage.length);
 
-    alert(textoOk);
+   
 
   }
   condicionarIngresar()
@@ -80,11 +80,10 @@ class Login extends Component {
 
 
             <DialogContent>
-            {/* <img src= {logo1} alt = "logo" title = "logo" id="logo" style={{justifyContent:'center',width:'200px', borderRadius:5}}/>*/}
-                
-                <DialogContentText  id="outlined-dense" style={{fontSize:'22px'}}>
+           
+                <DialogContentText  id="outlined-dense" style={{fontSize:'35px', marginBottom:'20px'}}>
                 Ingresar
-                <br /> 
+             
                 </DialogContentText>
                 
                 <TextField
@@ -93,6 +92,7 @@ class Login extends Component {
                 type="email"
                 name="email"
                 fullWidth
+                style={{marginBottom:'20px'}}
                 required
                 placeholder="Email"
                 autoComplete="email"
@@ -107,7 +107,7 @@ class Login extends Component {
             <br />
           <TextField
                 id="outlined-password-input"
-                label="Password"
+                label="Contraseña"
                 fullWidth
                 type="password"
                 placeholder="Contraseña"
@@ -115,6 +115,7 @@ class Login extends Component {
                 margin="normal"
                 variant="outlined"
                 required
+                style={{marginBottom:'10px'}}
                 value = {this.state.password}
                 onChange={this.SearchPassword.bind(this)}
                 InputLabelProps={{

@@ -72,7 +72,7 @@ body {
 	
 	.backPerfil .table-content .row-content .box-content {
 		margin: 0 auto;
-		width: 500px;
+		width: 800px;
 		height: 500px;
 		background:white;
 		-moz-border-radius: 10px;
@@ -88,7 +88,7 @@ body {
 	}
 
 	#profile .perfil{
-		font-family: 'Josefin Slab';
+		font-family: 'Quicksand';
 		color: black(243, 243, 235);
 		text-align: center;
 		  font-size: 40px;
@@ -97,11 +97,12 @@ body {
 	  }
 
 	  #profile .misDatos{
-		font-family: 'Josefin Slab';
+		font-family: 'Quicksand';
 		color: black(243, 243, 235);
 		text-align: center;
 		  font-size: 30px;
-		  margin-top: 10px;
+		  margin-top: 30px;
+		  margin-bottom: 10px;
 
 	  }
 
@@ -125,7 +126,7 @@ body {
 	  
 	  #profile p.letra_perfil {
 		font-size: 22px;
-		font-family: 'Josefin Slab';
+		font-family: 'Quicksand';
 		  text-align: left;
 		  line-height: 20px;
 		  padding-top: 18px;
@@ -136,6 +137,9 @@ button:focus {
 }
 
 /**/
+#inicio{
+	margin-bottom:'45px'
+}
 .carousel-home .carousel-inner .carousel-item .carousel-content {
 	display: table;
 	width: 100%;
@@ -193,12 +197,15 @@ button:focus {
 
 
 .historia{
-	font-family: 'Josefin Slab';
+	font-family: 'Quicksand';
 	color: #f3f3eb;
 	text-align: center;
 	font-size: 20px;
+	margin-bottom: 300px;
+	margin-top: 300px;
 }
-#algo{
+
+#bordeHist{
 	border-style: groove;
 }
 
@@ -209,6 +216,7 @@ button:focus {
 
 #foto_hist{
 text-align: center;
+margin-top: 30px;
 }
  /*NavBar, Ingresar y Registarme*/
  .nav{
@@ -230,7 +238,7 @@ text-align: center;
 }
 .reg_dialog{
 	font-family: 'Quicksand', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   text-align: right;
   margin-right:2% ;
 
@@ -239,10 +247,9 @@ text-align: center;
 #registrarme{
 	font-family: 'Quicksand', sans-serif;
 	color:#209c7d;
-	color:#d43737;
 	/*color: black;*/ 
   font-weight: bold;
-  font-size: 10px;
+  font-size: 12px;
   justify-content: flex-start;
  
 
@@ -290,16 +297,19 @@ text-align: center;
 	justify-content: flex-end;
 	display: flex;
 }
-#tit-past{
+.tit-past{
 	font-size: 100%;
 	font-weight: 1000;
+	margin-top: 30px;
 	font-family: 'Quicksand', sans-serif;
 }
 
 #text , .cant-past{
 	margin-top: 15px;
-	font-family: 'Quicksand', sans-serif, 18px;
+	font-family: 'Quicksand', sans-serif; 
+	font-size: 18px;
 	border-radius: 2px;
+
 }
 /*VER EL ALTO DEL DIALOGO*/
 .dialog_prod{
@@ -312,16 +322,31 @@ text-align: center;
 
 }
 
-.carrito{
+.carritoct{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 18px;
+	font-weight: 500; 
+	color:black;
+	/*background-color: rgb(243, 243, 235);  rgb(34, 24, 24);*/
+	background-color:rgb(255, 255, 255);
+	border: 1px solid rgba(0, 0, 0);
+	height: 40px;
+	width: 180px;
+	border-radius: 5px;
+	margin-top: 10%;
+	margin-left: 60%;
+}
+.carritost{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 18px;
 	/*background-color: rgb(243, 243, 235);  rgb(34, 24, 24);*/
 	background-color:white;
-	  border: 1px solid black;
-	  height: 40px;
-	  width: 180px;
-	  border-radius: 5px;
-	margin-top: 10%;
+	border: 1px solid black;
+	height: 40px;
+	width: 180px;
+	border-radius: 5px;
+	margin-top: 30%;
+	margin-left: 60%;
 }
 
 /*CONTACTO*/
@@ -330,7 +355,9 @@ text-align: center;
   color: rgb(243, 243, 235);
   text-align: center;
 	font-size: 40px;
-	margin-top: 15px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+
 }
 
 #contactos .title-place {
@@ -351,7 +378,8 @@ text-align: center;
 
 #contactos .content-place p.letra_cont {
   font-size: 20px;
-  font-family: 'Josefin Slab';
+  margin-top:15px;
+  font-family: 'Quicksand';
 	text-align: center;
 	line-height: 15px;
 }
@@ -401,6 +429,7 @@ text-align: center;
 .MuiFormControl-root label,
 .MuiFormLabel-root .Mui-focused {
 	color: black !important;
+	font-size: 24px;
 }
 .MuiInputBase-root fieldset {
 	border: 1px solid black !important;

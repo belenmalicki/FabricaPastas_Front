@@ -32,8 +32,15 @@ class Signup extends React.Component {
       password:this.state.password,
       telefono:this.state.telefono
   };
+  if(usuario.nombre===''||usuario.direccion==='' ||usuario.mail==='' ||usuario.password==='' ||usuario.telefno===''){
+    alert('Por favor, complete todos los campos')
+  }
+  else{
+
   pastaController.insertContacto(usuario,this.okUsuario.bind(this),this.errorUsuario.bind(this));
+
   this.setState({open: false})
+  }
 };
 onChangeNombre (e){
   
@@ -56,6 +63,9 @@ okUsuario()
   {
     this.setState({logueado: false});
     alert("Te has registrado con exito");
+    localStorage.setItem('Usuariologueado', this.state.mail);
+    console.log('local storage en sign up', localStorage.getItem('Usuariologueado'));
+    return ( <Redirect to='/'/>)
   }
 
   errorUsuario(textoError)
@@ -64,18 +74,18 @@ okUsuario()
   }
   condicionarIngresar()
   {
-    console.log("estadologueado",this.state.logueado)
+    //console.log("estadologueado",this.state.logueado)
     if (this.state.logueado)
     {
       return(
         <Button onClick={this.handleSave.bind(this)} id="confirmar">
-        Registrar
+        Registrarme
       </Button>
       );
     }
     else
     {
-      console.log("entre al redirect",this.state.logueado)
+      //console.log("entre al redirect",this.state.logueado)
       return(
         <Redirect to='/'/>
       ); 
@@ -83,126 +93,117 @@ okUsuario()
   }
   render() {
     return (
-      <div class='backLogin'>
-            <div class = "container-fluid" >
-                <div class = "row" id='foto_hist'>
-    <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" > </div>
-  <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" >
+      <div class='backLogin' style={{width: window.innerWidth, height: window.innerHeight}}>
+      <div class="table-content">
+        <div class="row-content">
+          <div class="box-content">
+     
+            <DialogContent >
+                <DialogContentText  id="outlined-dense" style={{fontSize:'35px', marginBottom:'20px'}}>
+                  Registrate
+                </DialogContentText>
 
+              
+                <TextField
+                    id="nombre"
+                    label="Nombre"
+                    placeholder="Nombre"
+                    fullWidth
+                    required
+                    margin="normal"
+                    variant="outlined"
+                    style={{marginBottom:'20px'}}
+                    value ={this.state.nombre}
+                    onChange={this.onChangeNombre.bind(this)}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
 
-      </div></div></div>
-      <div class = "container-fluid"  >
+                <TextField
+                    id="direccion"
+                    label="Direccion"
+                    placeholder="Direccion"
+                    fullWidth
+                    required
+                    style={{marginBottom:'20px'}}
+                    margin="normal"
+                    variant="outlined"
+                    value ={this.state.direccion}
+                    onChange={this.onChangeDireccion.bind(this)}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
 
-      <div class = "row" id='foto_hist'>
-      <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" > </div>
-        <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-6" style={{marginTop:'12%'}} >
-      <div style={{backgroundColor:'white'}}>
-      
-       
-            <DialogContent>
-            <DialogContentText  id="outlined-dense" style={{fontSize:'22px',}}>
-            Registrate
-            <br /> 
-             </DialogContentText>
+               <TextField
+                    id="telefono"
+                    label="Telefono/Celular"
+                    placeholder="Telefono/Celular"
+                    fullWidth
+                    required
+                    style={{marginBottom:'20px'}}
+                    margin="normal"
+                    variant="outlined"
+                    value={this.state.telefono}
+                    onChange={this.onChangeTelefono.bind(this)}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+                <TextField
+                    id="mail"
+                    label ="Email"
+                    type="email"
+                    name="email"
+                    required
+                    style={{marginBottom:'20px'}}
+                    placeholder="Email"
+                    autoComplete="email"
+                    margin="normal"
+                    variant="outlined"
+                    value={this.state.mail}
+                    onChange={this.onChangeMail.bind(this)}
+                    fullWidth
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
 
-        
-          <TextField
-              id="nombre"
-              label="Nombre"
-              placeholder="Nombre"
-              fullWidth
-              required
-              margin="normal"
-              variant="outlined"
-              value ={this.state.nombre}
-              onChange={this.onChangeNombre.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-
-      <TextField
-              id="direccion"
-              label="Direccion"
-              placeholder="Direccion"
-              fullWidth
-              required
-              margin="normal"
-              variant="outlined"
-              value ={this.state.direccion}
-              onChange={this.onChangeDireccion.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-
-      <TextField
-              id="telefono"
-              label="Telefono/Celular"
-              placeholder="Telefono/Celular"
-              fullWidth
-              required
-              margin="normal"
-              variant="outlined"
-              value={this.state.telefono}
-              onChange={this.onChangeTelefono.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-              <TextField
-              id="mail"
-              label ="Email"
-              type="email"
-              name="email"
-              required
-              placeholder="Email"
-              autoComplete="email"
-              margin="normal"
-              variant="outlined"
-              value={this.state.mail}
-              onChange={this.onChangeMail.bind(this)}
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-
-        <TextField
-              id="password"
-              label="Password"
-              fullWidth
-              required
-              type="password"
-              placeholder="Contraseña"
-              autoComplete="current-password"
-              margin="normal"
-              variant="outlined"
-              value = {this.state.password}
-              onChange={this.onChangePassword.bind(this)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+               <TextField
+                    id="password"
+                    label="Contraseña"
+                    fullWidth
+                    required
+                    style={{marginBottom:'20px'}}
+                    type="password"
+                    placeholder="Contraseña"
+                    autoComplete="current-password"
+                    margin="normal"
+                    variant="outlined"
+                    value = {this.state.password}
+                    onChange={this.onChangePassword.bind(this)}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
             </DialogContent>
-            <DialogActions>
-            <Link to='/'>
-              <Button onClick={this.handleCloseLogOn} id="confirmar">
-                Cancelar
-              </Button>
-              </Link>
-              {this.condicionarIngresar()}
-            </DialogActions>
-       
+                  <DialogActions>
+                    <Link to='/'>
+                        <Button onClick={this.handleCloseLogOn} id="confirmar">
+                            Cancelar
+                        </Button>
+                    </Link>
+                    {this.condicionarIngresar()}
+                  </DialogActions>
+            
        
               </div>
               </div>
               </div>
               </div>
 
-    
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </div>
+
     );
   }
 }

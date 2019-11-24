@@ -8,6 +8,7 @@ const urlLogIn = "login";
 const urlGetProductos = "productos";
 const urlGetContacto = "getContacto";
 const urlInsertPedido="insertPedido";
+const urlGetPedido='getPedido';
 class ApiController extends Component
 {
 
@@ -81,6 +82,26 @@ class ApiController extends Component
                 okBusqueda(responseData);
         });
     };
+    
+    getPedido(data, okPedido)
+    {
+        const endpoint = `${url}${urlGetPedido}`;
+        //console.log("Buscando")
+        console.log('mi mail es: ', data);
+       fetch(endpoint,{
+            method: 'POST', // or 'PUT'
+            mode: "cors",
+            headers:{ 'Content-Type': 'application/json'},
+            body: JSON.stringify(data) // data can be `string` or {object}!
+        }).then ((response) => {
+            console.log("Recibi datos getContacto response", response);
+            return response.json();
+        }).then (responseData => {
+                console.log("Recibi datos getContacto",responseData);
+                okPedido(responseData);
+                
+        });
+    }
 
     getContacto(data, okContacto)
     {
