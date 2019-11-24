@@ -20,7 +20,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
     return <Slide direction="down" ref={ref} {...props} />;
   });
 
-  const BootstrapButton = withStyles({
+  const BButton = withStyles({
     root: {
       boxShadow: 'none',
       textTransform: 'none',
@@ -28,6 +28,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
       padding: '6px 12px',
       lineHeight: 1.5,
       backgroundColor: 'white',
+      marginRight:'18px',
     }
   })(Button);
 
@@ -136,7 +137,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
           </Table>
         </Paper>
       </div>
-
+    
 
       );
     }
@@ -200,11 +201,10 @@ import { Form, Checkbox } from 'semantic-ui-react'
       console.log('la sucursal es:', this.sucursal);
       this.sucursal=this.state.value;
         return(
-            <div  class='' style={{width: window.innerWidth, height: window.innerHeight}}>
-            <div id="tituloPastas" style ={{textAlign:'center', marginTop:'30px', paddingTop:'12px'}}> 
-            <h1> Carrito de compras</h1>
-            </div>
-   
+            <div  class='backCarrito' style={{width: window.innerWidth, height: window.innerHeight, position:'absolute'}}>
+              <div class="container" id="tituloPastas"  style ={{textAlign:'center', marginTop:'30px', paddingTop:'12px', backgroundColor:'white', color:'black'}}> 
+                <h1><strong>Carrito de compras</strong></h1>
+              </div>   
 
              <div style={{justifyContent:'center', marginTop:'80px'}}>                   
                 <ProdTable />
@@ -212,7 +212,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
            
             
             <div class="row" style={{textAlign:'right', position: 'absolute', right: 190, marginTop:'20px'}}>
-            <Button onClick={()=>this.handleClickOpenConfirmar()} style={{color:'black'}} variant="contained">CONFIRMAR PEDIDO</Button>
+            <BButton onClick={()=>this.handleClickOpenConfirmar()} style={{color:'black', marginRight:'-1px'}} variant="contained">CONFIRMAR PEDIDO</BButton>
             <Dialog  open={this.state.openConf} onClose={this.handleCloseConfirmar} TransitionComponent={Transition} style={{textAlign:'center'}}>
                            
                 <p style={{marginTop:'40px', marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'24px' ,fontWeight:'bold'}}>
@@ -279,9 +279,9 @@ import { Form, Checkbox } from 'semantic-ui-react'
                     </Button>
                       </div>                     
               </Dialog>
-            <Button style={{marginLeft:'20px'}} variant="contained">
+            <BButton style={{marginLeft:'20px'}} variant="contained">
               <Link to='/' style={{color:'black'}}>VOLVER AL INICIO</Link> 
-            </Button>
+            </BButton>
             </div>
        
             </div>
