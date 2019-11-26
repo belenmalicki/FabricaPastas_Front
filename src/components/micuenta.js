@@ -120,13 +120,30 @@ else{
            if(pedido.estado==='pendiente'){
            return (
            <div class="letra_ItemPerfil" >
-               <p style={{textAlign:'center'}}>Codigo para retirar el pedido:</p>
-               <p>{pedido.cliente}</p>
-               <p style={{textAlign:'center'}}>Sucursal a retirar:</p>
-               <p>{suc}</p>
-               <p style={{textAlign:'center'}}>Total a pagar:</p>
-               <p>${total}</p>
-               
+               <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <p style={{textAlign:'right'}}>Codigo para retirar el pedido:</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <p>{pedido.cliente}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <p style={{textAlign:'right'}}>Sucursal a retirar:</p>                    
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <p>{suc}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <p style={{textAlign:'right'}}>Total a pagar:</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <p>${total}</p>
+                    </div>
+                </div>
            </div>)}
            else{
                return (
@@ -200,16 +217,11 @@ else{
                                     <Divider />
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <p class="letra_perfil"> <strong>Pedido pendiente:</strong> </p>
-                                            <div>{this.pedidoPendiente(pedi[0], itemPed)} </div>
-                               
-                                            
-
-                                             
-                                        
-                                           
+                                            <p class="letra_perfil"> <strong>Pedido pendiente: </strong> </p>
                                         </div>
-                                    </div>
+                                        </div>
+                                        <div>{this.pedidoPendiente(pedi[0], itemPed)} </div>
+                                    
                                     <Divider />
                                 </div>
                             </div>
