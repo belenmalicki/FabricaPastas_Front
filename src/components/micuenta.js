@@ -38,7 +38,7 @@ function createDataPedido(item,idArray)
     CerrarSesion(){
         if(localStorage.getItem('Usuariologueado')!==null){
         return   <Link to='/'>  
-            <Button style={{color:'#209c7d'}} onClick={this.close}>
+            <Button style={{color:'#209c7d', marginLeft:'20px'}} onClick={this.close}>
               Cerrar sesion
               </Button>
               </Link>; 
@@ -135,7 +135,7 @@ function createDataPedido(item,idArray)
                             </div>
                             <div style ={{ textAlign:'right', position: 'absolute', bottom: 10, right: 10}}>
                                 <Button>
-                                    <Link to='/' style={{color:'#209c7d', marginRight:'20px'}}>VOLVER AL INICIO</Link>
+                                    <Link to='/' style={{color:'#209c7d'}}>VOLVER AL INICIO</Link>
                                 </Button>
                                 {this.CerrarSesion()}
                             </div>

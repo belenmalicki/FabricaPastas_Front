@@ -18,6 +18,14 @@ body {
 	height: 95px;
 }
 
+.backCarrito {
+	/*background-image: url("./components/img/backlogin.jpg");*/
+		background-image: url("./components/img/backlogin.jpg");
+		background-color: black;
+		background-size: 100% 100%;
+	}
+
+
 .backLogin {
 /*background-image: url("./components/img/backlogin.jpg");*/
 	background-image: url("./components/img/backlogin3ColorDarker.jpg");
