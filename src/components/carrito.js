@@ -84,10 +84,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
          }
        
       }
-      
-      console.log('rows',rows);
-      var sum=0;
-      
+
       return(
         <div style={{ justifyContent:'center',width: '75%', marginLeft: 'auto', marginRight: 'auto'}}>
         <Paper style={{justifyContent:'center', width: '100%', overflowX: 'auto',}}>
@@ -163,6 +160,7 @@ import { Form, Checkbox } from 'semantic-ui-react'
           pedido:JSON.parse(localStorage.getItem('carrito')),
           cliente:localStorage.getItem('Usuariologueado'),
           sucursal:this.sucursal,
+          estado:'pendiente',
         }
         console.log('parse json', pedidoUsuario );
         localStorage.setItem('pedido',JSON.stringify(pedidoUsuario));
@@ -202,8 +200,8 @@ import { Form, Checkbox } from 'semantic-ui-react'
       this.sucursal=this.state.value;
         return(
             <div  class='backCarrito' style={{width: window.innerWidth, height: window.innerHeight, position:'absolute'}}>
-              <div class="container" id="tituloPastas"  style ={{textAlign:'center', marginTop:'30px', paddingTop:'12px', backgroundColor:'white', color:'black'}}> 
-                <h1><strong>Carrito de compras</strong></h1>
+              <div class="container"  style ={{textAlign:'center', marginTop:'30px', paddingTop:'12px'}}> 
+                <h1 id="tituloCarrito" ><strong>Carrito de compras</strong></h1>
               </div>   
 
              <div style={{justifyContent:'center', marginTop:'80px'}}>                   

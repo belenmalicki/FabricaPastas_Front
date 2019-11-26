@@ -94,10 +94,10 @@ class ApiController extends Component
             headers:{ 'Content-Type': 'application/json'},
             body: JSON.stringify(data) // data can be `string` or {object}!
         }).then ((response) => {
-            console.log("Recibi datos getContacto response", response);
+            console.log("Recibi datos getPedido response", response);
             return response.json();
         }).then (responseData => {
-                console.log("Recibi datos getContacto",responseData);
+                console.log("Recibi datos getPedido",responseData);
                 okPedido(responseData);
                 
         });
@@ -122,16 +122,16 @@ class ApiController extends Component
                 
         });
     }
-    insertPedido(pedido)
+    insertPedido(pedidoUsu)
     {
-        console.log("guardo pedido",pedido);
+        console.log("guardo pedido",pedidoUsu);
         const endpoint = `${url}${urlInsertPedido}`;
         console.log("Guardando");
             fetch (endpoint,{
             method:'POST',
             mode:"cors",
             headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify(pedido)
+            body:JSON.stringify(pedidoUsu)
         }).then (response => {
             console.log("response",response);
             if(response.status===501)

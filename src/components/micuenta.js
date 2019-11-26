@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import PastaController from '../controller/pastaController'
@@ -18,19 +18,34 @@ function createData(item,idArray)
   };
 }
 function createDataPedido(item,idArray) 
-{   
+{   console.log('mi pedido en createData:', item)
+
+if(item===undefined){
+    return {
+        id:' ',
+        pedido: ' ',
+        cliente: ' ', 
+        sucursal: ' ',
+        estado: ' ',
+      }
+}
+else{
   return {
     id:idArray,
-    pedido: item.pedido, 
-    
-
-  };
+    pedido: item.pedido,
+    cliente: item.cliente, 
+    sucursal: item.sucursal,
+    estado: item.estado,
+  };}
 }
 
   class MiCuenta extends React.Component{
     state = {
         data: [],
-        pedido:[],
+        pedido:' ',
+        itemPed:' ',
+        estado:' '
+
       };
 
       close=()=>localStorage.removeItem('Usuariologueado')
@@ -56,13 +71,24 @@ function createDataPedido(item,idArray)
         }
         okPedido(pedido){
             var i , array=[];
+            if(pedido.length===0){
+                return {
+                    id:' ',
+                    pedido: ' ',
+                    cliente: ' ', 
+                    sucursal: ' ',
+                    estado: ' ',
+                  }
+            }
+            else{
+            console.log('mi pedido en okPedido:', pedido);
             for( i=0; i<pedido.length;i++){
                 array.push(createDataPedido(pedido[i],i))
             }
             this.setState({pedido: array});
-    
+            this.setState({itemPed: array[0].pedido});
+        }
 
-           // console.log('mi data:', this.state.data[0]);
         }
 
     
@@ -76,15 +102,62 @@ function createDataPedido(item,idArray)
          PastaController.getContacto(data, this.okContacto.bind(this));
          PastaController.getPedido(data, this.okPedido.bind(this));
         }
+         
+        pedidoPendiente(pedido, item){
+            var suc, i, total=0;
+           if(pedido.sucursal==='Guemes'){
+            suc = 'Güemes 3331'
+           }
+           if(pedido.sucursal==='Rivadavia'){
+            suc = 'Rivadavia 4035'
+           }
+           for(i=0;i<item.length;i++){
+           console.log('item[0]', item[i].precio);
+            total=total+ (item[i].precio* item[i].cantidad);
+            console.log('total', total);
+           }
+
+           if(pedido.estado==='pendiente'){
+           return (
+           <div class="letra_ItemPerfil" >
+               <p style={{textAlign:'center'}}>Codigo para retirar el pedido:</p>
+               <p>{pedido.cliente}</p>
+               <p style={{textAlign:'center'}}>Sucursal a retirar:</p>
+               <p>{suc}</p>
+               <p style={{textAlign:'center'}}>Total a pagar:</p>
+               <p>${total}</p>
+               
+           </div>)}
+           else{
+               return (
+                <div class="letra_ItemPerfil" >
+                    <p >No posee pedidos pendientes</p>
+                </div>)
+           }
+        }
+        pedidoRetirado=()=> {
+            console.log('estado function', this.state.estado)
+            if(this.state.estado!==false){
+                return <Link  to='/micuenta'>
+                <Button size="small" onClick={this.Retirado} style={{float: 'right', marginTop: '12px', color:'#209c7d'}}>Pedido Retirado</Button>
+                </Link>
+            }}
+
+        Retirado=()=>{
+            console.log('estado en segunta funcion',this.state.estado)
+            this.setState({estado: false})
+            console.log('estado en segunta funcion 2',this.state.estado)
+
+        }; 
+
+
     
     render(){
         let con=[];
         con = this.state.data;
-        console.log('mi con', con);
-        let prod=[];
-        prod = this.state.pedido;
-        console.log('mi pedido en mi cuenta:', localStorage.getItem('pedido'));
-       
+        let pedi = this.state.pedido;
+        let itemPed = this.state.itemPed;
+        console.log('estado render', this.state.estado)
 
         return(
             <div class='backPerfil' style={{width: window.innerWidth, height: window.innerHeight}}>
@@ -128,6 +201,13 @@ function createDataPedido(item,idArray)
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                             <p class="letra_perfil"> <strong>Pedido pendiente:</strong> </p>
+                                            <div>{this.pedidoPendiente(pedi[0], itemPed)} </div>
+                               
+                                            
+
+                                             
+                                        
+                                           
                                         </div>
                                     </div>
                                     <Divider />
@@ -145,8 +225,7 @@ function createDataPedido(item,idArray)
            
          </div>
             )}
-           
-            
+          
            
             </div>
        

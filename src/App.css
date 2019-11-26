@@ -81,7 +81,7 @@ body {
 	.backPerfil .table-content .row-content .box-content {
 		margin: 0 auto;
 		width: 800px;
-		height: 500px;
+		height: 800px;
 		background:white;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
@@ -132,12 +132,20 @@ body {
 	
 	  }
 	  
+	 	.letra_ItemPerfil {
+		font-size: 22px;
+		font-family: 'Quicksand';
+		  text-align: left;
+		  line-height: 20px;
+		  padding-top: 18px;
+	  }
 	  #profile p.letra_perfil {
 		font-size: 22px;
 		font-family: 'Quicksand';
 		  text-align: left;
 		  line-height: 20px;
 		  padding-top: 18px;
+
 	  }
 
 button:focus {
@@ -283,6 +291,14 @@ margin-top: 30px;
 	font-family: 'Josefin Slab';
 	font-size: 500%;
 	color: rgb(243, 243, 235); 
+	text-align: center;
+	border-style: groove;
+}
+#tituloCarrito {
+	font-family: 'Josefin Slab';
+	font-size: 54px ;
+	color: rgb(255,255,255);
+	text-shadow: 0px 3px 6px rgba(0,0,0,1);
 	text-align: center;
 	border-style: groove;
 }
