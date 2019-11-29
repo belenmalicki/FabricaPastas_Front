@@ -19,7 +19,6 @@ body {
 }
 
 .backCarrito {
-	/*background-image: url("./components/img/backlogin.jpg");*/
 		background-image: url("./components/img/backlogin.jpg");
 		background-color: black;
 		background-size: 100% 100%;
@@ -27,7 +26,6 @@ body {
 
 
 .backLogin {
-/*background-image: url("./components/img/backlogin.jpg");*/
 	background-image: url("./components/img/backlogin3ColorDarker.jpg");
 	background-color: black;
 	background-size: 100% 100%;
@@ -58,104 +56,99 @@ body {
 }
 
 .backPerfil {
-	/*background-image: url("./components/img/backlogin.jpg");*/
-		background-image: url("./components/img/backlogin.jpg");
-		background-color: black;
-		background-size: 100% 100%;
-	}
+	background-image: url("./components/img/backlogin.jpg");
+	background-color: black;
+	background-size: 100% 100%;
+}
+
+.backPerfil .table-content {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
 	
-	.backPerfil .table-content {
-		display: table;
-		width: 100%;
-		height: 100%;
-	}
+.backPerfil .table-content .row-content {
+	display: table-cell;
+	text-align: left;
+	vertical-align: middle;
+	margin-left: 25px;
 	
-	.backPerfil .table-content .row-content {
-		display: table-cell;
-		text-align: left;
-		vertical-align: middle;
-		margin-left: 25px;
-		
-	}
+}
 	
-	.backPerfil .table-content .row-content .box-content {
-		margin: 0 auto;
-		width: 800px;
-		height: 600px;
-		background:white;
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		border-radius: 10px;
-		-moz-box-shadow: 0px 0px 11px rgba(0,0,0,0.8);
-		-webkit-box-shadow: 0px 0px 11px rgba(0,0,0,0.8);
-		box-shadow: 0px 0px 11px rgba(0,0,0,0.8);
-		padding-top: 25px;
-		padding-left: 25px;
-		padding-right: 25px;
-		position: relative;
-	}
+.backPerfil .table-content .row-content .box-content {
+	margin: 0 auto;
+	width: 800px;
+	height: 600px;
+	background:white;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 0px 0px 11px rgba(0,0,0,0.8);
+	-webkit-box-shadow: 0px 0px 11px rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 11px rgba(0,0,0,0.8);
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-right: 25px;
+	position: relative;
+}
 
-	#profile .perfil{
-		font-family: 'Quicksand';
-		color: black(243, 243, 235);
-		text-align: center;
-		  font-size: 40px;
-		  margin-top: 10px;
+#profile .perfil{
+	font-family: 'Quicksand';
+	color: black(243, 243, 235);
+	text-align: center;
+	font-size: 40px;
+	margin-top: 10px;
+}
 
-	  }
+#profile .misDatos{
+	font-family: 'Quicksand';
+	color: black(243, 243, 235);
+	text-align: center;
+	font-size: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
 
-	  #profile .misDatos{
-		font-family: 'Quicksand';
-		color: black(243, 243, 235);
-		text-align: center;
-		  font-size: 30px;
-		  margin-top: 30px;
-		  margin-bottom: 10px;
-
-	  }
-
-	#profile .title-place {
-		font-family: 'Josefin Slab';
-		color:black;
-		font-size: 20px;
-		text-align: center !important;
-		justify-content: center;
-		border: 2px;
-		  border-style: groove; 
-		  padding: 15px 0;
-		  margin-bottom: 25px;
-		  
-	  }
+#profile .title-place {
+	font-family: 'Josefin Slab';
+	color:black;
+	font-size: 20px;
+	text-align: center !important;
+	justify-content: center;
+	border: 2px;
+	border-style: groove; 
+	padding: 15px 0;
+	margin-bottom: 25px;	  
+}
 	  
-	  #profile .content-place {
-		  margin-bottom: 30px;
-	
-	  }
+#profile .content-place {
+	margin-bottom: 30px;
+}
 	  
-	 	.letra_ItemPerfil {
-		font-size: 22px;
-		font-family: 'Quicksand';
-		  text-align: left;
-		  line-height: 20px;
-		  padding-top: 18px;
-	  }
-	  #profile p.letra_perfil {
-		font-size: 22px;
-		font-family: 'Quicksand';
-		  text-align: left;
-		  line-height: 20px;
-		  padding-top: 18px;
+.letra_ItemPerfil {
+	font-size: 22px;
+	font-family: 'Quicksand';
+	text-align: left;
+	line-height: 20px;
+	padding-top: 18px;
+}
 
-	  }
+#profile p.letra_perfil {
+	font-size: 22px;
+	font-family: 'Quicksand';
+	text-align: left;
+	line-height: 20px;
+	padding-top: 18px;
+}
 
 button:focus {
 	outline:0;
 }
 
-/**/
 #inicio{
 	margin-bottom:'45px'
 }
+
 .carousel-home .carousel-inner .carousel-item .carousel-content {
 	display: table;
 	width: 100%;
@@ -166,6 +159,7 @@ button:focus {
 	left: 0;
 	right: 0;
 }
+
 .carousel-home .carousel-inner .carousel-item .carousel-content .carousel-caption{
 	display: table-cell !important;
 	vertical-align: middle;
@@ -178,18 +172,13 @@ button:focus {
     padding-top: unset;
     padding-bottom: unset;
 }
-/*@media (min-width: 468px) {
-	.carousel-home .carousel-inner .carousel-item .carousel-content .carousel-caption h2 {
-		font-size: 34px !important;
-	}
-}*/
+
 .dropdown_letra{
 	width: 250px;
 	font-family: 'Quicksand' ;
 	min-Width: 250;
 	font-size: '20px';
 	font-weight: lighter;
-	
   }
 
 #letra-carousel{
@@ -200,6 +189,7 @@ button:focus {
 	color:rgb(243, 243, 235);
 	text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
 }
+
 .card-body{
 	background:#f3f3eb;
 }
@@ -207,10 +197,6 @@ button:focus {
 .navbar{
 	background:#f3f3eb;
 }
-
-
-/*NUESTRA HISTORIA*/
-
 
 .historia{
 	font-family: 'Quicksand';
@@ -231,44 +217,40 @@ button:focus {
 }
 
 #foto_hist{
-text-align: center;
-margin-top: 30px;
-}
- /*NavBar, Ingresar y Registarme*/
- .nav{
-  justify-content: flex-end;
+	text-align: center;
+	margin-top: 30px;
 }
 
- #boton{
+.nav{
+	justify-content: flex-end;
+}
+
+#boton{
 	font-family: 'Josefin Slab';
 	color: rgb(243, 243, 235); 
 	font-weight: bold;
-  min-height: 94px;
+  	min-height: 94px;
 }
 
 #confirmar{
 	font-family: 'Quicksand', sans-serif;
 	color:#209c7d;
-	/*color: black;*/ 
 	font-weight: bold;
 }
+
 .reg_dialog{
 	font-family: 'Quicksand', sans-serif;
-  font-size: 16px;
-  text-align: right;
-  margin-right:2% ;
-
+	font-size: 16px;
+	text-align: right;
+	margin-right:2% ;
 }
 
 #registrarme{
 	font-family: 'Quicksand', sans-serif;
 	color:#209c7d;
-	/*color: black;*/ 
-  font-weight: bold;
-  font-size: 12px;
-  justify-content: flex-start;
- 
-
+	font-weight: bold;
+	font-size: 12px;
+	justify-content: flex-start;
 }
 
 #outlined-dense , #outlined-email-input, #outlined-password-input , .card-text{
@@ -280,13 +262,8 @@ margin-top: 30px;
 #form-dialog-title {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 45px;
-	
- 
 }
-/*Product card*/
-#productos{
-	margin-top: '10000000000px';
-}
+
 #tituloPastas {
 	font-family: 'Josefin Slab';
 	font-size: 500%;
@@ -295,6 +272,7 @@ margin-top: 30px;
 	border-style: groove;
 
 }
+
 #tituloCarrito {
 	font-family: 'Josefin Slab';
 	font-size: 54px ;
@@ -304,12 +282,9 @@ margin-top: 30px;
 	border-style: groove;
 	background-color: rgba(0,0,0,0.4);
 }
+
 #bigger:hover{
 	transform: scale(1.2) !important;
-}
-
-#bigger{
-
 }
 
 .bot{
@@ -322,10 +297,12 @@ margin-top: 30px;
 	border: 0.5px;
 	border-style: groove; 
 }
+
 .container .btn-holder {
 	justify-content: flex-end;
 	display: flex;
 }
+
 .tit-past{
 	font-size: 100%;
 	font-weight: 1000;
@@ -338,17 +315,15 @@ margin-top: 30px;
 	font-family: 'Quicksand', sans-serif; 
 	font-size: 18px;
 	border-radius: 2px;
-
 }
-/*VER EL ALTO DEL DIALOGO*/
+
 .dialog_prod{
  	max-width: 1200px;
  	margin: 1.75rem auto; 
-
 }
+
 .form-control{
 	justify-content: center;
-
 }
 
 .carritoct{
@@ -356,7 +331,6 @@ margin-top: 30px;
 	font-size: 18px;
 	font-weight: 500; 
 	color:black;
-	/*background-color: rgb(243, 243, 235);  rgb(34, 24, 24);*/
 	background-color:rgb(255, 255, 255);
 	border: 1px solid rgba(0, 0, 0);
 	height: 40px;
@@ -365,10 +339,10 @@ margin-top: 30px;
 	margin-top: 10%;
 	margin-left: 50%;
 }
+
 .carritost{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 18px;
-	/*background-color: rgb(243, 243, 235);  rgb(34, 24, 24);*/
 	background-color:white;
 	border: 1px solid black;
 	height: 40px;
@@ -378,24 +352,22 @@ margin-top: 30px;
 	margin-left: 50%;
 }
 
-/*CONTACTO*/
 #contactos .contacto{
-  font-family: 'Josefin Slab';
-  color: rgb(243, 243, 235);
-  text-align: center;
+	font-family: 'Josefin Slab';
+	color: rgb(243, 243, 235);
+	text-align: center;
 	font-size: 40px;
 	margin-top: 20px;
 	margin-bottom: 15px;
-
 }
 
 #contactos .title-place {
-  font-family: 'Josefin Slab';
-  color:#f3f3eb;
-  font-size: 20px;
-  text-align: center !important;
-  justify-content: center;
-  border: 2px;
+	font-family: 'Josefin Slab';
+	color:#f3f3eb;
+	font-size: 20px;
+	text-align: center !important;
+	justify-content: center;
+	border: 2px;
 	border-style: groove; 
 	padding: 15px 0;
 	margin-bottom: 15px;
@@ -406,9 +378,9 @@ margin-top: 30px;
 }
 
 #contactos .content-place p.letra_cont {
-  font-size: 20px;
-  margin-top:15px;
-  font-family: 'Quicksand';
+	font-size: 20px;
+	margin-top:15px;
+	font-family: 'Quicksand';
 	text-align: center;
 	line-height: 15px;
 }
@@ -428,10 +400,9 @@ margin-top: 30px;
 .img {
 	max-width: 75%;
 	margin: 0 auto;
-  }
+}
   
 #footer{
-
 	border: 0.5px;
 	border-style: groove; 
 }
@@ -439,11 +410,9 @@ margin-top: 30px;
 .perfil{
 	font-size: 24px;
 	color:'black';
-  font-family: 'Quicksand';
-  text-align: center;
+	font-family: 'Quicksand';
+	text-align: center;
 }
-
-
 
 
 @keyframes App-logo-spin {
@@ -460,6 +429,7 @@ margin-top: 30px;
 	color: black !important;
 	font-size: 24px;
 }
+
 .MuiInputBase-root fieldset {
 	border: 1px solid black !important;
 }

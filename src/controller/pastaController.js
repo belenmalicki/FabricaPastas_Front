@@ -1,5 +1,4 @@
 import {Component} from 'react';
-import {Link, Redirect} from 'react-router-dom';
 
 
 const url ="http://localhost:3000/";
@@ -9,145 +8,109 @@ const urlGetProductos = "productos";
 const urlGetContacto = "getContacto";
 const urlInsertPedido="insertPedido";
 const urlGetPedido='getPedido';
-class ApiController extends Component
-{
 
-    insertContacto(usuario,okUsuario,errorUsuario)
-    {
+class ApiController extends Component{
+    insertContacto(usuario,okUsuario,errorUsuario){
         console.log("guardo contacto",usuario);
-
-
         const endpoint = `${url}${urlInsertContacto}`;
         console.log("Guardando");
-            fetch (endpoint,{
+        fetch (endpoint,{
             method:'POST',
             mode:"cors",
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify(usuario)
         }).then (response => {
             console.log("response",response);
-            if(response.status===501)
-            {
+            if(response.status===501){
                 errorUsuario("El mail ya existe");
             }
-            if (response.status===200)
-            {  
+            if (response.status===200){  
                 okUsuario();
             }
-
         }).catch(err => console.error(err));
-
     };
 
-
-      logIn(data, log,usuarioMal)
-    {
+    logIn(data, log,usuarioMal){
         const endpoint = `${url}${urlLogIn}`;
-       fetch(endpoint,{
-            method: 'POST', // or 'PUT'
+        fetch(endpoint,{
+            method: 'POST',
             mode: "cors",
             headers:{ 'Content-Type': 'application/json'},
-            body: JSON.stringify(data) // data can be `string` or {object}!
+            body: JSON.stringify(data)
         }).then ((response) => {
-            //console.log("response",response.status);
-            if(response.status===501)
-            {
-                
+            if(response.status===501){ 
                 usuarioMal("Datos incorrectos, intente nuevamente");
             }
-            if (response.status===200)
-            {  
-              
+            if (response.status===200){  
                 log('Ingreso el usuario correcto');
-               
             }
-            //return response.json();
-        });/*.then (responseData => {
-                console.log(responseData);
-            });
-            
-                console.log("Recibi datos");*/
-
+        });
     };
-
    
     getProductos(okBusqueda){
         const endpoint = `${url}${urlGetProductos}`;
-        //console.log("Buscando")
-       fetch(endpoint).then ((response) => {
+        fetch(endpoint).then ((response) => {
             console.log("response",response);
             return response.json();
         }).then (responseData => {
-                console.log("Recibi datos", responseData);
-                okBusqueda(responseData);
+            console.log("Recibi datos", responseData);
+            okBusqueda(responseData);
         });
     };
     
-    getPedido(data, okPedido)
-    {
+    getPedido(data, okPedido){
         const endpoint = `${url}${urlGetPedido}`;
-        //console.log("Buscando")
         console.log('mi mail es: ', data);
-       fetch(endpoint,{
-            method: 'POST', // or 'PUT'
+        fetch(endpoint,{
+            method: 'POST',
             mode: "cors",
             headers:{ 'Content-Type': 'application/json'},
-            body: JSON.stringify(data) // data can be `string` or {object}!
+            body: JSON.stringify(data)
         }).then ((response) => {
             console.log("Recibi datos getPedido response", response);
             return response.json();
         }).then (responseData => {
-                console.log("Recibi datos getPedido",responseData);
-                okPedido(responseData);
-                
+            console.log("Recibi datos getPedido",responseData);
+            okPedido(responseData);    
         });
     }
 
-    getContacto(data, okContacto)
-    {
+    getContacto(data, okContacto){
         const endpoint = `${url}${urlGetContacto}`;
-        //console.log("Buscando")
         console.log('mi mail es: ', data);
-       fetch(endpoint,{
-            method: 'POST', // or 'PUT'
+        fetch(endpoint,{
+            method: 'POST',
             mode: "cors",
             headers:{ 'Content-Type': 'application/json'},
-            body: JSON.stringify(data) // data can be `string` or {object}!
+            body: JSON.stringify(data)
         }).then ((response) => {
             console.log("Recibi datos getContacto response", response);
             return response.json();
         }).then (responseData => {
-                console.log("Recibi datos getContacto",responseData);
-                okContacto(responseData);
-                
+            console.log("Recibi datos getContacto",responseData);
+            okContacto(responseData);  
         });
     }
-    insertPedido(pedidoUsu)
-    {
+
+    insertPedido(pedidoUsu){
         console.log("guardo pedido",pedidoUsu);
         const endpoint = `${url}${urlInsertPedido}`;
         console.log("Guardando");
-            fetch (endpoint,{
+        fetch (endpoint,{
             method:'POST',
             mode:"cors",
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify(pedidoUsu)
         }).then (response => {
             console.log("response",response);
-            if(response.status===501)
-            {
+            if(response.status===501){
                 console.log('no se ingresó el pedido');
             }
-            if (response.status===200)
-            {  
+            if (response.status===200){  
                 console.log('el pedido ingreso corrtamente');
             }
-
         }).catch(err => console.error(err));
-
     };
-
-
 }
 
 export default new ApiController(); 

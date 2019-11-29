@@ -8,8 +8,7 @@ import MiCuenta from './components/micuenta';
 import Exitoso from './components/exitosos';
 import NotFound from './components/notFound';
 
-/*forzar a estar logueado https://reacttraining.com/react-router/web/example/auth-workflow */
-/*https://www.youtube.com/watch?v=91F8reC8kvo&feature=youtu.be */
+
 class Routes extends React.Component{
 render(){
     return(
@@ -26,8 +25,4 @@ render(){
     </BrowserRouter>
     );
 }
-
-}
-
 export default Routes;
-// 

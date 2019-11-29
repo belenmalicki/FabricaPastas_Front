@@ -5,7 +5,6 @@ import ImageZoom from "react-medium-image-zoom";
 
 
 class Contacto extends React.Component{
-	
 	render(){
 		return(
 			<div>
@@ -16,7 +15,6 @@ class Contacto extends React.Component{
 					<div class = "container-fluid">  
 						<h1 id="tituloPastas">Contacto</h1>
 					</div>
-
 					<div class="container">
 						<div class = "row" >
 							<div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12" >
@@ -35,11 +33,9 @@ class Contacto extends React.Component{
 												<img src={r3} alt="Rivadavia 4035" title="Rivadavia 4035" />
 											</a>
 										</div>
-
 									</div>
 								</div>
 							</div>
-
 							<div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12" >
 								<div>
 									<h2 class="contacto">- Sucursal Güemes -</h2>
@@ -63,5 +59,8 @@ class Contacto extends React.Component{
 					</div>
 				</div>
 			</div>
-			);}}
-		export default Contacto;
+		);
+	}
+}
+
+export default Contacto;
