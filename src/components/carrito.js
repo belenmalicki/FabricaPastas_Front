@@ -242,14 +242,65 @@ class Shoppingcart extends React.Component{
                 <p style={{ marginBottom:'5px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'20px' }}>
                   Su codigo para retirar el pedido es:
                 </p>
-                <p style={{marginBottom:'80px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'22px' }}>
-                  <strong>{localStorage.getItem('Usuariologueado')}</strong>
-                </p>
-                <Link to='/' style={{color:'#209c7d', textDecoration:'none'}}>   
-                  <Button style={{justifyContent:'flex-end',color:'#209c7d', marginBottom:'20px', marginRight:'10px' ,fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseMensaje}>
-                    Volver al inicio
-                  </Button>
-                </Link>                 
+
+
+                  <Form style={{fontFamily:'Quicksand', fontSize:'18px', textAlign:'left', marginLeft:'80px', marginBottom:'60px'}}>
+                      <Form.Field>
+                      </Form.Field>
+                      <Form.Field>
+                        <Checkbox
+                          radio
+                          label='Güemes 3331'
+                          name='checkboxRadioGroup'
+                          value='Guemes'
+                          checked={this.state.value === 'Guemes'}
+                          onChange={this.handleChangeSucursal}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <Checkbox
+                          radio
+                          label='Rivadavia 4035'
+                          name='checkboxRadioGroup'
+                          value='Rivadavia'
+                          checked={this.state.value === 'Rivadavia'}
+                          onChange={this.handleChangeSucursal}
+                        />
+                      </Form.Field>
+
+                    </Form>
+
+
+                <div >
+                    <Button  style={{justifyContent:'flex-start',marginRight:'100px',marginBottom:'40px', color:'#209c7d', fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={()=>this.handleGrabar()}>
+                        Aceptar
+                    </Button>
+                            <Dialog  open={this.state.openMsj} onClose={this.handleCloseMensaje} TransitionComponent={Transition} style={{textAlign:'center'}}>
+                            <p style={{marginTop:'90px', marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'28px' ,fontWeight:'bold'}}>
+                               Gracias por realizar su pedido 
+                              </p>
+                              <p style={{ marginBottom:'25px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'20px' }}>
+                               Uno de nuestros representantes se comunicara con usted a la brevedad.
+                              </p>
+                              <p style={{ marginBottom:'5px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'20px' }}>
+                              Su codigo para retirar el pedido es:
+                              </p>
+                              <p style={{marginBottom:'80px', marginLeft:'60px', marginRight:'60px',fontFamily:'Quicksand', fontSize:'22px' }}>
+                              <strong>{localStorage.getItem('Usuariologueado')}</strong></p>
+                              <Link to='/' style={{color:'#209c7d', textDecoration:'none'}}>   
+                                <Button style={{justifyContent:'flex-end',color:'#209c7d', marginBottom:'20px', marginRight:'10px' ,fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseMensaje}>
+                                  Volver al inicio
+                                </Button>
+                              </Link>
+                                                  
+                              </Dialog>
+           
+
+                    <Button style={{justifyContent:'flex-end', marginBottom:'40px', color:'#209c7d',  fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseConfirmar}>
+                        Cancelar
+                    </Button>
+                      </div>                     
+
               </Dialog>
               <Button style={{justifyContent:'flex-end', marginBottom:'40px', color:'#209c7d',  fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseConfirmar}>
                 Cancelar

@@ -77,47 +77,46 @@ export default class ItemProd extends Component{
         if (prod!==null){
             if (prod.tipo.length>1 && prod.unidad===true){
                 return(
-                    <div class = "container">
-                        <div class = "row">
-                            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px',marginLeft:'40px' }}/>
-                                <p id="text">
-                                    {prod.descripcion}
-                                </p>
-                            </div>
-                            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-                                <div style={{marginLeft:'70px'}}>
-                                    <div class="tit-past">
-                                        <h2>{prod.nombre}</h2>
-                                        <h5>${prod.precio}</h5>
-                                    </div>
-                                    <div >
-                                        <form onSubmit={this.handleSubmit} style={{borderRadius:'5px'}} >
-                                            <label style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px'}}>
-                                                Seleccione el sabor que prefiera :
-                                                <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px', paddingLeft:'4px', paddingTop:2, paddingBottom: 2}} name={'tipe'}value={this.state.tipo} onChange={this.handleInputChange}  variant="outlined" >
-                                                    <option value={prod.tipo[0]} type="submit" >{prod.tipo[0]}</option>
-                                                    <option value={prod.tipo[1]} type="submit" >{prod.tipo[1]}</option>
-                                                    <option value={prod.tipo[2]} type="submit" >{prod.tipo[2]}</option>
-                                                </select>
-                                            </label>
-                                            <label class="cant-past">
-                                                Cantidad:
-                                                <div class="row" style={{marginLeft:'0px'}}>
-                                                    <input
-                                                        style={{paddingLeft:'8px'}}
-                                                        name="cantidad"
-                                                        type="number"
-                                                        min={1}
-                                                        value={this.state.cantidad}
-                                                        onChange={this.handleInputChange} /> unid.
-                                                </div>
-                                            </label>
-                                        </form>
-                                        <Button class="carritoct" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
-                                            Agregar al carrito
-                                        </Button>
-                                    </div>
+
+                <div class = "container">
+                    <div class = "row">
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                         <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px',marginLeft:'40px' }}/>
+                            <p id="text">
+                            {prod.descripcion}</p>
+                        </div>
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                            <div style={{marginLeft:'70px'}}>
+                                <div class="tit-past">
+                                    <h2>{prod.nombre}</h2>
+                                    <h5>${prod.precio}</h5>
+                                </div>
+                                <div >
+                                    <form onSubmit={this.handleSubmit} style={{borderRadius:'5px'}} >
+                                        <label style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px'}}>
+                                            Seleccione el sabor que prefiera :
+                                            <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px', paddingLeft:'4px', paddingTop:2, paddingBottom: 2}} name={'tipe'}value={this.state.tipo} onChange={this.handleInputChange}  variant="outlined" >
+                                                <option value={prod.tipo[0]} type="submit" > </option>
+                                                <option value={prod.tipo[1]} type="submit" >{prod.tipo[1]}</option>
+                                                <option value={prod.tipo[2]} type="submit" >{prod.tipo[2]}</option>
+                                                <option value={prod.tipo[3]} type="submit" >{prod.tipo[0]}</option>
+                                            </select>
+                                        </label>
+                                        <label class="cant-past">
+                                            Cantidad:<br />
+                                        <input
+                                            style={{paddingLeft:'8px'}}
+                                            name="cantidad"
+                                            type="number"
+                                            min={1}
+                                            value={this.state.cantidad}
+                                            onChange={this.handleInputChange} /> unid.
+                                        </label>
+                                    </form>
+                                    <Button class="carritoct" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
+                                        Agregar al carrito
+                                    </Button>
+
                                 </div>
                             </div>
                         </div>
@@ -126,46 +125,49 @@ export default class ItemProd extends Component{
             }
             if(prod.tipo.length>1 && prod.unidad!==true){
                 return(
-                    <div class = "container">
-                        <div class = "row">
-                            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px' ,marginLeft:'40px' }}/>
-                                <p id="text">
-                                {prod.descripcion}</p>
-                            </div>
-                            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-                                <div class='box-content' style={{marginLeft:'70px'}}>
-                                    <div class="tit-past" >
-                                        <h2>{prod.nombre}</h2>
-                                        <h5>${prod.precio}</h5>
-                                    </div>
-                                    <div >
-                                        <form onSubmit={this.handleSubmit}  style={{borderRadius:'5px'}}>
-                                            <label style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px'}}>
-                                                Seleccione el sabor que prefiera :
-                                                <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px',marginTop:'10px', paddingLeft:'4px', paddingTop:2, paddingBottom: 2}} label={'seleccione'} name={'tipe'} value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
-                                                    <option value={prod.tipo[0]} >{prod.tipo[0]}</option>
-                                                    <option value={prod.tipo[1]} >{prod.tipo[1]}</option>
-                                                    <option value={prod.tipo[2]} >{prod.tipo[2]}</option>
-                                                </select>
-                                            </label>
-                                            <label class="cant-past">
-                                                Cantidad:
-                                                <div class="row" style={{marginLeft:'0px'}}>
-                                                    <input
-                                                        style={{paddingLeft:'8px'}}
-                                                        name="cantidad"
-                                                        type="number"
-                                                        min={0.5}
-                                                        value={this.state.cantidad}
-                                                        onChange={this.handleInputChange}  /> kg.
-                                                </div>
-                                            </label>
-                                        </form>  
-                                        <Button class="carritoct" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
-                                            Agregar al carrito
-                                        </Button>
-                                    </div>
+
+                <div class = "container">
+                    <div class = "row">
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                       
+                            <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px' ,marginLeft:'40px' }}/>
+                            <p id="text">
+                            {prod.descripcion}</p>
+                        </div>
+                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                            <div class='box-content' style={{marginLeft:'70px'}}>
+                                <div class="tit-past" >
+                                    <h2>{prod.nombre}</h2>
+                                    <h5>${prod.precio}</h5>
+                                </div>
+                                <div >
+                                    <form onSubmit={this.handleSubmit}  style={{borderRadius:'5px'}}>
+                                        <label style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px'}}>
+                                            Seleccione el sabor que prefiera :
+                                            <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px',marginTop:'10px', paddingLeft:'4px', paddingTop:2, paddingBottom: 2}} label={'seleccione'} name={'tipe'} value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
+                                                <option value={prod.tipo[0]} > </option>
+                                                <option value={prod.tipo[1]} >{prod.tipo[1]}</option>
+                                                <option value={prod.tipo[2]} >{prod.tipo[2]}</option>
+                                                <option value={prod.tipo[3]} >{prod.tipo[0]}</option>
+                                            </select>
+                                        </label>
+                                        <label class="cant-past">
+                                            Cantidad:<br />
+                                            <input
+                                                style={{paddingLeft:'8px'}}
+                                                name="cantidad"
+                                                type="number"
+                                                min={0.5}
+                                                value={this.state.cantidad}
+                                                onChange={this.handleInputChange}  /> kg.
+                                        </label>
+                                    </form>  
+                      
+                                    <Button class="carritoct" type="submit" value="Submit" onClick={()=>this.agregarItem(prod)}>
+                                        Agregar al carrito
+                                    </Button>
+                                
+
                                 </div>
                             </div>
                         </div>
