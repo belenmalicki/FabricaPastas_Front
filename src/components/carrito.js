@@ -270,7 +270,6 @@ import { Form, Checkbox } from 'semantic-ui-react'
                                 <Button style={{justifyContent:'flex-end',color:'#209c7d', marginBottom:'20px', marginRight:'10px' ,fontFamily:'Quicksand', fontSize:'18px',fontWeight:'bold'}} onClick={this.handleCloseMensaje}>
                                   Volver al inicio
                                 </Button>
-                          
                               </Link>
                                                   
                               </Dialog>

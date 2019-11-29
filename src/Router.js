@@ -5,6 +5,8 @@ import Shoppingcart from './components/carrito';
 import Login from './components/login';
 import Signup from './components/signup';
 import MiCuenta from './components/micuenta';
+import Exitoso from './components/exitosos';
+import NotFound from './components/notFound';
 
 /*forzar a estar logueado https://reacttraining.com/react-router/web/example/auth-workflow */
 /*https://www.youtube.com/watch?v=91F8reC8kvo&feature=youtu.be */
@@ -18,6 +20,8 @@ render(){
             <Route path="/login" component={Login} />
             <Route path="/insertContacto" component={Signup} />
             <Route path="/micuenta" component={MiCuenta} />
+            <Route path="/exitoso" component={Exitoso} />
+            <Route component={NotFound} />
         </Switch>
     </BrowserRouter>
     );
@@ -26,4 +30,4 @@ render(){
 }
 
 export default Routes;
-// <Route component={NotFound} />
+// 

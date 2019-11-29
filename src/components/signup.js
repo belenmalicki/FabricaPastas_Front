@@ -62,10 +62,10 @@ onChangeTelefono = (e)=>{
 okUsuario()
   {
     this.setState({logueado: false});
-    alert("Te has registrado con exito");
+    //alert("Te has registrado con exito");
     localStorage.setItem('Usuariologueado', this.state.mail);
     console.log('local storage en sign up', localStorage.getItem('Usuariologueado'));
-    return ( <Redirect to='/'/>)
+    return ( <Redirect to='/exitoso' />)
   }
 
   errorUsuario(textoError)
@@ -87,7 +87,7 @@ okUsuario()
     {
       //console.log("entre al redirect",this.state.logueado)
       return(
-        <Redirect to='/'/>
+        <Redirect to='/exitoso'/>
       ); 
     }
   }
@@ -195,6 +195,7 @@ okUsuario()
                         </Button>
                     </Link>
                     {this.condicionarIngresar()}
+                    
                   </DialogActions>
             
        
