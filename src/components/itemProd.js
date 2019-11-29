@@ -96,9 +96,10 @@ export default class ItemProd extends Component{
                                             <label style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px'}}>
                                                 Seleccione el sabor que prefiera :
                                                 <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px', paddingLeft:'4px', paddingTop:2, paddingBottom: 2}} name={'tipe'}value={this.state.tipo} onChange={this.handleInputChange}  variant="outlined" >
-                                                    <option value={prod.tipo[0]} type="submit" >{prod.tipo[0]}</option>
+                                                    <option value={prod.tipo[0]} type="submit" ></option>
                                                     <option value={prod.tipo[1]} type="submit" >{prod.tipo[1]}</option>
                                                     <option value={prod.tipo[2]} type="submit" >{prod.tipo[2]}</option>
+                                                    <option value={prod.tipo[3]} type="submit" >{prod.tipo[0]}</option>
                                                 </select>
                                             </label>
                                             <label class="cant-past">
@@ -144,9 +145,10 @@ export default class ItemProd extends Component{
                                             <label style={{fontFamily:'Quicksand', fontSize:'18px', marginTop:'20px'}}>
                                                 Seleccione el sabor que prefiera :
                                                 <select class="dropdown_letra" style={{fontFamily:'Quicksand', fontSize:'18px',marginTop:'10px', paddingLeft:'4px', paddingTop:2, paddingBottom: 2}} label={'seleccione'} name={'tipe'} value={this.state.tipe} onChange={this.handleInputChange}  variant="outlined" >
-                                                    <option value={prod.tipo[0]} >{prod.tipo[0]}</option>
+                                                    <option value={prod.tipo[0]} ></option>
                                                     <option value={prod.tipo[1]} >{prod.tipo[1]}</option>
                                                     <option value={prod.tipo[2]} >{prod.tipo[2]}</option>
+                                                    <option value={prod.tipo[3]} >{prod.tipo[0]}</option>
                                                 </select>
                                             </label>
                                             <label class="cant-past">
