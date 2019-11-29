@@ -90,12 +90,12 @@ export default class ItemProd extends Component{
                 <div class = "container">
                     <div class = "row">
                         <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px'}}/>
+                         <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px',marginLeft:'40px' }}/>
                             <p id="text">
                             {prod.descripcion}</p>
                         </div>
                         <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-                            <div style={{marginLeft:'40px'}}>
+                            <div style={{marginLeft:'70px'}}>
                                 <div class="tit-past">
                                     <h2>{prod.nombre}</h2>
                                     <h5>${prod.precio}</h5>
@@ -138,12 +138,12 @@ export default class ItemProd extends Component{
                     <div class = "row">
                         <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
                        
-                            <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px'}}/>
+                            <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px' ,marginLeft:'40px' }}/>
                             <p id="text">
                             {prod.descripcion}</p>
                         </div>
                         <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-                            <div class='box-content' style={{marginLeft:'40px', position:'relative'}}>
+                            <div class='box-content' style={{marginLeft:'70px'}}>
                                 <div class="tit-past" >
                                     <h2>{prod.nombre}</h2>
                                     <h5>${prod.precio}</h5>
@@ -189,11 +189,11 @@ export default class ItemProd extends Component{
                 <div class = "row">
                     <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-                        <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px'}} />
+                        <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px',marginLeft:'40px' }} />
                         <p id="text">{prod.descripcion}</p>  
                     </div>
                     <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-                        <div style={{marginLeft:'40px'}}>
+                        <div style={{marginLeft:'70px'}}>
                             <div class="tit-past" >
                                 <h2>{prod.nombre}</h2>
                                 <h5>${prod.precio}</h5>
@@ -228,11 +228,11 @@ export default class ItemProd extends Component{
                 <div class = "row">
                     <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-                        <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px'}} />
+                        <img class="d-block w-75" src= {prod.img} alt="Sorrentinos" style={{marginTop:'20px', marginBottom:'20px',marginLeft:'40px' }} />
                         <p id="text">{prod.descripcion}</p>  
                     </div>
                     <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6"  >
-                        <div style={{marginLeft:'40px'}}>
+                        <div style={{marginLeft:'70px'}}>
                         <div class="tit-past" >
                             <h2>{prod.nombre}</h2>
                             <h5>${prod.precio}</h5>
@@ -327,9 +327,8 @@ export default class ItemProd extends Component{
                 {prods.map(prod => 
                 <div key={prod.id} class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="product-box">
-                    
                         <Button class="bot" onClick={()=>this.handleClickOpenSorrentinos(prod.id)} >
-                            <img class="d-block w-100" id="bigger" src={prod.img} alt="Sorrentinos" /> 
+                            <img class="d-block w-100" id="bigger" src={prod.img} alt="Pasta" /> 
                                 <div class="card-body">
                                     <p class="card-text">{prod.nombre}</p> 
                                     <p class="card-text">${prod.precio}</p>

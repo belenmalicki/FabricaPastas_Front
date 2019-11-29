@@ -193,25 +193,20 @@ else{
                                     <Divider />
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <p class="letra_perfil"> <strong>Mail:</strong> {con.mail}</p>
+                                            <p class="letra_perfil"> <strong style={{paddingRight:'20px'}}>Mail:</strong> {con.mail}</p>
                                         </div>
                                     </div>
                                     <Divider />
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <p class="letra_perfil"> <strong>Direccion:</strong> {con.direccion} </p>
+                                            <p class="letra_perfil"> <strong style={{paddingRight:'20px'}}>Direccion:</strong> {con.direccion} </p>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <Button size="small" style={{float: 'right', marginTop: '12px', color:'#209c7d'}}>Modificar</Button>
-                                        </div>
+
                                     </div>
                                     <Divider />
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <p class="letra_perfil"> <strong>Telefono:</strong> {con.telefono}</p>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <Button size="small" style={{float: 'right', marginTop: '12px', color:'#209c7d'}}>Modificar</Button>
+                                            <p class="letra_perfil"> <strong style={{paddingRight:'20px'}}>Telefono:</strong> {con.telefono}</p>
                                         </div>
                                     </div>
                                     <Divider />
