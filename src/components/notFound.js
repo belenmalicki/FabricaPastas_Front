@@ -11,7 +11,7 @@ class NotFound extends Component {
 
   render() {
     return (
-      // Important! Always set the container height explicitly
+     
       <div class='backLogin' style={{width: window.innerWidth, height: window.innerHeight}}>
         <div class="table-content">
           <div class="row-content">
