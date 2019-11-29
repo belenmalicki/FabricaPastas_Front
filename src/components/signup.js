@@ -61,10 +61,9 @@ class Signup extends React.Component {
 
   okUsuario(){
       this.setState({logueado: false});
-      alert("Te has registrado con exito");
       localStorage.setItem('Usuariologueado', this.state.mail);
       console.log('local storage en sign up', localStorage.getItem('Usuariologueado'));
-      return ( <Redirect to='/'/>)
+      return ( <Redirect to='/exitoso'/>)
     }
 
     errorUsuario(textoError){
@@ -81,7 +80,7 @@ class Signup extends React.Component {
       }
       else
       {
-        return(<Redirect to='/'/>); 
+        return(<Redirect to='/exitoso'/>); 
       }
     }
 
