@@ -5,15 +5,10 @@ import carrousel3 from './img/carrousel3.jpg';
 import carrousel4 from './img/carrousel4.jpg';
 
 
-/*MOSTRAR FACU
-<img class="rounded-circle w-100" src="https://images8.alphacoders.com/358/358841.jpg" alt="First slide" /> */
-
-
 class Carrusel extends React.Component{
-render(){
-	return(
+	render(){
+		return(
 			<div id="inicio">
-			
 				<div id="carouselExampleControls" class="carousel slide carousel-home" data-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
@@ -32,8 +27,6 @@ render(){
 								</div>
 							</div>
 						</div>
-
-
 						<div class="carousel-item">
 							<img class="d-block w-100" src={carrousel3} alt="Third slide"/>
 							<div class="carousel-content">
@@ -42,7 +35,6 @@ render(){
 								</div>
 							</div>
 						</div>
-
 						<div class="carousel-item">
 							<img class="d-block w-100" src={carrousel4} alt="Third slide"/>
 							<div class="carousel-content">
@@ -62,7 +54,7 @@ render(){
 					</a>
 				</div>
 			</div>
-	 );
+		);
 	}
 } 
 
